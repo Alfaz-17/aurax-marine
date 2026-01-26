@@ -8,6 +8,7 @@ import { uploadToCloudinary } from '@/lib/utils/cloudinary';
 export default function AdminBrandPage() {
   const [brands, setBrands] = useState<any[]>([]);
   const [newBrand, setNewBrand] = useState({ name: '', logo: '' });
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [logoPreview, setLogoPreview] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -33,27 +34,57 @@ export default function AdminBrandPage() {
     if (file) {
       setLogoFile(file);
       setLogoPreview(URL.createObjectURL(file));
+      if (editingId) setNewBrand({ ...newBrand, logo: '' }); // Clear existing on new selection
     }
+  };
+
+  const handleEdit = (brand: any) => {
+    setEditingId(brand._id);
+    setNewBrand({ name: brand.name, logo: brand.logo });
+    setLogoPreview(brand.logo);
+    setLogoFile(null);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+    setNewBrand({ name: '', logo: '' });
+    setLogoPreview('');
+    setLogoFile(null);
   };
 
   const handleAddBrand = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newBrand.name.trim() || !logoFile) return;
+    if (!newBrand.name.trim() || (!logoFile && !editingId)) return;
 
     setIsUploading(true);
     try {
-      const logoUrl = await uploadToCloudinary(logoFile, "brands");
-      const res = await api.post('/brands', { 
-        name: newBrand.name, 
-        logo: logoUrl 
-      });
-      setBrands([...brands, res.data]);
+      let logoUrl = newBrand.logo;
+      if (logoFile) {
+        logoUrl = await uploadToCloudinary(logoFile, "brands");
+      }
+      
+      if (editingId) {
+        const res = await api.put(`/brands/${editingId}`, { 
+          name: newBrand.name, 
+          logo: logoUrl 
+        });
+        setBrands(brands.map(b => b._id === editingId ? res.data : b));
+        setEditingId(null);
+        setMessage({ type: 'success', text: 'Brand identity updated.' });
+      } else {
+        const res = await api.post('/brands', { 
+          name: newBrand.name, 
+          logo: logoUrl 
+        });
+        setBrands([...brands, res.data]);
+        setMessage({ type: 'success', text: 'Partner brand synchronized.' });
+      }
+      
       setNewBrand({ name: '', logo: '' });
       setLogoFile(null);
       setLogoPreview('');
-      setMessage({ type: 'success', text: 'Partner brand synchronized.' });
     } catch (error) {
-      setMessage({ type: 'error', text: 'Synchronization failure.' });
+      setMessage({ type: 'error', text: 'Operation failure.' });
     } finally {
       setIsUploading(false);
     }
@@ -86,7 +117,12 @@ export default function AdminBrandPage() {
       )}
 
       <div className="bg-white p-10 border border-border">
-         <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-8">Onboard New Partner</h2>
+         <div className="flex justify-between items-center mb-8">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-primary">{editingId ? 'Modify Strategic Partner' : 'Onboard New Partner'}</h2>
+            {editingId && (
+               <button onClick={handleCancelEdit} className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground hover:text-primary">Cancel Edit</button>
+            )}
+         </div>
          <form onSubmit={handleAddBrand} className="space-y-6">
             <div className="flex gap-6 items-end">
                <div className="flex-1 space-y-2">
@@ -110,13 +146,13 @@ export default function AdminBrandPage() {
                   ) : (
                      <label className="block h-14 border-2 border-dashed border-border hover:border-accent flex items-center justify-center cursor-pointer transition-colors bg-muted/10">
                         <Upload className="w-4 h-4 text-muted-foreground" />
-                        <input type="file" accept="image/*" onChange={handleLogoChange} className="hidden" required />
+                        <input type="file" accept="image/*" onChange={handleLogoChange} className="hidden" />
                      </label>
                   )}
                </div>
             </div>
             <button type="submit" disabled={isUploading} className="w-full py-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-xl">
-               {isUploading ? 'Uploading Identity...' : 'Register Partnership'}
+               {isUploading ? 'Synchronizing Data...' : editingId ? 'Commit Update' : 'Register Partnership'}
             </button>
          </form>
       </div>
@@ -128,9 +164,14 @@ export default function AdminBrandPage() {
                   <img src={brand.logo} alt={brand.name} className="max-h-16 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-700" />
                </div>
                <h3 className="text-[10px] font-bold text-primary uppercase tracking-widest text-center border-t border-border pt-4 w-full">{brand.name}</h3>
-               <button onClick={() => handleDelete(brand._id)} className="absolute top-2 right-2 text-red-500 opacity-0 group-hover:opacity-100 transition-opacity p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md">
-                  <Trash2 className="w-3 h-3" />
-               </button>
+               <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button onClick={() => handleEdit(brand)} className="p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md text-primary hover:text-accent">
+                     <Award className="w-3 h-3" />
+                  </button>
+                  <button onClick={() => handleDelete(brand._id)} className="p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md text-red-500 hover:text-red-700">
+                     <Trash2 className="w-3 h-3" />
+                  </button>
+               </div>
             </div>
          ))}
          {brands.length === 0 && (
