@@ -126,7 +126,7 @@ export function Header() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full left-0 pt-6 w-80"
+                    className="absolute top-full left-0 pt-12 w-80 z-50"
                   >
                     <div className="bg-white border border-border shadow-2xl p-6 backdrop-blur-xl bg-white/95">
                       <div className="space-y-3">
@@ -188,7 +188,7 @@ export function Header() {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute top-full right-0 pt-6 w-80"
+                      className="absolute top-full right-0 pt-12 w-80 z-50"
                     >
                       <div className="bg-white border border-border shadow-2xl p-6 backdrop-blur-xl bg-white/95">
                         <div className="space-y-3">
