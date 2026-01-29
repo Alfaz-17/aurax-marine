@@ -65,7 +65,7 @@ export const products = [
     price: 12600,
     categoryName: "Safety Systems",
     brandName: "Sperry Marine",
-    image: "https://images.pexels.com/photos/163726/pexels-photo-163726.jpeg",
+    image: "https://images.unsplash.com/photo-1621905251189-08b95d63329f?q=80&w=2069&auto=format&fit=crop",
     featured: false
   },
   {

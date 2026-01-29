@@ -173,11 +173,11 @@ export default function ProductsPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowFilters(false)}
-              className="fixed inset-0 bg-primary/60 backdrop-blur-sm z-[100]"
+              className="fixed inset-0 bg-black/50 z-[100]"
             />
             <motion.div 
               initial={{ x: "100%" }}
-              animate={{ x: "100%" }}
+              animate={{ x: 0 }}
               exit={{ x: "100%" }}
               className="fixed right-0 top-0 h-full w-[280px] bg-white z-[101] p-8 shadow-2xl"
             >
