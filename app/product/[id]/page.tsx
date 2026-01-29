@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import { ChevronLeft, ChevronDown, Phone, Mail, CheckCircle2, ShieldCheck, Cpu, Globe } from "lucide-react"
+import { ChevronLeft, ChevronDown, Phone, Mail, CheckCircle2, ShieldCheck, Cpu, Globe, X } from "lucide-react"
 import api from "@/lib/api"
 import { MarineLoader } from "@/components/common/marine-loader"
 import { EnquiryModal } from "@/components/enquiry-modal"
@@ -17,6 +17,7 @@ export default function ProductDetailPage() {
   const [relatedProducts, setRelatedProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [openAccordion, setOpenAccordion] = useState<string | null>("details")
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -77,12 +78,15 @@ export default function ProductDetailPage() {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-6"
           >
-            <div className="relative aspect-square bg-muted overflow-hidden border border-border shadow-2xl">
+            <div 
+              className="relative aspect-square bg-muted overflow-hidden border border-border shadow-2xl cursor-pointer"
+              onClick={() => setLightboxImage(product.image)}
+            >
               <Image
                 src={product.image}
                 alt={product.title}
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-105 transition-transform"
                 priority
               />
               <div className="absolute top-4 right-4 bg-accent text-white px-4 py-1 text-xs font-bold uppercase tracking-widest">
@@ -90,14 +94,22 @@ export default function ProductDetailPage() {
               </div>
             </div>
             
-            {/* Asset Grid (Simulated for refurb parts) */}
-            <div className="grid grid-cols-4 gap-4">
-               {[1,2,3,4].map(i => (
-                  <div key={i} className="aspect-square bg-muted border border-border opacity-50 relative overflow-hidden">
-                     <Image src={product.image} alt="Refurb Detail" fill className="object-cover filter grayscale" />
-                  </div>
-               ))}
-            </div>
+            {/* Gallery Images - Scrollable */}
+            {product.images && product.images.length > 0 && (
+              <div className="overflow-x-auto pb-2">
+              <div className="flex gap-3" style={{ minWidth: 'max-content' }}>
+                  {product.images.map((img: string, i: number) => (
+                    <div 
+                      key={i} 
+                      className="w-24 h-24 flex-shrink-0 relative overflow-hidden border border-border hover:border-accent transition-colors cursor-pointer"
+                      onClick={() => setLightboxImage(img)}
+                    >
+                      <Image src={img} alt={`${product.title} - Image ${i + 1}`} fill className="object-cover hover:scale-110 transition-transform" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
 
           {/* Product Specs & CTA */}
@@ -190,6 +202,32 @@ export default function ProductDetailPage() {
           </div>
         )}
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-accent transition-colors z-50"
+            onClick={() => setLightboxImage(null)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <div className="relative max-w-5xl max-h-[90vh] w-full h-full" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={lightboxImage}
+              alt="Full size view"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </motion.div>
+      )}
     </main>
   );
 }
