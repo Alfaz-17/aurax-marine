@@ -7,8 +7,12 @@ import { getSession } from '@/lib/auth';
 export async function GET() {
   try {
     await connectToDatabase();
-    const brands = await Brand.find({}).sort({ name: 1 });
-    return NextResponse.json(brands);
+    const brands = await Brand.find({}).sort({ name: 1 }).lean();
+    return NextResponse.json(brands, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      },
+    });
   } catch (error) {
     console.error('Brands GET error:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

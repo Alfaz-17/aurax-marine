@@ -58,10 +58,12 @@ export default function ProductsPage() {
       {/* Page Header */}
       <div className="bg-primary pt-36 pb-20 relative overflow-hidden min-h-[50dvh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/products-hero.png" 
             alt="Marine Products" 
-            className="w-full h-full object-cover opacity-20"
+            fill
+            priority
+            className="object-cover opacity-20"
           />
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">

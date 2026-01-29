@@ -1,8 +1,9 @@
 "use client"
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { Phone, Mail, MapPin, Clock, Send, MessageSquare, CheckCircle } from "lucide-react";
 import api from "@/lib/api";
 
 export default function ContactPage() {
@@ -77,10 +78,12 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative min-h-[60dvh] pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 flex items-center justify-center bg-primary overflow-hidden">
         <div className="absolute inset-0">
-           <img 
+           <Image 
             src="/contact-hero.png" 
             alt="Contact" 
-            className="w-full h-full object-cover opacity-20"
+            fill
+            priority
+            className="object-cover opacity-20"
           />
         </div>
         <div className="relative z-10 text-center text-white px-4 sm:px-6">

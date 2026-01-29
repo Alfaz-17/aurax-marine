@@ -34,10 +34,12 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative min-h-[55dvh] pt-28 sm:pt-32 md:pt-36 flex items-center justify-center overflow-hidden bg-primary">
          <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/about-hero.png" 
             alt="About Corona Marine" 
-            className="w-full h-full object-cover opacity-30"
+            fill
+            priority
+            className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/40" />
         </div>

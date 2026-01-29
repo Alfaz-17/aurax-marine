@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Package, Cpu, Gauge, Wrench, ShieldCheck, Zap, Globe, Anchor, ChevronRight } from "lucide-react"
+import Image from "next/image"
+import { Package, Cpu, Gauge, Wrench, ShieldCheck, Zap, Globe, Anchor, ChevronRight, CheckCircle2 } from "lucide-react"
 
 export default function ServicesPage() {
   const services = [
@@ -37,10 +38,12 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative min-h-[55dvh] pt-28 sm:pt-32 md:pt-36 flex items-center justify-center bg-primary overflow-hidden">
          <div className="absolute inset-0 z-0">
-           <img 
+           <Image 
              src="/services-hero.png" 
-             alt="Marine Services" 
-             className="w-full h-full object-cover opacity-20"
+             alt="Marine Engineering Services" 
+             fill
+             priority
+             className="object-cover opacity-20"
            />
          </div>
          <div className="relative z-10 text-center px-4 sm:px-6">
@@ -128,19 +131,4 @@ export default function ServicesPage() {
   )
 }
 
-function CheckCircle2({ className }: { className?: string }) {
-  return (
-    <svg 
-      className={className} 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="3" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M20 6 9 17l-5-5" />
-    </svg>
-  )
-}
+
