@@ -56,8 +56,15 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen pb-20">
       {/* Page Header */}
-      <div className="bg-primary pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div className="bg-primary pt-32 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/products-hero.png" 
+            alt="Marine Products" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -221,3 +228,6 @@ export default function ProductsPage() {
     </main>
   )
 }
+
+
+
