@@ -56,7 +56,7 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen pb-20">
       {/* Page Header */}
-      <div className="bg-primary pt-32 pb-16 relative overflow-hidden">
+      <div className="bg-primary pt-36 pb-20 relative overflow-hidden min-h-[50dvh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img 
             src="/products-hero.png" 

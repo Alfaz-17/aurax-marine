@@ -32,7 +32,7 @@ export default function AboutPage() {
   return (
     <div className="font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[60dvh] pt-24 sm:pt-28 md:pt-32 flex items-center justify-center overflow-hidden bg-primary">
+      <section className="relative min-h-[55dvh] pt-28 sm:pt-32 md:pt-36 flex items-center justify-center overflow-hidden bg-primary">
          <div className="absolute inset-0 z-0">
           <img 
             src="/about-hero.png" 

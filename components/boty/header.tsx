@@ -85,11 +85,11 @@ export function Header() {
       <nav 
         className={`max-w-full mx-auto px-6 lg:px-12 marine-transition border-b ${
           (isScrolled || !isHome)
-            ? "bg-primary/95 backdrop-blur-2xl border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
-            : "bg-transparent border-transparent py-8"
+            ? "bg-primary/95 backdrop-blur-2xl border-white/10 py-5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
+            : "bg-transparent border-transparent py-10"
         }`}
       >
-        <div className="flex items-center justify-between h-[40px] relative">
+        <div className="flex items-center justify-between h-[50px] relative">
           {/* Mobile menu button */}
           <button
             type="button"
