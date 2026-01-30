@@ -1,14 +1,5 @@
-
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+import { sendContactEmail } from '@/lib/email';
 
 export async function POST(req: Request) {
   try {
@@ -18,22 +9,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO,
-      subject: `New Enquiry from ${name}`,
-      html: `
-        <h2>New Enquiry</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-        <p><strong>Company:</strong> ${company || 'N/A'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    };
+    const emailResult = await sendContactEmail({
+      name,
+      email,
+      phone,
+      company,
+      message
+    });
 
-    await transporter.sendMail(mailOptions);
+    if (!emailResult.success) {
+      console.error('Failed to send contact email:', emailResult.error);
+      // We still return success to the user as the message is logged, 
+      // but ideally we should have a fallback or notify admin of failure.
+    }
 
     return NextResponse.json({ message: 'Enquiry sent successfully' });
   } catch (error: any) {
