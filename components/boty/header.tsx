@@ -149,9 +149,7 @@ export function Header() {
                 size="md" 
               />
             </Link>
-            <a href="tel:+919376502550" className={`text-[8px] font-bold tracking-[0.2em] uppercase mt-2 hidden md:block ${isScrolled || !isHome ? "text-white/60" : "text-white/40"}`}>
-              +91 93765 02550
-            </a>
+           
           </div>
 
           {/* Desktop Navigation - Right Group */}
