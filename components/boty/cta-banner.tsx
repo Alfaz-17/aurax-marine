@@ -30,53 +30,79 @@ export function CTABanner() {
   }, [])
 
   return (
-    <section className="py-16 sm:py-24 md:py-32 lg:py-40 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
-          ref={bannerRef}
-          className={`overflow-hidden min-h-[500px] transition-all duration-1000 ease-out flex items-center relative ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          {/* Background Image with Dark Overlay */}
-          <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-primary/80 z-10 mix-blend-multiply" />
-             <Image
-               src="/engine-maintenance-new.png"
-               alt="Global Fleet Logistics"
-               fill
-               className="object-cover transition-transform duration-[3000ms] ease-out scale-110 group-hover:scale-100"
-             />
-          </div>
-          
-          <div className="relative z-20 p-6 sm:p-8 md:p-12 lg:p-20 text-left max-w-3xl">
-            <span className="text-accent text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-5 md:mb-6 block">Supply Chain Excellence</span>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-4 sm:mb-5 md:mb-6 uppercase tracking-tighter leading-none">
-              Certified <span className="text-accent italic font-medium">Precision</span>
-            </h3>
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/50 mb-6 sm:mb-8 md:mb-10 font-sans italic">
-              Unrivaled Quality Sourced from Alang
-            </h3>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-5 md:gap-y-6">
-              <div className="flex items-center gap-3 sm:gap-4 text-white/90">
-                <div className="w-6 sm:w-8 h-px bg-accent" />
-                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-relaxed">ISO 9001 Certified Quality</span>
-              </div>
-              <div className="flex items-center gap-3 sm:gap-4 text-white/90">
-                <div className="w-6 sm:w-8 h-px bg-accent" />
-                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-relaxed">24/7 Global Fleet Support</span>
-              </div>
-              <div className="flex items-center gap-3 sm:gap-4 text-white/90">
-                <div className="w-6 sm:w-8 h-px bg-accent" />
-                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-relaxed">Engineered Reliability</span>
-              </div>
-              <div className="flex items-center gap-3 sm:gap-4 text-white/90">
-                <div className="w-6 sm:w-8 h-px bg-accent" />
-                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-relaxed">Ethical Sourcing Protocol</span>
-              </div>
+    <section className="py-20 sm:py-32 bg-white overflow-hidden relative border-y border-[#4988C4]/20">
+      <div 
+        ref={bannerRef}
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="relative overflow-hidden border border-[#4988C4]/30 bg-white shadow-2xl">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+               <Image
+                 src="/contact-hero.png"
+                 alt="Operations Center"
+                 fill
+                 className="object-cover opacity-20"
+               />
+               {/* Scanlines */}
+               <div className="absolute inset-0 bg-[linear-gradient(rgba(14,42,69,0)_50%,rgba(11,31,51,0.25)_50%),linear-gradient(90deg,rgba(73,136,196,0.06),rgba(189,232,245,0.02),rgba(73,136,196,0.06))] z-10 bg-[length:100%_2px,3px_100%] pointer-events-none" />
+               <div className="absolute inset-0 bg-[#0B1F33]/60 z-10" />
             </div>
-          </div>
+
+            <div className="relative z-20 p-8 sm:p-12 md:p-20 flex flex-col items-center text-center">
+               
+               {/* Status Light */}
+               <div className="mb-8 flex items-center gap-3">
+                  <div className="relative">
+                     <div className="w-3 h-3 bg-[#4988C4] rounded-full animate-pulse" />
+                     <div className="absolute inset-0 bg-[#4988C4] rounded-full animate-ping opacity-75" />
+                  </div>
+                  <span className="text-[#4988C4] font-mono text-xs uppercase tracking-widest">Priority Channel Open</span>
+               </div>
+
+               <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#0B1F33] uppercase tracking-tighter leading-none mb-6">
+                  Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#BDE8F5]">Supply Chain</span> Sequence
+               </h2>
+               
+               <p className="max-w-2xl text-[#0B1F33]/70 mb-10 text-sm sm:text-base font-mono leading-relaxed">
+                  // DEPLOYING GLOBAL LOGISTICS GRID
+                  <br />
+                  Connecting to Shanghai, Rotterdam, and Singapore hubs for immediate part requisition.
+               </p>
+               
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl border-t border-[#4988C4]/20 pt-10 mb-10">
+                  <div className="flex flex-col items-center">
+                     <span className="text-2xl font-black text-[#0B1F33]">24/7</span>
+                     <span className="text-[10px] text-[#4988C4] uppercase tracking-widest">Ops Center</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                     <span className="text-2xl font-black text-[#0B1F33]">10k+</span>
+                     <span className="text-[10px] text-[#4988C4] uppercase tracking-widest">SKUs Indexed</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                     <span className="text-2xl font-black text-[#0B1F33]">ISO</span>
+                     <span className="text-[10px] text-[#4988C4] uppercase tracking-widest">Certified</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                     <span className="text-2xl font-black text-[#0B1F33]">Global</span>
+                     <span className="text-[10px] text-[#4988C4] uppercase tracking-widest">Dispatch</span>
+                  </div>
+               </div>
+
+               <button className="group relative px-8 py-4 bg-[#4988C4] hover:bg-white transition-colors duration-300">
+                  <span className="relative z-10 text-white group-hover:text-[#0B1F33] font-black uppercase tracking-[0.2em] text-xs">Establish Contact</span>
+                  <div className="absolute inset-0 border border-white/20 group-hover:border-[#0B1F33]/20" />
+               </button>
+
+            </div>
+
+             {/* HUD Corners */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#4988C4] z-20" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#4988C4] z-20" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#4988C4] z-20" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#4988C4] z-20" />
         </div>
       </div>
     </section>

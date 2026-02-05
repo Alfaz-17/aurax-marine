@@ -101,7 +101,7 @@ export default function AdminOrdersPage() {
             <Link href="/admin" className="text-sm text-muted-foreground hover:text-accent flex items-center gap-2 mb-4">
               <ArrowLeft className="w-4 h-4" /> Back to Admin
             </Link>
-            <h1 className="text-3xl font-bold text-primary uppercase tracking-wider">Orders</h1>
+            <h1 className="text-3xl font-bold text-[#0B1F33] uppercase tracking-wider">Orders</h1>
             <p className="text-sm text-muted-foreground mt-1">{orders.length} total orders</p>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function AdminOrdersPage() {
         {orders.length === 0 ? (
           <div className="bg-white border border-border p-12 text-center">
             <Package className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-            <h2 className="text-xl font-bold text-primary mb-2">No Orders Yet</h2>
+            <h2 className="text-xl font-bold text-[#0B1F33] mb-2">No Orders Yet</h2>
             <p className="text-sm text-muted-foreground">Orders from customers will appear here.</p>
           </div>
         ) : (
@@ -132,7 +132,7 @@ export default function AdminOrdersPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-primary mb-2">{order.customerName}</h3>
+                      <h3 className="text-lg font-bold text-[#0B1F33] mb-2">{order.customerName}</h3>
                       
                       <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
                         <a href={`tel:${order.customerPhone}`} className="flex items-center gap-1 hover:text-accent">
@@ -152,7 +152,7 @@ export default function AdminOrdersPage() {
                         <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground block mb-2">Items Ordered</span>
                         {order.items.map((item, idx) => (
                           <div key={idx} className="flex items-center justify-between py-2 border-b border-border last:border-0">
-                            <span className="text-sm font-medium text-primary">{item.productTitle}</span>
+                            <span className="text-sm font-medium text-[#0B1F33]">{item.productTitle}</span>
                             <span className="text-sm text-muted-foreground">Qty: {item.quantity}</span>
                           </div>
                         ))}

@@ -57,21 +57,22 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen pb-20">
       {/* Page Header */}
-      <div className="bg-primary pt-36 pb-20 relative overflow-hidden min-h-[50dvh] flex items-center">
-        <div className="absolute inset-0 z-0">
+      <div className="bg-black pt-36 pb-20 relative overflow-hidden min-h-[50dvh] flex items-center">
+        <div className="absolute inset-0 z-0 text-black">
           <Image 
             src="/products-hero.png" 
             alt="Marine Products" 
             fill
             priority
-            className="object-cover opacity-20"
+            className="object-cover opacity-20 mix-blend-multiply"
           />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-accent tracking-[0.3em] uppercase text-sm font-bold mb-4 block"
+              className="text-primary tracking-[0.3em] uppercase text-[10px] font-black mb-4 block"
             >
               Inventory
             </motion.span>
@@ -79,42 +80,44 @@ export default function ProductsPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-wider"
+              className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter"
             >
-              Marine Products
+              Marine <span className="bg-white text-black px-4">Solutions</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-white/60 max-w-2xl mx-auto"
+              className="text-lg text-white/60 max-w-2xl mx-auto italic border-l-2 border-primary/40 pl-6"
             >
-              Professional-grade marine equipment and supplies sourced directly from Alang.
+              Specialized marine engine spares and machinery, rigorously inspected by AURAX Marine experts.
             </motion.p>
         </div>
       </div>
+
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-12">
         {/* Search and Filters Bar */}
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-12 pb-8 border-b border-border">
           {/* Search */}
           <div className="relative w-full md:max-w-md">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/40" />
             <input 
               type="text"
               placeholder="Search components or parts..."
-              className="w-full pl-12 pr-6 py-4 bg-muted/20 border border-border focus:border-accent outline-none font-medium transition-all"
+              className="w-full pl-12 pr-6 py-4 bg-black/5 border border-black/10 focus:border-primary outline-none font-black text-xs uppercase tracking-widest transition-all"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
 
+
           {/* Desktop Categories */}
           <div className="hidden lg:flex items-center gap-3">
             <button
                onClick={() => setSelectedCategory("all")}
-               className={`px-6 py-2 uppercase text-xs tracking-widest font-bold transition-all border-b-2 ${
-                 selectedCategory === "all" ? "border-accent text-primary" : "border-transparent text-muted-foreground hover:text-primary"
+               className={`px-6 py-2 uppercase text-[10px] tracking-[0.2em] font-black transition-all border-b-2 ${
+                 selectedCategory === "all" ? "border-primary text-black" : "border-transparent text-black/40 hover:text-black"
                }`}
             >
               All
@@ -123,8 +126,8 @@ export default function ProductsPage() {
               <button
                 key={cat._id}
                 onClick={() => setSelectedCategory(cat._id)}
-                className={`px-6 py-2 uppercase text-xs tracking-widest font-bold transition-all border-b-2 ${
-                  selectedCategory === cat._id ? "border-accent text-primary" : "border-transparent text-muted-foreground hover:text-primary"
+                className={`px-6 py-2 uppercase text-[10px] tracking-[0.2em] font-black transition-all border-b-2 ${
+                  selectedCategory === cat._id ? "border-primary text-black" : "border-transparent text-black/40 hover:text-black"
                 }`}
               >
                 {cat.name}
@@ -134,10 +137,11 @@ export default function ProductsPage() {
 
           <button
             onClick={() => setShowFilters(true)}
-            className="lg:hidden w-full py-4 border border-border flex items-center justify-center gap-2 uppercase text-xs tracking-widest font-bold"
+            className="lg:hidden w-full py-4 border border-black/10 flex items-center justify-center gap-2 uppercase text-[10px] tracking-widest font-black text-black"
           >
             <SlidersHorizontal className="w-4 h-4" /> Filter Categories
           </button>
+
         </div>
 
         {/* Product Grid */}
@@ -179,16 +183,16 @@ export default function ProductsPage() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              className="fixed right-0 top-0 h-full w-[280px] bg-white z-[101] p-8 shadow-2xl"
+              className="fixed right-0 top-0 h-full w-[280px] bg-black z-[101] p-8 shadow-2xl text-white"
             >
               <div className="flex justify-between items-center mb-10">
-                 <h2 className="text-xl font-bold uppercase text-primary">Filters</h2>
-                 <button onClick={() => setShowFilters(false)}><X className="w-6 h-6" /></button>
+                 <h2 className="text-xl font-black uppercase text-white tracking-tighter">Filters</h2>
+                 <button onClick={() => setShowFilters(false)} className="hover:text-primary transition-colors text-white"><X className="w-6 h-6" /></button>
               </div>
               <div className="space-y-4">
                  <button 
                   onClick={() => { setSelectedCategory("all"); setShowFilters(false); }}
-                  className={`w-full text-left py-3 px-4 uppercase text-xs tracking-widest font-bold ${selectedCategory === "all" ? "bg-accent text-white" : "hover:bg-muted"}`}
+                  className={`w-full text-left py-3 px-4 uppercase text-[10px] tracking-widest font-black transition-colors ${selectedCategory === "all" ? "bg-primary text-white" : "text-white/60 hover:bg-white/5 hover:text-white"}`}
                  >
                    All Categories
                  </button>
@@ -196,13 +200,14 @@ export default function ProductsPage() {
                     <button 
                       key={cat._id}
                       onClick={() => { setSelectedCategory(cat._id); setShowFilters(false); }}
-                      className={`w-full text-left py-3 px-4 uppercase text-xs tracking-widest font-bold ${selectedCategory === cat._id ? "bg-accent text-white" : "hover:bg-muted"}`}
+                      className={`w-full text-left py-3 px-4 uppercase text-[10px] tracking-widest font-black transition-colors ${selectedCategory === cat._id ? "bg-primary text-white" : "text-white/60 hover:bg-white/5 hover:text-white"}`}
                     >
                       {cat.name}
                     </button>
                  ))}
               </div>
             </motion.div>
+
           </>
         )}
       </AnimatePresence>

@@ -65,11 +65,12 @@ export default function ProductDetailPage() {
         {/* Breadcrumb */}
         <Link
           href="/products"
-          className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-accent transition-colors mb-12 uppercase tracking-widest"
+          className="inline-flex items-center gap-2 text-sm font-black text-black/40 hover:text-primary transition-colors mb-12 uppercase tracking-[0.2em]"
         >
           <ChevronLeft className="w-4 h-4" />
           Back to Inventory
         </Link>
+
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Main Image Container */}
@@ -89,9 +90,10 @@ export default function ProductDetailPage() {
                 className="object-cover hover:scale-105 transition-transform"
                 priority
               />
-              <div className="absolute top-4 right-4 bg-accent text-white px-4 py-1 text-xs font-bold uppercase tracking-widest">
+              <div className="absolute top-4 right-4 bg-primary text-white px-4 py-1 text-[10px] font-black uppercase tracking-[0.2em]">
                 {product.category?.name || "General"}
               </div>
+
             </div>
             
             {/* Gallery Images - Scrollable */}
@@ -133,42 +135,45 @@ export default function ProductDetailPage() {
             className="flex flex-col"
           >
             <div className="mb-10 lg:pt-8">
-              <span className="text-accent tracking-[0.3em] uppercase text-xs font-bold mb-4 block">Refurbished Unit</span>
-              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight uppercase tracking-tight">
+              <span className="text-primary tracking-[0.3em] uppercase text-[10px] font-black mb-4 block">Refurbished Unit</span>
+              <h1 className="text-4xl md:text-5xl font-black text-black mb-6 leading-tight uppercase tracking-tighter">
                 {product.title}
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed italic mb-8 border-l-4 border-accent pl-6">
+              <p className="text-lg text-black/70 leading-relaxed italic mb-8 border-l-4 border-primary/20 pl-6">
                 {product.description}
               </p>
             </div>
 
+
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-10 pb-10 border-b border-border">
+            <div className="grid grid-cols-3 gap-4 mb-10 pb-10 border-b border-black/10">
                <div className="text-center">
-                  <ShieldCheck className="w-6 h-6 text-accent mx-auto mb-2" />
-                  <span className="text-[10px] uppercase font-bold text-muted-foreground">Certified</span>
+                  <ShieldCheck className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <span className="text-[9px] uppercase font-black text-black/40 tracking-widest">Certified</span>
                </div>
                <div className="text-center">
-                  <Cpu className="w-6 h-6 text-accent mx-auto mb-2" />
-                  <span className="text-[10px] uppercase font-bold text-muted-foreground">Tested</span>
+                  <Cpu className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <span className="text-[9px] uppercase font-black text-black/40 tracking-widest">Tested</span>
                </div>
                <div className="text-center">
-                  <Globe className="w-6 h-6 text-accent mx-auto mb-2" />
-                  <span className="text-[10px] uppercase font-bold text-muted-foreground">Global</span>
+                  <Globe className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <span className="text-[9px] uppercase font-black text-black/40 tracking-widest">Global</span>
                </div>
             </div>
+
 
             {/* CTAs */}
             <div className="space-y-4 mb-12">
                <OrderForm productId={product._id} productTitle={product.title} />
-               <div className="grid grid-cols-2 gap-4">
-                  <a href={`tel:+919376502550`} className="flex items-center justify-center gap-2 py-4 border border-primary text-primary font-bold uppercase text-[10px] tracking-widest hover:bg-primary hover:text-white transition-all">
-                    <Phone className="w-4 h-4" /> Call +91 93765 02550
-                  </a>
-                  <a href={`mailto:sales@coronamarineparts.com?subject=Enquiry for ${product.title}`} className="flex items-center justify-center gap-2 py-4 border border-primary text-primary font-bold uppercase text-[10px] tracking-widest hover:bg-primary hover:text-white transition-all">
-                     <Mail className="w-4 h-4" /> Email Inquiry
-                  </a>
-               </div>
+                <div className="grid grid-cols-2 gap-4">
+                   <a href={`tel:+919376502550`} className="flex items-center justify-center gap-2 py-4 border border-black text-black font-black uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">
+                     <Phone className="w-4 h-4" /> Call Hotline
+                   </a>
+                   <a href={`mailto:info@auraxmarine.com?subject=Enquiry for ${product.title}`} className="flex items-center justify-center gap-2 py-4 border border-black text-black font-black uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">
+                      <Mail className="w-4 h-4" /> Email Inquiry
+                   </a>
+                </div>
+
             </div>
 
             {/* Accordions */}
@@ -179,9 +184,10 @@ export default function ProductDetailPage() {
                     onClick={() => setOpenAccordion(openAccordion === item.id ? null : item.id)}
                     className="w-full flex items-center justify-between py-5 text-left group"
                   >
-                    <span className="text-xs uppercase font-bold tracking-widest text-primary group-hover:text-accent transition-colors">{item.title}</span>
-                    <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${openAccordion === item.id ? "rotate-180 text-accent" : ""}`} />
+                    <span className="text-xs uppercase font-black tracking-widest text-black group-hover:text-primary transition-colors">{item.title}</span>
+                    <ChevronDown className={`w-4 h-4 text-black/40 transition-transform duration-300 ${openAccordion === item.id ? "rotate-180 text-primary" : ""}`} />
                   </button>
+
                   <motion.div
                     initial={false}
                     animate={{ height: openAccordion === item.id ? "auto" : 0 }}
@@ -200,20 +206,21 @@ export default function ProductDetailPage() {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div className="mt-40">
-            <h2 className="text-2xl font-bold text-primary mb-12 uppercase tracking-widest border-b border-border pb-6">Compatible Components</h2>
+            <h2 className="text-2xl font-black text-black mb-12 uppercase tracking-tighter border-b-2 border-primary pb-6 inline-block">Compatible Components</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {relatedProducts.map((rel) => (
-                <Link key={rel._id} href={`/product/${rel._id}`} className="group relative overflow-hidden bg-white border border-border">
+                <Link key={rel._id} href={`/product/${rel._id}`} className="group relative overflow-hidden bg-white border border-black/10 hover:border-primary transition-all duration-500">
                    <div className="aspect-[4/3] relative">
                       <Image src={rel.image} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                    </div>
-                   <div className="p-4 border-t border-border">
-                      <h3 className="text-xs font-bold text-primary uppercase truncate group-hover:text-accent transition-colors">{rel.title}</h3>
+                   <div className="p-4 border-t border-black/5">
+                      <h3 className="text-[10px] font-black text-black uppercase truncate group-hover:text-primary transition-colors tracking-widest">{rel.title}</h3>
                    </div>
                 </Link>
               ))}
             </div>
           </div>
+
         )}
       </div>
 

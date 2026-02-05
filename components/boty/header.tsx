@@ -13,13 +13,18 @@ export function Header() {
   const isHome = pathname === "/"
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const [categories, setCategories] = useState<any[]>([])
-
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
+      if (totalHeight > 0) {
+        setScrollProgress(window.scrollY / totalHeight)
+      }
     }
     window.addEventListener("scroll", handleScroll)
     
@@ -76,8 +81,8 @@ export function Header() {
       <nav 
         className={`max-w-full mx-auto px-6 lg:px-12 marine-transition border-b ${
           (isScrolled || !isHome)
-            ? "bg-primary/95 backdrop-blur-2xl border-white/10 py-5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
-            : "bg-transparent border-transparent py-10"
+            ? "bg-[#0B1F33]/90 backdrop-blur-md border-[#3997b3]/20 py-4 shadow-[0_4px_30px_rgba(11,31,51,0.5)]" 
+            : "bg-transparent border-transparent py-8"
         }`}
       >
         <div className="flex items-center justify-between h-[50px] relative">
@@ -104,11 +109,12 @@ export function Header() {
               >
                 <Link
                   href={link.href}
-                  className={`text-[10px] font-bold uppercase tracking-[0.3em] marine-transition flex items-center gap-2 ${
-                    (isScrolled || !isHome) ? "text-white/80 hover:text-white" : "text-white/80 hover:text-white"
+                  className={`text-[10px] font-bold uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
+                    (isScrolled || !isHome) ? "text-white/80 hover:text-accent" : "text-white/80 hover:text-accent"
                   }`}
                 >
                   {link.name}
+                  <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#3997b3]"></span>
                   {link.dropdown && <ChevronDown className="w-3 h-3 opacity-50" />}
                 </Link>
 
@@ -119,18 +125,18 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute top-full left-0 pt-12 w-80 z-50"
                   >
-                    <div className="bg-white border border-border shadow-2xl p-6 backdrop-blur-xl bg-white/95">
+                    <div className="bg-[#0B1F33]/95 border border-[#3997b3]/20 shadow-[0_0_30px_rgba(11,31,51,0.8)] p-6 backdrop-blur-xl rounded-sm">
                       <div className="space-y-3">
                         {link.dropdown.slice(0, 8).map((item: any, idx: number) => (
                           <Link 
                             key={`${link.name}-${idx}-${item.name}`} 
                             href={item.href}
-                            className="block text-sm font-bold text-primary hover:text-accent transition-colors py-1"
+                            className="block text-sm font-bold text-white/80 hover:text-accent transition-colors py-2 border-b border-white/5 hover:border-accent/30 hover:pl-2 duration-200"
                           >
                             {item.name}
                           </Link>
                         ))}
-                        <Link href={link.href} className="pt-3 mt-2 border-t border-border flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-4 transition-all">
+                        <Link href={link.href} className="pt-3 mt-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-4 transition-all hover:brightness-125">
                           View All {link.name} <ArrowRight className="w-4 h-4" />
                         </Link>
                       </div>
@@ -143,13 +149,15 @@ export function Header() {
 
           {/* Logo - Centered */}
           <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center h-32">
-            <Link href="/" className="flex items-center">
-              <Logo 
-                variant="white" 
-                size="md" 
-              />
+            <Link href="/" className="flex items-center group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <Logo 
+                  variant="white" 
+                  size="md" 
+                />
+              </div>
             </Link>
-           
           </div>
 
           {/* Desktop Navigation - Right Group */}
@@ -164,11 +172,12 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
-                    className={`text-[10px] font-bold uppercase tracking-[0.3em] marine-transition flex items-center gap-2 ${
-                      (isScrolled || !isHome) ? "text-white/80 hover:text-white" : "text-white/80 hover:text-white"
+                    className={`text-[10px] font-bold uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
+                      (isScrolled || !isHome) ? "text-white/80 hover:text-accent" : "text-white/80 hover:text-accent"
                     }`}
                   >
                     {link.name}
+                    <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#3997b3]"></span>
                     {link.dropdown && <ChevronDown className="w-3 h-3 opacity-50" />}
                   </Link>
 
@@ -179,18 +188,18 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       className="absolute top-full right-0 pt-12 w-80 z-50"
                     >
-                      <div className="bg-white border border-border shadow-2xl p-6 backdrop-blur-xl bg-white/95">
+                      <div className="bg-[#0B1F33]/95 border border-[#3997b3]/20 shadow-[0_0_30px_rgba(11,31,51,0.8)] p-6 backdrop-blur-xl rounded-sm">
                         <div className="space-y-3">
                           {link.dropdown.slice(0, 8).map((item: any, idx: number) => (
                             <Link 
                               key={`${link.name}-${idx}-${item.name}`} 
                               href={item.href}
-                              className="block text-sm font-bold text-primary hover:text-accent transition-colors py-1"
+                              className="block text-sm font-bold text-white/80 hover:text-accent transition-colors py-2 border-b border-white/5 hover:border-accent/30 hover:pl-2 duration-200"
                             >
                               {item.name}
                             </Link>
                           ))}
-                          <Link href={link.href} className="pt-3 mt-2 border-t border-border flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-4 transition-all">
+                          <Link href={link.href} className="pt-3 mt-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-4 transition-all hover:brightness-125">
                             Explore {link.name} <ArrowRight className="w-4 h-4" />
                           </Link>
                         </div>
@@ -213,7 +222,7 @@ export function Header() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setIsMenuOpen(false)}
-                className="fixed inset-0 bg-primary/40 backdrop-blur-sm z-[60] lg:hidden"
+                className="fixed inset-0 bg-[#0B1F33]/80 backdrop-blur-md z-[60] lg:hidden"
               />
               
               {/* Sidebar Panel */}
@@ -222,37 +231,37 @@ export function Header() {
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white z-[70] shadow-2xl lg:hidden flex flex-col h-screen"
+                className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-gradient-to-b from-[#0B1F33] to-[#05111D] z-[70] shadow-2xl lg:hidden flex flex-col h-screen border-r border-[#3997b3]/20"
               >
-                <div className="shrink-0 p-8 border-b border-border flex items-center justify-between bg-card/10">
-                  <h2 className="font-serif text-xl tracking-widest uppercase text-primary">
-                    Corona <span className="text-accent italic">Marine Parts</span>
+                <div className="shrink-0 p-8 border-b border-white/5 flex items-center justify-between bg-[#0B1F33]/50">
+                  <h2 className="font-sans text-xl font-black tracking-tight uppercase text-white">
+                    AURAX <span className="text-accent italic">Marine</span>
                   </h2>
-                  <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-muted transition-colors">
-                    <X className="w-6 h-6 text-primary" />
+                  <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-white/10 rounded-md transition-colors">
+                    <X className="w-6 h-6 text-white" />
                   </button>
                 </div>
 
-                <div className="flex-1 overflow-y-auto px-8 py-10 space-y-10 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto px-6 py-8 space-y-8 custom-scrollbar">
                   {/* Primary Links */}
-                  <div className="space-y-8">
+                  <div className="space-y-4">
                     {navLinks.map((link) => (
-                      <div key={link.name} className="space-y-4">
+                      <div key={link.name} className="space-y-2">
                         <Link
                           href={link.href}
-                          className="text-sm font-black uppercase tracking-[0.3em] text-primary hover:text-accent transition-colors block"
+                          className="text-sm font-black uppercase tracking-[0.3em] text-white/80 hover:text-accent transition-all block border-l-2 border-transparent hover:border-accent hover:pl-4 duration-300"
                           onClick={() => !link.dropdown && setIsMenuOpen(false)}
                         >
                           {link.name}
                         </Link>
                         
                         {link.dropdown && link.dropdown.length > 0 && (
-                          <div className="pl-4 border-l border-border/60 space-y-4">
+                          <div className="pl-6 border-l border-white/10 space-y-3 mt-2">
                             {link.dropdown.slice(0, 6).map((item: any, idx: number) => (
                               <Link
                                 key={`mobile-${link.name}-${idx}-${item.name}`}
                                 href={item.href}
-                                className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground hover:text-primary block"
+                                className="text-[10px] font-bold uppercase tracking-widest text-white/50 hover:text-white block transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {item.name}
@@ -265,35 +274,36 @@ export function Header() {
                   </div>
 
                   {/* Operational Contacts */}
-                  <div className="pt-10 border-t border-border mt-auto">
-                    <h3 className="text-[9px] font-bold uppercase tracking-[0.4em] text-accent mb-6 font-mono">Operations</h3>
-                    <div className="space-y-6">
-                      <a href="tel:+917386545454" className="flex items-center gap-4 group">
-                        <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                          <Phone className="w-4 h-4" />
+                  <div className="pt-8 border-t border-white/10 mt-auto">
+                    <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-accent/70 mb-6">Operations</h3>
+                    <div className="space-y-4">
+                      <a href="tel:+919376502550" className="flex items-center gap-4 group bg-white/5 p-4 rounded-sm border border-white/5 hover:border-accent/30 transition-all">
+                        <div className="w-8 h-8 bg-accent flex items-center justify-center rounded-full shadow-[0_0_10px_#3997b3]">
+                          <Phone className="w-3 h-3 text-[#0B1F33]" />
                         </div>
-                        <span className="text-[10px] font-bold text-primary">+91 93765 02550</span>
+                        <span className="text-[10px] font-black text-white tracking-widest group-hover:text-accent transition-colors">+91 93765 02550</span>
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="shrink-0 p-8 border-t border-border bg-card/5">
+                <div className="shrink-0 p-6 border-t border-white/10 bg-[#0B1F33]/50">
                    <div className="flex items-center gap-6 justify-center">
-                      <a href="#" className="p-2 text-primary hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
-                      <a href="#" className="p-2 text-primary hover:text-accent transition-colors"><Linkedin className="w-5 h-5" /></a>
+                      <a href="#" className="p-2 text-white/60 hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
+                      <a href="#" className="p-2 text-white/60 hover:text-accent transition-colors"><Linkedin className="w-5 h-5" /></a>
                    </div>
                 </div>
               </motion.div>
+
             </>
           )}
         </AnimatePresence>
-        {/* Decorative Bottom Lining - Gold Palette */}
-        <div 
-          className={`absolute bottom-0 left-0 right-0 h-[2px] marine-transition ${
-            (isScrolled || !isHome) ? "bg-gradient-to-r from-transparent via-accent to-transparent opacity-100" : "bg-white/10 opacity-0"
-          }`} 
+        {/* Scroll Progress Line */}
+        <motion.div 
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent shadow-[0_0_10px_#3997b3] origin-left z-[60]"
+          style={{ scaleX: scrollProgress }}
         />
+
       </nav>
     </header>
   )

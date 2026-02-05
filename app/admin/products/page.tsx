@@ -70,7 +70,7 @@ export default function AdminProductListPage() {
     <div className="space-y-12">
       <div className="flex items-center justify-between border-b border-border pb-8">
         <div>
-          <h1 className="text-3xl font-bold text-primary uppercase tracking-tighter">Inventory Console</h1>
+          <h1 className="text-3xl font-bold text-[#0B1F33] uppercase tracking-tighter">Inventory Console</h1>
           <p className="text-xs font-bold text-accent uppercase tracking-[0.3em] mt-2">Manage Marine Components & Spares</p>
         </div>
         <Link 
@@ -89,7 +89,7 @@ export default function AdminProductListPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 border border-border">
           <div className="space-y-2">
-            <label className="text-[10px] font-bold text-primary uppercase tracking-widest block">Search Matrix</label>
+            <label className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest block">Search Matrix</label>
             <div className="relative">
               <input
                 type="text"
@@ -103,7 +103,7 @@ export default function AdminProductListPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-bold text-primary uppercase tracking-widest block">Sector Filter</label>
+            <label className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest block">Sector Filter</label>
             <select
               className="w-full px-4 py-4 bg-muted/20 border border-border focus:border-accent outline-none text-xs uppercase font-bold tracking-widest"
               value={selectedCategory}
@@ -121,7 +121,7 @@ export default function AdminProductListPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-primary text-white text-[10px] font-bold uppercase tracking-widest">
+              <tr className="bg-[#0B1F33] text-white text-[10px] font-bold uppercase tracking-widest">
                 <th className="py-5 px-6">Asset Component</th>
                 <th className="py-5 px-6">Sector</th>
                 <th className="py-5 px-6 text-center">Focus</th>
@@ -137,13 +137,13 @@ export default function AdminProductListPage() {
                           <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
                        </div>
                        <div>
-                          <h4 className="font-bold text-primary uppercase tracking-tight text-sm mb-1">{product.title}</h4>
+                          <h4 className="font-bold text-[#0B1F33] uppercase tracking-tight text-sm mb-1">{product.title}</h4>
                           <p className="text-[10px] text-muted-foreground line-clamp-1 italic">{product.description}</p>
                        </div>
                     </div>
                   </td>
                   <td className="py-6 px-6">
-                    <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-accent text-[9px] font-extrabold uppercase tracking-widest">
+                    <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-[#0B1F33] text-[9px] font-extrabold uppercase tracking-widest">
                       {product.category?.name}
                     </span>
                   </td>

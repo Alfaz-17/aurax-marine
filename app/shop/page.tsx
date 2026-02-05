@@ -78,24 +78,25 @@ export default function ShopPage() {
       <div className="pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-12">
-            <span className="text-sm tracking-[0.3em] uppercase text-[#3DB9C8] mb-4 block">
-              System Catalog
+          <div className="text-center mb-16">
+            <span className="text-[10px] tracking-[0.4em] uppercase text-primary mb-4 font-black block">
+              Marine Inventory
             </span>
-            <h1 className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-[#0A3D62] mb-4 text-balance">
-              Marine Automation
+            <h1 className="font-sans font-black text-4xl md:text-6xl text-black mb-6 uppercase tracking-tighter leading-none">
+              Engine Room <span className="text-primary italic font-medium">Catalog</span>
             </h1>
-            <p className="text-lg text-[#1E5F74] max-w-md mx-auto">
-              Discover our integrated control solutions
+            <p className="text-base md:text-lg text-black/70 max-w-2xl mx-auto italic border-l-2 border-primary/40 pl-6 border-b-0">
+              Specialized engine spares and industrial maritime machinery sourced for global vessel operations.
             </p>
           </div>
 
+
           {/* Filter Bar */}
-          <div className="flex items-center justify-between mb-10 pb-6 border-b border-border/50">
+          <div className="flex items-center justify-between mb-10 pb-6 border-b border-black/10">
             <button
               type="button"
               onClick={() => setShowFilters(!showFilters)}
-              className="lg:hidden inline-flex items-center gap-2 text-sm text-foreground"
+              className="lg:hidden inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-black"
             >
               <SlidersHorizontal className="w-4 h-4" />
               Filters
@@ -106,10 +107,10 @@ export default function ShopPage() {
               <button
                 type="button"
                 onClick={() => setSelectedCategory("all")}
-                className={`px-4 py-2 rounded-full text-sm capitalize boty-transition bg-popover ${
+                className={`px-6 py-2 uppercase text-[10px] tracking-widest font-black transition-all border-b-2 ${
                   selectedCategory === "all"
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card text-foreground/70 hover:text-foreground boty-shadow"
+                    ? "border-primary text-black"
+                    : "border-transparent text-black/40 hover:text-black"
                 }`}
               >
                 All
@@ -119,47 +120,48 @@ export default function ShopPage() {
                   key={category._id}
                   type="button"
                   onClick={() => setSelectedCategory(category._id)}
-                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition bg-popover ${
-                    selectedCategory === category._id
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card text-foreground/70 hover:text-foreground boty-shadow"
-                  }`}
+                    className={`px-6 py-2 uppercase text-[10px] tracking-widest font-black transition-all border-b-2 ${
+                      selectedCategory === category._id
+                        ? "border-primary text-black"
+                        : "border-transparent text-black/40 hover:text-black"
+                    }`}
                 >
                   {category.name}
                 </button>
               ))}
             </div>
 
-            <span className="text-sm text-muted-foreground">
-              {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}
+            <span className="text-[10px] font-black uppercase tracking-widest text-black/40">
+              {filteredProducts.length} {filteredProducts.length === 1 ? "PART" : "PARTS"}
             </span>
           </div>
 
+
           {/* Mobile Filters */}
           {showFilters && (
-            <div className="lg:hidden fixed inset-0 z-50 bg-background">
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="font-serif text-2xl text-foreground">Filters</h2>
+            <div className="lg:hidden fixed inset-0 z-50 bg-black text-white">
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-12">
+                  <h2 className="font-black text-2xl text-white uppercase tracking-tighter">Filters</h2>
                   <button
                     type="button"
                     onClick={() => setShowFilters(false)}
-                    className="p-2 text-foreground/70 hover:text-foreground"
+                    className="p-2 text-white/70 hover:text-white"
                   >
-                    <X className="w-5 h-5" />
+                    <X className="w-8 h-8" />
                   </button>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <button
                     type="button"
                     onClick={() => {
                       setSelectedCategory("all")
                       setShowFilters(false)
                     }}
-                    className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition ${
+                    className={`w-full px-8 py-4 text-left uppercase text-[10px] font-black tracking-widest transition-colors ${
                       selectedCategory === "all"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-card text-foreground boty-shadow"
+                        ? "bg-primary text-white"
+                        : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     All Categories
@@ -172,10 +174,10 @@ export default function ShopPage() {
                         setSelectedCategory(category._id)
                         setShowFilters(false)
                       }}
-                      className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition ${
+                      className={`w-full px-8 py-4 text-left uppercase text-[10px] font-black tracking-widest transition-colors ${
                         selectedCategory === category._id
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-card text-foreground boty-shadow"
+                          ? "bg-primary text-white"
+                          : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
                       }`}
                     >
                       {category.name}
@@ -185,6 +187,7 @@ export default function ShopPage() {
               </div>
             </div>
           )}
+
 
           {/* Product Grid */}
           <div 
@@ -227,7 +230,8 @@ function ProductCard({
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="bg-card rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
+      <div className="bg-white border border-black/10 group-hover:border-primary transition-all overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-2 h-2 bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
         {/* Image */}
         <div className="relative aspect-square bg-muted overflow-hidden">
           {/* Skeleton */}
@@ -249,12 +253,12 @@ function ProductCard({
           {/* Badge */}
           {product.badge && (
             <span
-              className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs tracking-wide ${
+              className={`absolute top-4 left-4 px-3 py-1 text-[9px] font-black uppercase tracking-widest ${
                 product.badge === "Sale"
-                  ? "bg-destructive/10 text-destructive"
+                  ? "bg-black text-white"
                   : product.badge === "New"
-                  ? "bg-primary/10 text-primary"
-                  : "bg-accent text-accent-foreground"
+                  ? "bg-primary text-white"
+                  : "bg-black text-white"
               }`}
             >
               {product.badge}
@@ -264,13 +268,15 @@ function ProductCard({
 
         {/* Info */}
         <div className="p-6">
-          <h3 className="font-serif text-xl text-foreground mb-1">{product.title}</h3>
-          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{product.description}</p>
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-medium text-foreground">${product.price || "Contact for Quote"}</span>
+          <h3 className="font-sans font-black text-lg text-black mb-2 uppercase tracking-tighter truncate leading-none">{product.title}</h3>
+          <p className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-4">Ref: {product.category?.name || "Machinery"}</p>
+          <div className="flex items-center justify-between border-t border-black/5 pt-4 mt-4">
+            <span className="text-[10px] font-black text-black uppercase tracking-[0.2em]">Enquire Now</span>
+            <span className="text-[10px] font-black text-black/40 group-hover:text-primary transition-colors">Details →</span>
           </div>
         </div>
       </div>
+
     </Link>
   )
 }

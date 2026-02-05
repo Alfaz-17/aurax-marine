@@ -21,9 +21,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Corona Marine Parts | Marine Spare Parts & Marine Services Supplier',
-  description: 'Corona Marine Parts is a trusted supplier of marine spare parts, automation systems, and ship machinery components, delivering reliable marine solutions worldwide.',
-  keywords: ['marine automation', 'ship spare parts', 'alang shipyard', 'marine engineering', 'vessel automation'],
+  title: 'AURAX Marine Solutions | Marine Engines & Machinery Spares Global Supplier',
+  description: 'AURAX Marine Solutions is a specialized supplier of MAN B&W S50MC engine spares, auxiliary engines, and marine machinery components worldwide.',
+  keywords: ['AURAX Marine', 'MAN B&W S50MC spares', 'ship machinery supplier', 'marine engine parts', 'vessel spares', 'Daihatsu generator spares'],
   icons: {
     icon: '/logo.png',
     apple: '/logo.png',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0E2A47',
+  themeColor: '#0B1320',
 }
 
 export default function RootLayout({

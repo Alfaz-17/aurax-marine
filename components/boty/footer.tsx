@@ -15,7 +15,7 @@ const footerLinks = {
   ],
   about: [
     { name: "Company Overview", href: "/about" },
-    { name: "Why Corona Marine", href: "/about" },
+    { name: "Why AURAX Marine", href: "/about" },
     { name: "Global Reach", href: "/about" },
     { name: "Quality Assurance", href: "/about" }
   ],
@@ -34,11 +34,11 @@ export function Footer() {
   if (pathname?.startsWith("/admin")) return null
 
   return (
-    <footer className="bg-card pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 md:pb-10 relative overflow-hidden">
+    <footer className="bg-white pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 md:pb-10 relative overflow-hidden">
       {/* Giant Background Text */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0">
-        <span className="font-serif text-[60px] sm:text-[100px] md:text-[180px] lg:text-[250px] xl:text-[300px] font-bold text-primary/5 whitespace-nowrap leading-none uppercase tracking-tighter">
-          Corona Marine Parts
+        <span className="font-serif text-[60px] sm:text-[100px] md:text-[180px] lg:text-[250px] xl:text-[300px] font-bold text-[#4988C4]/5 whitespace-nowrap leading-none uppercase tracking-tighter">
+          AURAX Marine Solutions
         </span>
       </div>
       
@@ -46,8 +46,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-10 sm:mb-12 md:mb-16">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Logo size="md" variant="dark" className="mb-4 sm:mb-6 h-8 sm:h-10" />
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 sm:mb-6">
+            <Logo size="md" variant="light" className="mb-4 sm:mb-6 h-8 sm:h-10" />
+            <p className="text-xs sm:text-sm text-[#0B1F33]/80 leading-relaxed mb-4 sm:mb-6">
               Your trusted partner for marine equipment and supplies.
             </p>
             <div className="flex gap-3 sm:gap-4">
@@ -65,7 +65,7 @@ export function Footer() {
                 </div>
               </a>
               <a
-                href="mailto:sales@coronamarineparts.com"
+                href="mailto:info@auraxmarine.com"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground marine-transition marine-shadow"
                 aria-label="Email"
               >
@@ -76,7 +76,7 @@ export function Footer() {
                 </div>
               </a>
               <a
-                href="https://www.linkedin.com/company/corona-marine-parts/"
+                href="https://www.linkedin.com/company/aurax-marine-solutions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground marine-transition marine-shadow"
@@ -96,24 +96,24 @@ export function Footer() {
                 </div>
                 <span className="font-bold tracking-widest uppercase">+91 93765 02550</span>
               </a>
-              <a href="mailto:sales@coronamarineparts.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+              <a href="mailto:info@auraxmarine.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                 <div className="w-10 h-10 bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="font-bold tracking-widest">sales@coronamarineparts.com</span>
+                <span className="font-bold tracking-widest">info@auraxmarine.com</span>
               </a>
             </div>
           </div>
 
           {/* Shop Links */}
           <div>
-            <h3 className="font-medium text-foreground mb-4">Shop</h3>
+            <h3 className="font-medium text-[#0B1F33] mb-4">Shop</h3>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground marine-transition"
+                    className="text-sm text-[#0B1F33]/70 hover:text-[#4988C4] marine-transition"
                   >
                     {link.name}
                   </Link>
@@ -124,13 +124,13 @@ export function Footer() {
 
           {/* About Links */}
           <div>
-            <h3 className="font-medium text-foreground mb-4">About</h3>
+            <h3 className="font-medium text-[#0B1F33] mb-4">About</h3>
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground marine-transition"
+                    className="text-sm text-[#0B1F33]/70 hover:text-[#4988C4] marine-transition"
                   >
                     {link.name}
                   </Link>
@@ -141,13 +141,13 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="font-medium text-foreground mb-4">Support</h3>
+            <h3 className="font-medium text-[#0B1F33] mb-4">Support</h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground marine-transition"
+                    className="text-sm text-[#0B1F33]/70 hover:text-[#4988C4] marine-transition"
                   >
                     {link.name}
                   </Link>
@@ -161,7 +161,7 @@ export function Footer() {
         <div className="pt-10 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Corona Marine Parts – Marine Spare Parts & Marine Services Supplier
+              © {new Date().getFullYear()} AURAX Marine Solutions – Marine Engines & Machinery Spares Global Supplier
             </p>
             <div className="flex gap-6">
               <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground marine-transition">

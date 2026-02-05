@@ -29,12 +29,12 @@ export default function BrandsPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[40vh] pt-32 flex items-center justify-center bg-primary overflow-hidden">
+      <section className="relative h-[40vh] pt-32 flex items-center justify-center bg-black overflow-hidden">
          <div className="absolute inset-0 z-0">
           <img 
             src="/pexels-pixabay-163726.jpg" 
             alt="Brands" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-20 mix-blend-multiply"
           />
         </div>
         <div className="relative z-10 text-center text-white px-6">
@@ -43,11 +43,11 @@ export default function BrandsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-extrabold uppercase tracking-wider mb-4">
-              Trusted Brands
+            <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+              Trusted <span className="bg-white text-black px-4">Partners</span>
             </h1>
-            <p className="text-xl text-accent font-medium uppercase tracking-widest">
-              We partner with industry-leading manufacturers worldwide
+            <p className="text-xl text-primary font-black uppercase tracking-widest italic border-l-2 border-primary pl-6 mx-auto max-w-lg">
+              Authorized Supply for Global Maritime Leaders
             </p>
           </motion.div>
         </div>
@@ -59,7 +59,7 @@ export default function BrandsPage() {
           {brands.map((brand, index) => (
             <motion.div
               key={brand._id}
-              className="relative group aspect-square bg-white border border-border overflow-hidden hover:border-accent transition-all duration-500 shadow-sm hover:shadow-2xl"
+              className="relative group aspect-square bg-white border border-black/10 overflow-hidden hover:border-primary transition-all duration-500 shadow-sm hover:shadow-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
@@ -68,13 +68,15 @@ export default function BrandsPage() {
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="max-h-full max-w-full object-contain transition-all duration-700"
+                  className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
-                   <h3 className="text-white font-bold text-center uppercase tracking-widest text-sm">{brand.name}</h3>
+                <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
+                   <h3 className="text-white font-black text-center uppercase tracking-[0.2em] text-xs mb-2">{brand.name}</h3>
+                   <div className="w-8 h-0.5 bg-primary" />
                 </div>
               </div>
             </motion.div>
+
           ))}
         </div>
       </section>

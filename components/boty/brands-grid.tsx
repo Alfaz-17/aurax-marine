@@ -30,7 +30,8 @@ export function BrandGrid() {
   const duplicatedBrands = [...brands, ...brands, ...brands, ...brands];
 
   return (
-    <section className="py-24 bg-background border-t border-border/30 overflow-hidden">
+    <section className="py-24 bg-black border-y border-white/5 overflow-hidden">
+
       <div className="container mx-auto px-6 lg:px-8 mb-16">
         <motion.div
           className="text-center"
@@ -39,8 +40,9 @@ export function BrandGrid() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-[10px] tracking-[0.4em] uppercase text-accent font-bold mb-4">Strategic Partners</h2>
-          <h3 className="text-3xl md:text-5xl font-extrabold text-primary uppercase tracking-tighter">Global Brand Integration</h3>
+          <h2 className="text-[10px] tracking-[0.4em] uppercase text-primary font-black mb-4">Strategic Partners</h2>
+          <h3 className="text-3xl md:text-5xl font-sans font-black text-white uppercase tracking-tighter leading-none">Global Brand Integration</h3>
+
         </motion.div>
       </div>
 
@@ -49,20 +51,23 @@ export function BrandGrid() {
           {duplicatedBrands.map((brand, index) => (
             <div
               key={`${brand._id}-${index}`}
-              className="flex-none w-48 h-24 relative group bg-white border border-border/10 hover:border-accent/40 transition-all duration-700 p-6"
+              className="flex-none w-48 h-24 relative group bg-white/5 border border-white/10 hover:border-primary/40 transition-all duration-700 p-8"
             >
+
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-all duration-700"
+                className="w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-all duration-700 invert brightness-0 group-hover:invert-0 group-hover:brightness-100"
               />
+
             </div>
           ))}
         </div>
         
         {/* Gradient Overlays for smooth edges */}
-        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+
       </div>
 
       <style jsx>{`

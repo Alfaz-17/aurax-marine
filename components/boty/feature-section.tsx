@@ -2,48 +2,52 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react"
-import { ShieldCheck, Server, Globe, Cpu, Anchor, Wifi, Activity, Box } from "lucide-react"
+import { ShieldCheck, Server, Globe, Cpu, Anchor, Wifi, Activity, Box, Gauge, Wrench } from "lucide-react"
+
+
 
 const features = [
   {
-    icon: Cpu,
-    title: "Marine Automation",
-    description: "Advanced control levers, modules, and automation boards for vessels."
+    icon: Gauge,
+    title: "Main Propulsion",
+    description: "Specialized spares for MAN B&W & Sulzer 2-Stroke engines (S50MC, RTA Series).",
+    stat: "98% UPTIME"
   },
   {
-    icon: Activity,
-    title: "Industrial Electronics",
-    description: "High-quality power supplies, indicators, and interface modules."
+    icon: Wrench,
+    title: "Auxiliary Power",
+    description: "Complete support for Daihatsu, Yanmar, and Wartsila generator sets.",
+     stat: "24/7 SUPPORT"
   },
   {
     icon: ShieldCheck,
-    title: "Engine Control",
-    description: "Precision engine remote control and alarm systems for safe operations."
+    title: "Fluid Handling",
+    description: "Pumps and Oil Purifiers from leading brands like Alfa Laval and Westfalia.",
+     stat: "OEM GRADE"
   },
   {
-    icon: Server,
-    title: "Safety Systems",
-    description: "Reliable fire detection, alarms, and emergency bridge electronics."
+    icon: Activity,
+    title: "Compressed Air",
+    description: "Spares for Air Compressors, Screw Compressors, and associated systems.",
+     stat: "ISO 9001"
   },
   {
-    icon: Globe,
-    title: "Positioning Systems",
-    description: "Dynamic Positioning components for precision navigation."
+    icon: Box,
+    title: "Heat Transfer",
+    description: "Heat exchangers, fresh water generators, and oil coolers.",
+     stat: "CERTIFIED"
   },
   {
-     icon: Box,
-     title: "PLC & Modules",
-     description: "Industrial-grade control hardware for marine automation units."
+    icon: Anchor,
+    title: "Deck & Hydraulic",
+    description: "Hydraulic motors, pumps, and spares for derrick cranes.",
+     stat: "HEAVY DUTY"
   }
 ]
 
 export function FeatureSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isVideoVisible, setIsVideoVisible] = useState(false)
-  const [headerVisible, setHeaderVisible] = useState(false)
-  const bentoRef = useRef<HTMLDivElement>(null)
-  const videoSectionRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,200 +59,142 @@ export function FeatureSection() {
       { threshold: 0.1 }
     )
 
-    const videoObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVideoVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    if (bentoRef.current) {
-      observer.observe(bentoRef.current)
-    }
-
-    if (videoSectionRef.current) {
-      videoObserver.observe(videoSectionRef.current)
-    }
-
-    if (headerRef.current) {
-      headerObserver.observe(headerRef.current)
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
     }
 
     return () => {
-      if (bentoRef.current) {
-        observer.unobserve(bentoRef.current)
-      }
-      if (videoSectionRef.current) {
-        videoObserver.unobserve(videoSectionRef.current)
-      }
-      if (headerRef.current) {
-        headerObserver.unobserve(headerRef.current)
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
       }
     }
   }, [])
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Bento Grid */}
-        <div 
-          ref={bentoRef}
-          className="grid md:grid-cols-4 mb-16 sm:mb-24 md:mb-32 md:grid-rows-[300px_300px] gap-4 sm:gap-6 md:gap-8">
-          {/* Left Large Block - Engineering Image */}
-          <div 
-            className={`relative rounded-none overflow-hidden h-[500px] md:h-auto md:col-span-2 md:row-span-2 transition-all duration-1000 ease-out border border-border bg-primary ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-            style={{ transitionDelay: '0ms' }}
-          >
-            <img
-              src="/hero-bg.png"
-              alt="Marine Bridge"
-              className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply transition-transform duration-1000 group-hover:scale-110"
-            />
-            {/* Overlay Card */}
-            <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-4 sm:left-6 md:left-10 right-4 sm:right-6 md:right-10 bg-primary/95 backdrop-blur-md p-5 sm:p-6 md:p-10 border border-white/10">
-              <div className="flex items-start gap-4">
-                <div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl text-white mb-2 sm:mb-3 md:mb-4 font-bold uppercase tracking-tight">
-                    24/7 <span className="text-accent underline underline-offset-4 sm:underline-offset-8">Monitoring</span>
-                  </h3>
-                  <p className="text-[10px] sm:text-xs text-white/70 leading-relaxed font-medium italic">
-                    Our proprietary telemetry systems provide continuous physiological feedback from engine blocks to ensure peak operational reliability.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section ref={sectionRef} className="py-20 sm:py-28 bg-[#0B1F33] overflow-hidden relative border-t border-[#4988C4]/20">
+      
+      {/* Background Tech Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(73,136,196,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(73,136,196,0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
 
-          {/* Top Right - Cyber Security / Logistics */}
-          <div 
-            className={`rounded-none p-10 flex flex-col justify-center md:col-span-2 relative overflow-hidden transition-all duration-1000 ease-out border border-border bg-foreground ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-            style={{ transitionDelay: '150ms' }}
-          >
-            <img 
-               src="/industrial-electronics-new.png"
-               alt="Security"
-               className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
-            />
-            
-            <div className="relative z-10">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl text-white mb-2 font-extrabold tracking-tighter uppercase">
-                Fortified
-              </h3>
-              <h3 className="text-lg sm:text-xl md:text-2xl text-accent mb-4 sm:mb-5 md:mb-6 font-medium italic opacity-80">
-                Encrypted Logistics Grid
-              </h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-white/90 text-[10px] font-bold uppercase tracking-widest">
-                  <div className="w-1.5 h-1.5 bg-accent" />
-                  <span>Redundant Core Processors</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90 text-[10px] font-bold uppercase tracking-widest">
-                  <div className="w-1.5 h-1.5 bg-accent" />
-                  <span>IMO Cyber Compliance 02.</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90 text-[10px] font-bold uppercase tracking-widest">
-                  <div className="w-1.5 h-1.5 bg-accent" />
-                  <span>Encrypted Satellite Uplink</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Right - Satellite / Bridge */}
-          <div 
-            className={`rounded-none p-10 flex flex-col justify-center relative overflow-hidden md:col-span-2 transition-all duration-1000 ease-out bg-white border border-border ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-            style={{ transitionDelay: '300ms' }}
-          >
-             <img 
-               src="/global-fleet-new.png"
-               alt="Logistics"
-               className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
-            />
-             <div className="absolute inset-0 bg-primary/20" />
-            
-            <div className="relative z-10 flex flex-col justify-center h-full text-left items-start">
-              <div className="inline-flex items-center justify-center w-14 h-14 mb-6 bg-primary text-white border border-white/20">
-                <Globe className="w-6 h-6" />
-              </div>
-              <h3 className="font-sans text-[10px] font-extrabold uppercase tracking-[0.4em] mb-2 text-white">
-                Global Operations
-              </h3>
-              <h3 className="text-3xl mb-2 text-white font-extrabold tracking-tight uppercase">
-                Enterprise Fleet Control
-              </h3>
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header HUD */}
+        <div className="flex justify-between items-end mb-16 border-b border-[#4988C4]/30 pb-6 relative">
+             <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#4988C4]" />
+             <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-[#4988C4]" />
+             
+             <div>
+                <span className="text-[#BDE8F5] font-black uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">System Status: Nominal</span>
+                <h2 className="text-4xl md:text-6xl font-black text-[#0B1F33] uppercase tracking-tighter leading-none">
+                  Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4988C4] to-[#BDE8F5]">capabilities</span>
+                </h2>
+             </div>
+             <div className="hidden md:block text-right">
+                <div className="text-[#BDE8F5]/60 font-mono text-xs mb-1">SEC_04 // CORE_SYSTEMS</div>
+                <div className="text-[#BDE8F5]/60 font-mono text-xs">V.2.0.24</div>
+             </div>
         </div>
 
-        <div 
-          ref={videoSectionRef}
-          className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center mt-12 sm:mt-16 md:mt-20">
-          {/* Static Image */}
-          <div 
-            className={`relative aspect-[3/4] rounded-none overflow-hidden transition-all duration-1000 ease-out border border-border shadow-[inset_0_0_60px_rgba(0,0,0,0.1)] ${
-              isVideoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-             <img 
-               src="/marine-automation-new.png"
-               alt="Automation"
-               className="absolute inset-0 w-full h-full object-cover brightness-75 hover:brightness-100 transition-all duration-1000"
-            />
-          </div>
-
-          {/* Content */}
-          <div
-            ref={headerRef}
-            className={`transition-all duration-1000 ease-out ${
-              isVideoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            <span className={`text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] uppercase text-accent font-bold mb-4 sm:mb-5 md:mb-6 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-              Engineering Discipline
-            </span>
-            <h2 className={`font-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl leading-tight text-primary mb-5 sm:mb-6 md:mb-8 text-balance uppercase tracking-tighter ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-              Precision at *every* knot.
-            </h2>
-            <p className={`text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 sm:mb-10 md:mb-12 max-w-md italic ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
-              Our systems are forged on open-architecture principles, enabling high-contrast integration with legacy marine bridge electronics.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="group p-5 sm:p-6 md:p-8 marine-transition border border-border/50 bg-white hover:bg-background">
-                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 mb-4 sm:mb-5 md:mb-6 group-hover:bg-primary group-hover:text-white marine-transition bg-background text-primary border border-border shadow-sm">
-                    <feature.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                  <h3 className="text-[9px] sm:text-[10px] font-extrabold text-primary uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-2">{feature.title}</h3>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed">{feature.description}</p>
+        {/* Dashboard Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            {/* Primary Visual Module */}
+            <div className="lg:col-span-2 bg-[#0E2A45]/50 border border-[#4988C4]/20 relative group overflow-hidden h-[500px]">
+                <img 
+                   src="/marine-automation-new.png" 
+                   alt="Marine Automation" 
+                   className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F33] via-transparent to-transparent" />
+                
+                {/* HUD Overlay Elements */}
+                <div className="absolute top-6 left-6 border border-[#4988C4]/40 px-3 py-1 bg-[#0B1F33]/80 backdrop-blur-sm">
+                   <span className="text-[#BDE8F5] font-mono text-xs tracking-widest">LIVE_FEED_01</span>
                 </div>
-              ))}
+                
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                   <div className="w-[80%] h-[80%] border border-[#BDE8F5]/20 relative">
+                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#4988C4]" />
+                      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#4988C4]" />
+                      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#4988C4]" />
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#4988C4]" />
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-black tracking-widest text-2xl uppercase">System Active</div>
+                   </div>
+                </div>
+
+                <div className="absolute bottom-8 left-8">
+                   <h3 className="text-3xl font-black text-[#0B1F33] uppercase leading-none mb-4 group-hover:text-primary transition-colors">Bridge Integration</h3>
+                   <p className="text-sm font-bold text-[#0B1F33]/70 leading-relaxed mb-8 border-l-2 border-primary/20 pl-4">Next-gen telemetry and automated control systems for seamless vessel operation.</p>
+                </div>
             </div>
-          </div>
+
+            {/* Secondary Visual Module */}
+            <div className="bg-white border border-[#4988C4]/20 relative group overflow-hidden h-[500px]">
+               <img 
+                   src="/industrial-electronics-new.png" 
+                   alt="Electronics" 
+                   className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+                />
+                 <div className="absolute top-6 right-6 flex flex-col items-end gap-1">
+                     <div className="w-16 h-1 bg-[#4988C4]/50" />
+                     <div className="w-10 h-1 bg-[#4988C4]/30" />
+                     <div className="w-4 h-1 bg-[#4988C4]/10" />
+                 </div>
+
+                 <div className="absolute bottom-8 left-8 right-8">
+                    <h3 className="text-2xl font-black text-[#0B1F33] uppercase tracking-tighter mb-2">Cyber Logic</h3>
+                    <p className="text-[#BDE8F5]/80 text-sm mb-6">IMO compliant secured data channels.</p>
+                    
+                    <div className="grid grid-cols-2 gap-2">
+                       <div className="bg-[#0B1F33]/60 p-2 text-center border border-[#4988C4]/20">
+                          <div className="text-[#4988C4] font-black text-xl">99.9</div>
+                          <div className="text-[9px] text-[#BDE8F5]/60 uppercase">Reliability</div>
+                       </div>
+                       <div className="bg-[#0B1F33]/60 p-2 text-center border border-[#4988C4]/20">
+                          <div className="text-[#4988C4] font-black text-xl">AES</div>
+                          <div className="text-[9px] text-[#BDE8F5]/60 uppercase">Encryption</div>
+                       </div>
+                    </div>
+                 </div>
+            </div>
+
         </div>
+
+        {/* Feature Data Grid */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, idx) => {
+               const Icon = feature.icon;
+               return (
+                 <div 
+                   key={idx}
+                   className="bg-[#0E2A45]/30 border border-[#4988C4]/10 p-6 relative group hover:bg-[#0E2A45]/80 transition-all duration-300 hover:border-[#4988C4]/50"
+                 >
+                    <div className="flex justify-between items-start mb-4">
+                       <div className="p-3 bg-[#0B1F33] border border-[#4988C4]/20 group-hover:border-[#4988C4] transition-colors">
+                          <Icon className="w-6 h-6 text-white group-hover:text-[#4988C4] transition-colors" />
+                       </div>
+                       <span className="font-mono text-[10px] text-[#4988C4]/40 group-hover:text-[#4988C4] transition-colors">0{idx + 1}</span>
+                    </div>
+                    
+                    <h4 className="text-white font-black uppercase tracking-widest text-sm mb-2">{feature.title}</h4>
+                    <p className="text-[#BDE8F5]/60 text-xs leading-relaxed mb-4 min-h-[48px]">{feature.description}</p>
+                    
+                    <div className="border-t border-[#4988C4]/10 pt-3 flex justify-between items-center">
+                          <span className="text-[10px] font-bold text-[#0B1F33]/50 uppercase tracking-widest">{feature.title}</span>
+                       <span className="text-[9px] text-[#4988C4] font-black uppercase tracking-widest bg-[#4988C4]/10 px-2 py-1">{feature.stat}</span>
+                    </div>
+
+                    {/* Corner accents */}
+                    <div className="absolute top-0 right-0 w-0 h-0 border-t-[8px] border-r-[8px] border-t-[#4988C4]/20 border-r-transparent group-hover:border-t-[#4988C4] transition-all" />
+                    <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[8px] border-l-[8px] border-b-[#4988C4]/20 border-l-transparent group-hover:border-b-[#4988C4] transition-all" />
+                 </div>
+               )
+            })}
+        </div>
+
       </div>
     </section>
   )
 }
+
 

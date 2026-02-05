@@ -68,7 +68,7 @@ export default function AdminCategoryPage() {
   return (
     <div className="max-w-4xl space-y-12">
       <div className="border-b border-border pb-8">
-        <h1 className="text-3xl font-bold text-primary uppercase tracking-tighter">Sector Management</h1>
+        <h1 className="text-3xl font-bold text-[#0B1F33] uppercase tracking-tighter">Sector Management</h1>
         <p className="text-xs font-bold text-accent uppercase tracking-[0.3em] mt-2">Classify Fleet Inventory & Components</p>
       </div>
 
@@ -79,7 +79,7 @@ export default function AdminCategoryPage() {
       )}
 
       <div className="bg-white p-10 border border-border">
-         <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-8">Register New Sector</h2>
+         <h2 className="text-sm font-bold uppercase tracking-widest text-[#0B1F33] mb-8">Register New Sector</h2>
          <form onSubmit={handleAddCategory} className="flex gap-4">
             <input 
               type="text" 
@@ -98,7 +98,7 @@ export default function AdminCategoryPage() {
       <div className="bg-white border border-border shadow-2xl">
          <table className="w-full text-left">
             <thead>
-               <tr className="bg-primary text-white text-[10px] font-bold uppercase tracking-widest">
+               <tr className="bg-[#0B1F33] text-white text-[10px] font-bold uppercase tracking-widest">
                   <th className="py-5 px-8">Sector Designation</th>
                   <th className="py-5 px-8 text-right">Operations</th>
                </tr>
@@ -119,7 +119,7 @@ export default function AdminCategoryPage() {
                                 onKeyDown={(e) => e.key === 'Enter' && handleUpdateCategory(cat._id)}
                               />
                            ) : (
-                              <span className="text-sm font-bold text-primary uppercase tracking-tight">{cat.name}</span>
+                              <span className="text-sm font-bold text-[#0B1F33] uppercase tracking-tight">{cat.name}</span>
                            )}
                         </div>
                      </td>

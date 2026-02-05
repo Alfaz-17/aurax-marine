@@ -52,8 +52,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      details: ["sales@coronamarineparts.com"],
-      action: "mailto:sales@coronamarineparts.com",
+      details: ["info@auraxmarine.com"],
+      action: "mailto:info@auraxmarine.com",
     },
     {
       icon: MapPin,
@@ -76,15 +76,16 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[60dvh] pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 flex items-center justify-center bg-primary overflow-hidden">
+      <section className="relative min-h-[60dvh] pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 flex items-center justify-center bg-black overflow-hidden">
         <div className="absolute inset-0">
            <Image 
             src="/contact-hero.png" 
             alt="Contact" 
             fill
             priority
-            className="object-cover opacity-20"
+            className="object-cover opacity-20 mix-blend-multiply"
           />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4 sm:px-6">
           <motion.div
@@ -92,24 +93,24 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-extrabold uppercase tracking-tighter mb-3 sm:mb-4">
-              Contact Us
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-black uppercase tracking-tighter mb-3 sm:mb-4">
+              Get in <span className="text-primary italic">Touch</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-accent font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-6 sm:mb-8 max-w-2xl mx-auto">
-              Marine Spare Parts & Technical Support
+            <p className="text-sm sm:text-base md:text-lg text-primary font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-6 sm:mb-8 max-w-2xl mx-auto border-l-2 border-primary pl-6">
+              Marine Engine & Machinery Spares Worldwide
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <a
                 href="tel:+919376502550"
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-accent text-white font-bold uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-primary transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-all"
               >
-                Call Now
+                Direct Line
               </a>
               <a
                 href="#contact-form"
-                className="px-6 sm:px-8 py-3 sm:py-4 border border-white/30 text-white font-bold uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-primary transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-4 border border-white/30 text-white font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-all"
               >
-                Get Quote
+                Send Query
               </a>
             </div>
           </motion.div>
@@ -122,20 +123,20 @@ export default function ContactPage() {
           
           {/* Contact Details */}
           <div className="lg:col-span-1 space-y-8">
-            <h2 className="text-3xl font-bold text-primary mb-8 border-b-2 border-accent pb-4 inline-block">Contact Info</h2>
+            <h2 className="text-3xl font-black text-black mb-8 border-b-2 border-primary pb-4 inline-block uppercase tracking-tighter">Contact Info</h2>
             <div className="grid grid-cols-1 gap-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex gap-6 p-6 bg-muted/20 border border-border group hover:border-accent transition-colors">
-                  <div className="w-12 h-12 bg-primary text-white flex items-center justify-center shrink-0 group-hover:bg-accent transition-colors">
+                <div key={index} className="flex gap-6 p-6 bg-black/5 border border-black/10 group hover:border-primary transition-colors">
+                  <div className="w-12 h-12 bg-black text-white flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
                     <info.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-primary uppercase text-sm mb-2">{info.title}</h3>
+                    <h3 className="font-black text-black uppercase text-sm mb-2">{info.title}</h3>
                     <div className="space-y-1">
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-muted-foreground">
+                        <p key={idx} className="text-black/70 font-medium">
                           {info.action && idx === 0 ? (
-                            <a href={info.action} className="hover:text-accent font-medium">
+                            <a href={info.action} className="hover:text-primary transition-colors italic">
                               {detail}
                             </a>
                           ) : detail}
@@ -148,29 +149,31 @@ export default function ContactPage() {
             </div>
 
             {/* Emergency Service */}
-            <div className="mt-12 p-8 bg-red-50 border-l-4 border-red-600 shadow-sm">
-                <h3 className="text-xl font-bold text-red-700 mb-4 uppercase tracking-wider">
+            <div className="mt-12 p-8 bg-black text-white border-l-4 border-primary shadow-sm">
+                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-wider">
                   Emergency Support
                 </h3>
-                <p className="text-red-600/80 mb-6 italic">
+                <p className="text-white/60 mb-6 italic border-b border-white/10 pb-4">
                   Available 24/7 for urgent marine assistance and emergency repairs.
                 </p>
-                <a href="tel:+919376502550" className="inline-flex items-center text-red-700 font-bold hover:gap-4 transition-all">
+                <a href="tel:+919376502550" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
                    <Phone className="w-4 h-4 mr-2" /> CALL EMERGENCY HOTLINE
                 </a>
             </div>
           </div>
 
+
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white p-10 border border-border shadow-2xl relative">
-              <h2 className="text-3xl font-bold text-primary mb-10">Send a Query</h2>
+            <div className="bg-white p-10 border border-black/10 shadow-2xl relative">
+              <h2 className="text-3xl font-black text-black mb-10 uppercase tracking-tighter">Send Query</h2>
+
               
               {status === "success" ? (
                 <div className="text-center py-20 bg-accent/10 rounded-xl">
                   <CheckCircle className="w-20 h-20 text-accent mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-primary mb-2">Inquiry Received</h3>
-                  <p className="text-muted-foreground">Our engineering team will review your requirements and respond within 24 hours.</p>
+                  <h3 className="text-2xl font-bold text-primary mb-2">Technical Inquiry Received</h3>
+                  <p className="text-muted-foreground">Our technical team will review your requirements and respond with a formal quotation within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -234,13 +237,13 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-border focus:border-accent outline-none bg-muted/10 h-40 resize-none"
                       required
-                      placeholder="List automation systems or spare parts required..."
+                      placeholder="List engine models or spare parts required (e.g., MAN B&W S50MC Cylinder Liner)..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-primary text-white font-bold uppercase tracking-widest hover:bg-accent transition-all flex items-center justify-center gap-4"
+                    className="w-full py-4 bg-black text-white font-black uppercase tracking-widest hover:bg-primary transition-all flex items-center justify-center gap-4"
                     disabled={status === "loading"}
                   >
                     {status === "loading" ? "TRANSMITTING..." : (
@@ -250,6 +253,7 @@ export default function ContactPage() {
                       </>
                     )}
                   </button>
+
 
                   {status === "error" && (
                     <p className="text-red-500 font-bold text-center mt-4 uppercase text-xs tracking-widest">
@@ -276,38 +280,40 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white relative overflow-hidden">
+      <section className="py-20 bg-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
         <div className="container mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 uppercase tracking-tight">
-              Ready to Get Started?
+            <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tighter leading-none">
+              Ready to <span className="text-primary italic">Overhaul</span>?
             </h2>
-            <p className="text-xl mb-10 text-white/70 max-w-2xl mx-auto">
-              Contact our marine experts today for a free consultation
+            <p className="text-xl mb-10 text-white/70 max-w-2xl mx-auto italic border-b border-white/10 pb-6">
+              Contact our marine experts today for a technical consultation
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
                 href="tel:+919376502550" 
-                className="px-10 py-5 bg-accent text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-primary transition-all flex items-center justify-center gap-3"
+                className="px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-3"
               >
                 <Phone className="w-5 h-5" />
-                Call Now
+                Direct Hotline
               </a>
               <a 
                 href="#contact-form" 
-                className="px-10 py-5 border border-white/30 text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-primary transition-all flex items-center justify-center gap-3"
+                className="px-10 py-5 border border-white/30 text-white font-black uppercase tracking-widest text-xs hover:bg-primary hover:border-transparent transition-all flex items-center justify-center gap-3"
               >
                 <Send className="w-5 h-5" />
-                Get Quote
+                Request Quote
               </a>
             </div>
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 }

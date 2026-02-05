@@ -9,40 +9,41 @@ export default function AboutPage() {
   const values = [
     {
       icon: Shield,
-      title: 'Quality Assurance',
-      description: 'We maintain the highest standards in all our products and services'
+      title: 'No Compromise Quality',
+      description: 'We prioritize technical accuracy and rigorous inspection for every component supplied.'
     },
     {
       icon: Users,
-      title: 'Customer Focus',
-      description: 'Your success is our priority, and we work to exceed your expectations'
+      title: 'Technical Expertise',
+      description: 'Deep specialization in MAN B&W and Sulzer engine machinery and auxiliary systems.'
     },
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'Continuous improvement and innovation drive our commitment to excellence'
+      title: '20+ Year Legacy',
+      description: 'Backed by the experience of our sister company, Spice Ship Supplier.'
     },
     {
       icon: Globe,
-      title: 'Global Reach',
-      description: 'Serving maritime professionals worldwide with reliable solutions'
+      title: 'Global Export',
+      description: 'Supporting ship managers and repair yards with fast international logistics.'
     }
   ];
 
   return (
     <div className="font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[55dvh] pt-28 sm:pt-32 md:pt-36 flex items-center justify-center overflow-hidden bg-primary">
+      <section className="relative min-h-[55dvh] pt-28 sm:pt-32 md:pt-36 flex items-center justify-center overflow-hidden bg-black">
          <div className="absolute inset-0 z-0">
           <Image 
-            src="/about-hero.png" 
-            alt="About Corona Marine" 
+            src="/about-hero-new.png" 
+            alt="About AURAX Marine" 
             fill
             priority
             className="object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40" />
         </div>
+
 
         <div className="relative z-10 text-center px-4 sm:px-6">
           <motion.div
@@ -51,21 +52,22 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-accent tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm font-bold mb-3 sm:mb-4 block">Our Legacy</span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-bold text-white uppercase tracking-wider mb-4 sm:mb-6">
-              About Corona Marine Parts
+            <span className="text-primary tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm font-black mb-3 sm:mb-4 block">Proven Experience</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-black text-white uppercase tracking-tighter mb-4 sm:mb-6 leading-none">
+              About <span className="bg-white text-black px-2 sm:px-4">AURAX</span> <span className="text-primary italic">Marine</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto">
-              Your Premier Partner for Marine Automation & Spare Parts
+            <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl mx-auto italic font-medium border-l-2 border-primary pl-6">
+              The Engine Room Specialists for the Global Maritime Fleet
             </p>
           </motion.div>
         </div>
+
       </section>
 
-      {/* Company Profile */}
+      {/* Company Profile & Legacy */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -73,30 +75,23 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase text-accent font-bold mb-3 sm:mb-4 font-sans">Corporate Identity</h2>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-primary mb-5 sm:mb-6 md:mb-8 tracking-tighter uppercase">
-                About Corona Marine Parts
+              <h2 className="text-[10px] tracking-[0.4em] uppercase text-black/40 font-black mb-3 sm:mb-4 font-sans">Our Legacy</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-black text-black mb-5 sm:mb-6 md:mb-8 tracking-tighter uppercase leading-none">
+                Carrying the <span className="text-primary italic">Legacy</span> Forward
               </h3>
-              <div className="space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed italic">
+              <div className="space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg text-black/70 leading-relaxed font-medium">
                 <p>
-                  Corona Marine Parts is a marine spare parts supplier dedicated to supporting the maritime industry with dependable equipment and solutions. We work closely with vessel operators, ship managers, and marine engineers to deliver the right parts at the right time.
+                  <strong>Aurax Marine Solutions</strong> is proud to be a sister company of <strong>Spice Ship Supplier</strong>, a name that has been actively serving the maritime industry for over 20 years.
                 </p>
                 <p>
-                  Our expertise covers marine machinery spares, automation systems, navigation equipment, engine room components, and deck machinery. By focusing on accuracy, transparency, and efficiency, Corona Marine Parts has built long-term relationships with marine professionals worldwide.
+                  For more than two decades, Spice Ship Supplier has supported ship owners, fleet operators, and technical management teams by providing dependable ship supplies and machinery-related solutions. The company’s growth has been driven by a deep understanding of shipboard operations, strict attention to quality, and an uncompromising work ethic.
                 </p>
                 <p>
-                   We are committed to maintaining high standards in marine supply services while ensuring smooth communication and fast response for urgent requirements.
+                  Building on this strong foundation, <strong>Aurax Marine Solutions</strong> was established with a focused vision—to specialize in marine engines, machinery spares, and power solutions for ocean-going vessels and auxiliary systems. While our foundation is rooted in proven marine service history, our outlook is global, responsive, and technically driven.
                 </p>
-              </div>
-              <div className="mt-10">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-bold text-sm uppercase tracking-wider hover:bg-primary transition-all shadow-lg"
-                >
-                  Get In Touch
-                </Link>
               </div>
             </motion.div>
+
 
             {/* Right Image */}
             <motion.div
@@ -104,72 +99,85 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="relative mt-8 lg:mt-0"
             >
               <Image
-                src="/spare-parts.png"
-                alt="Marine Spare Parts Warehouse"
+                src="/spare-parts-new.png"
+                alt="AURAX Marine Technical Inventory"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-2xl border border-border"
+                className="shadow-2xl border border-black/10 grayscale hover:grayscale-0 transition-all duration-1000"
               />
-              <div className="absolute -bottom-6 -left-6 bg-accent p-8 rounded-xl hidden md:block">
-                <span className="text-4xl font-bold text-white block">15+</span>
-                <span className="text-white/80 text-sm uppercase tracking-wider">Years of Excellence</span>
+              <div className="absolute -bottom-6 -right-6 bg-black p-8 hidden md:block border border-white/10">
+                <span className="text-4xl font-black text-primary block">20+</span>
+                <span className="text-white/60 text-[10px] uppercase font-black tracking-widest block mt-2">Years of Mastery</span>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-primary">
+      {/* Core Product Offerings */}
+      <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <motion.div
+           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-sm tracking-[0.3em] uppercase text-accent font-bold mb-4">Values</h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-wide">
-              Our Core Principles
+            <h2 className="text-[10px] tracking-[0.4em] uppercase text-white/60 font-black mb-4">Inventory & Capabilities</h2>
+            <h3 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter leading-none">
+              Core Product <span className="bg-white text-black px-4 italic font-medium">Offerings</span>
             </h3>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              The foundations that drive our commitment to the maritime industry.
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-accent/50 transition-all group"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto">
+            <ul className="space-y-4">
+              {[
+                "Main Engines (2-Stroke & 4-Stroke) and their components",
+                "Auxiliary Engines / D.G. Sets and spare parts",
+                "Air Compressors and associated parts",
+                "AC, Fridge, and Screw Compressors",
+                "Oil Purifiers"
+              ].map((item, i) => (
+                <motion.li 
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex items-center gap-4 text-lg md:text-xl font-medium border-b border-white/10 pb-4"
                 >
-                  <div className="w-14 h-14 bg-accent/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
-                    <Icon className="w-7 h-7 text-accent group-hover:text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">
-                    {value.title}
-                  </h4>
-                  <p className="text-white/60 leading-relaxed">
-                    {value.description}
-                  </p>
-                </motion.div>
-              );
-            })}
+                  <span className="text-primary bg-white w-8 h-8 flex items-center justify-center font-black text-sm rounded-none">{i + 1}</span>
+                  {item}
+                </motion.li>
+              ))}
+            </ul>
+            <ul className="space-y-4">
+               {[
+                "Sea Water, Fresh Water, and Oil Pumps",
+                "Heat Exchangers, Water Coolers, and Oil Coolers",
+                "Fresh Water Generators",
+                "Derrick & Hydraulic Cranes, Hydraulic Motors, and Pumps",
+                "Deck Equipment"
+              ].map((item, i) => (
+                <motion.li 
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex items-center gap-4 text-lg md:text-xl font-medium border-b border-white/10 pb-4"
+                >
+                  <span className="text-primary bg-white w-8 h-8 flex items-center justify-center font-black text-sm rounded-none">{i + 6}</span>
+                  {item}
+                </motion.li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Why Corona Marine Parts? */}
+      {/* Engine & Machinery Experience */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div
@@ -178,48 +186,87 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-[10px] tracking-[0.4em] uppercase text-accent font-bold mb-4">Strategic Advantage</h2>
-            <h3 className="text-4xl md:text-6xl font-extrabold text-primary mb-6 uppercase tracking-tighter">
-              Why Partner With Us?
+            <h2 className="text-[10px] tracking-[0.4em] uppercase text-primary font-black mb-4">Technical Expertise</h2>
+            <h3 className="text-4xl md:text-6xl font-black text-black mb-6 uppercase tracking-tighter leading-none">
+              Engine & Machinery <span className="text-primary italic font-medium">Experience</span>
             </h3>
+            <p className="text-lg text-black/60 max-w-3xl mx-auto italic border-l-2 border-primary/40 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
+               Our combined experience covers a wide range of low-speed and medium-speed marine engines, assisting routine maintenance and urgent breakdowns.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Premium Quality */}
-            <div className="p-12 border border-border group hover:border-accent transition-all duration-700">
-              <div className="w-16 h-16 bg-muted flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                <Shield className="w-8 h-8 text-accent group-hover:text-white" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* MAN B&W */}
+            <div className="p-8 sm:p-12 border border-black/10 group hover:border-primary transition-all duration-700 bg-gray-50">
+              <div className="w-16 h-16 bg-black flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                <Shield className="w-8 h-8 text-white" />
               </div>
-              <h4 className="text-xl font-bold text-primary mb-6 uppercase tracking-tight">Premium Quality</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed italic">
-                We supply unused and surplus part inventories sourced from trusted channels. Every component undergoes rigorous inspection to ensure it delivers peak performance in high-stakes environments.
+              <h4 className="text-xl sm:text-2xl font-black text-black mb-6 uppercase tracking-widest">Sulzer / MAN B&W Low-Speed</h4>
+              <ul className="space-y-3 mb-6">
+                 <li className="flex items-center gap-3 text-black/70 font-medium"><span className="w-1.5 h-1.5 bg-primary rounded-full" /> S50MC (Primary Focus)</li>
+                 <li className="flex items-center gap-3 text-black/70 font-medium"><span className="w-1.5 h-1.5 bg-primary rounded-full" /> S60MC, S70MC, S35MC</li>
+                 <li className="flex items-center gap-3 text-black/70 font-medium"><span className="w-1.5 h-1.5 bg-primary rounded-full" /> 45LA and 52LA series engines</li>
+              </ul>
+              <p className="text-sm text-black/60 leading-relaxed italic border-t border-black/10 pt-6">
+                Supplying cylinder liners, pistons, fuel system parts, bearings, and valves for bulk carriers and tankers.
               </p>
             </div>
 
-            {/* Around the Globe */}
-            <div className="p-12 border border-border group hover:border-accent transition-all duration-700">
-              <div className="w-16 h-16 bg-muted flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                <Globe className="w-8 h-8 text-accent group-hover:text-white" />
-              </div>
-              <h4 className="text-xl font-bold text-primary mb-6 uppercase tracking-tight">Around the Globe</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed italic">
-                Strategic partnerships help us connect customers with global offices and support. No matter where your fleet is located, we ensure a seamless and efficient supply chain.
-              </p>
-            </div>
 
-            {/* 24/7 Support */}
-            <div className="p-12 border border-border group hover:border-accent transition-all duration-700">
-              <div className="w-16 h-16 bg-muted flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                <Clock className="w-8 h-8 text-accent group-hover:text-white" />
+            {/* Daihatsu */}
+            <div className="p-8 sm:p-12 border border-black/10 group hover:border-primary transition-all duration-700 bg-gray-50">
+              <div className="w-16 h-16 bg-black flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                <Award className="w-8 h-8 text-white" />
               </div>
-              <h4 className="text-xl font-bold text-primary mb-6 uppercase tracking-tight">24/7 Support</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed italic">
-                Dedicated after-sales support is available round-the-clock to assist our clients. Our engineering team is always ready to provide technical guidance and minimize vessel downtime.
+              <h4 className="text-xl sm:text-2xl font-black text-black mb-6 uppercase tracking-widest">Daihatsu Engines & Gensets</h4>
+               <ul className="space-y-3 mb-6">
+                 <li className="flex items-center gap-3 text-black/70 font-medium"><span className="w-1.5 h-1.5 bg-primary rounded-full" /> Daihatsu DK20 series diesel generator sets</li>
+                 <li className="flex items-center gap-3 text-black/70 font-medium"><span className="w-1.5 h-1.5 bg-primary rounded-full" /> Auxiliary engines for power & emergency systems</li>
+              </ul>
+              <p className="text-sm text-black/60 leading-relaxed italic border-t border-black/10 pt-6">
+                Emphasizing accuracy in part identification and proper documentation for uninterrupted onboard power.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Quality Without Compromise */}
+      <section className="py-24 bg-black text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 skew-x-12 translate-x-1/2 pointer-events-none" />
+        
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl">
+            <h2 className="text-[10px] tracking-[0.4em] uppercase text-primary font-black mb-6">Our Promise</h2>
+            <h3 className="text-4xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter leading-none">
+              Quality Without <br/> <span className="text-primary italic">Compromise</span>
+            </h3>
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-6 font-medium">
+              Across all engine types and machinery categories, one principle remains constant: we do not compromise on quality or workmanship.
+            </p>
+            <p className="text-base text-white/50 leading-relaxed italic border-l-2 border-primary/40 pl-6 max-w-2xl">
+              Every supply is approached with the understanding that vessel downtime is costly and safety-critical. From sourcing and inspection to packing and dispatch, each step is handled with responsibility and technical awareness.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 border-t border-white/10 pt-12">
+               <div>
+                  <h4 className="text-white font-black uppercase tracking-widest mb-2">New OEM Alternative</h4>
+                  <p className="text-xs text-white/40">Cost-effective, high-performance replacements.</p>
+               </div>
+               <div>
+                  <h4 className="text-white font-black uppercase tracking-widest mb-2">Reconditioned</h4>
+                  <p className="text-xs text-white/40">With full inspection reports & measurements.</p>
+               </div>
+               <div>
+                  <h4 className="text-white font-black uppercase tracking-widest mb-2">Ready Stock</h4>
+                  <p className="text-xs text-white/40">Fast delivery for urgent requirements.</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

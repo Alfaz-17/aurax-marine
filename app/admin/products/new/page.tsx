@@ -52,57 +52,7 @@ export default function AdminProductFormPage() {
     }));
   };
 
-  const [isAiEnabled, setIsAiEnabled] = useState(true);
-  const [isAiAnalyzing, setIsAiAnalyzing] = useState(false);
 
-  const analyzeImage = async (file: File) => {
-    if (!isAiEnabled) return;
-    
-    setIsAiAnalyzing(true);
-    setMessage({ type: 'info', text: 'Analyzing image with AI...' });
-
-    try {
-      const formData = new FormData();
-      formData.append('image', file);
-      
-      const categoryNames = categories.map(c => c.name);
-      formData.append('categories', JSON.stringify(categoryNames));
-
-      const response = await fetch('/api/ai/analyze', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) throw new Error('AI analysis failed');
-
-      const data = await response.json();
-
-      setFormData(prev => ({
-        ...prev,
-        title: data.title || prev.title,
-        description: data.description || prev.description,
-        price: data.price ? data.price.toString() : prev.price,
-      }));
-
-      if (data.categoryName && categories.length > 0) {
-        const matchedCategory = categories.find(cat => 
-          cat.name.toLowerCase() === data.categoryName.toLowerCase() ||
-          cat.name.toLowerCase().includes(data.categoryName.toLowerCase()) ||
-          data.categoryName.toLowerCase().includes(cat.name.toLowerCase())
-        );
-        if (matchedCategory) {
-          setFormData(prev => ({ ...prev, category: matchedCategory._id }));
-        }
-      }
-
-      setMessage({ type: 'success', text: 'AI analysis complete! Fields auto-populated.' });
-    } catch (error) {
-      console.error('AI Analysis Error:', error);
-      setMessage({ type: 'error', text: 'AI analysis failed. Please fill details manually.' });
-    } finally {
-      setIsAiAnalyzing(false);
-    }
-  };
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -132,9 +82,7 @@ export default function AdminProductFormPage() {
     if (cropTarget.type === 'main') {
       setImageFile(croppedFile);
       setImagePreview(URL.createObjectURL(croppedFile));
-      if (isAiEnabled) {
-        await analyzeImage(croppedFile);
-      }
+
     } else {
       setImagesFile(prev => [...prev, croppedFile]);
       setImagePreviews(prev => [...prev, URL.createObjectURL(croppedFile)]);
@@ -216,19 +164,7 @@ export default function AdminProductFormPage() {
            <div className="bg-white p-10 border border-border space-y-6">
               <div className="flex items-center justify-between border-b border-border pb-4 mb-2">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-primary">Main Image</h2>
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">AI Analysis</span>
-                  <button
-                    type="button"
-                    onClick={() => setIsAiEnabled(!isAiEnabled)}
-                    className={`w-10 h-5 rounded-full p-1 transition-colors ${isAiEnabled ? 'bg-accent' : 'bg-gray-200'}`}
-                  >
-                    <motion.div
-                      animate={{ x: isAiEnabled ? 20 : 0 }}
-                      className="w-3 h-3 bg-white rounded-full shadow-sm"
-                    />
-                  </button>
-                </div>
+
               </div>
 
               <div className="space-y-6">
@@ -243,16 +179,7 @@ export default function AdminProductFormPage() {
                           >
                             <X className="w-4 h-4" />
                           </button>
-                          {isAiEnabled && (
-                            <button
-                               type="button"
-                               disabled={isAiAnalyzing}
-                               onClick={() => imageFile && analyzeImage(imageFile)}
-                               className="bg-primary/80 p-2 text-white backdrop-blur-sm disabled:opacity-50"
-                             >
-                               <Plus className="w-4 h-4 rotate-45" />
-                             </button>
-                           )}
+
                            <button
                              type="button"
                              onClick={() => imagePreview && setCropTarget({ type: 'main', url: imagePreview })}
@@ -261,22 +188,13 @@ export default function AdminProductFormPage() {
                              <Crop className="w-4 h-4" />
                            </button>
                        </div>
-                       {isAiAnalyzing && (
-                         <div className="absolute inset-0 bg-white/80 flex flex-col items-center justify-center gap-3">
-                            <motion.div 
-                              animate={{ rotate: 360 }} 
-                              transition={{ repeat: Infinity, duration: 1, ease: "linear" }} 
-                              className="w-8 h-8 border-2 border-primary/20 border-t-primary rounded-full" 
-                            />
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Analyzing...</span>
-                         </div>
-                       )}
+
                     </div>
                  ) : (
                     <label className="block w-full border-2 border-dashed border-border py-12 text-center cursor-pointer bg-muted/10">
                        <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-4" />
                        <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Upload Main Product Image</span>
-                       <p className="text-[8px] text-muted-foreground mt-2 uppercase tracking-tighter">AI will analyze this to fill details</p>
+
                        <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                     </label>
                  )}
@@ -327,7 +245,7 @@ export default function AdminProductFormPage() {
                   <input
                     name="title"
                     placeholder="Enter product name"
-                    className={`w-full px-4 py-4 bg-muted/20 border outline-none text-xs transition-colors ${isAiAnalyzing ? 'border-accent' : 'border-border focus:border-accent'}`}
+                    className={`w-full px-4 py-4 bg-muted/20 border outline-none text-xs transition-colors border-border focus:border-accent`}
                     value={formData.title}
                     onChange={handleChange}
                     required
@@ -394,7 +312,7 @@ export default function AdminProductFormPage() {
         <div className="flex justify-end">
           <button
             type="submit"
-            disabled={isLoading || isUploading || isAiAnalyzing}
+            disabled={isLoading || isUploading}
             className="w-full lg:w-1/2 py-5 bg-primary text-white font-bold uppercase tracking-[0.3em] text-xs hover:bg-accent transition-all shadow-2xl flex items-center justify-center gap-4 disabled:opacity-70"
           >
             {isLoading || isUploading ? (

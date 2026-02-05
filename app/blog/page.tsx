@@ -38,9 +38,9 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen pb-20">
       {/* Hero Section */}
-      <section className="relative h-[50vh] pt-32 flex items-center justify-center bg-primary overflow-hidden">
-         <div className="absolute inset-0 z-0 text-white/5 font-serif text-[15rem] leading-none select-none pointer-events-none">
-            BLOG
+      <section className="relative h-[50vh] pt-32 flex items-center justify-center bg-black overflow-hidden">
+         <div className="absolute inset-0 z-0 text-white/5 font-sans text-[15rem] font-black leading-none select-none pointer-events-none uppercase">
+            AURAX
          </div>
         <div className="relative z-10 text-center text-white px-6">
           <motion.div
@@ -49,10 +49,10 @@ export default function BlogPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-6">
-              Industry Insights
+            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">
+              Industry <span className="bg-white text-black px-4">Insights</span>
             </h1>
-            <p className="text-xl text-accent font-medium uppercase tracking-widest max-w-2xl mx-auto">
+            <p className="text-xl text-primary font-black uppercase tracking-widest max-w-2xl mx-auto border-l-2 border-primary pl-6 italic">
               Latest news, technical guides, and tips from the maritime world
             </p>
           </motion.div>
@@ -88,19 +88,20 @@ export default function BlogPage() {
                   <img src={filteredBlogs[0].image} alt={filteredBlogs[0].title} className="w-full h-full object-cover" />
                </div>
                <div>
-                  <div className="flex items-center gap-4 text-accent text-xs font-bold uppercase tracking-widest mb-6">
-                     <Calendar className="w-4 h-4" />
-                     {new Date(filteredBlogs[0].date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </div>
-                  <h2 className="text-4xl font-bold text-primary mb-6 leading-tight uppercase tracking-tight">
-                    {filteredBlogs[0].title}
-                  </h2>
-                  <p className="text-lg text-muted-foreground italic mb-8 leading-relaxed">
-                    {filteredBlogs[0].excerpt}
-                  </p>
-                  <Link href={`/blog/${filteredBlogs[0]._id}`} className="px-8 py-4 bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-accent transition-colors inline-block">
-                     Read Article
-                  </Link>
+                   <div className="flex items-center gap-4 text-primary text-xs font-black uppercase tracking-widest mb-6">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(filteredBlogs[0].date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+                   </div>
+                   <h2 className="text-4xl font-black text-black mb-6 leading-tight uppercase tracking-tight">
+                     {filteredBlogs[0].title}
+                   </h2>
+                   <p className="text-lg text-black/70 italic mb-8 leading-relaxed border-l-2 border-primary/20 pl-6">
+                     {filteredBlogs[0].excerpt}
+                   </p>
+                   <Link href={`/blog/${filteredBlogs[0]._id}`} className="px-8 py-4 bg-black text-white text-xs font-black uppercase tracking-widest hover:bg-primary transition-colors inline-block border border-white/10">
+                      Read Article
+                   </Link>
+
                </div>
             </motion.article>
 
@@ -117,19 +118,20 @@ export default function BlogPage() {
                      <div className="aspect-[16/10] relative overflow-hidden mb-6 shadow-lg border border-border">
                         <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                      </div>
-                     <div className="flex items-center gap-4 text-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-                        <Calendar className="w-3 h-3" />
-                        {new Date(blog.date).toLocaleDateString()}
-                     </div>
-                     <h3 className="text-xl font-bold text-primary mb-4 uppercase tracking-tight group-hover:text-accent transition-colors leading-snug">
-                       <Link href={`/blog/${blog._id}`}>{blog.title}</Link>
-                     </h3>
-                     <p className="text-muted-foreground text-sm line-clamp-2 italic mb-6">
-                       {blog.excerpt}
-                     </p>
-                     <Link href={`/blog/${blog._id}`} className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary hover:gap-4 transition-all">
-                        Explore <ArrowRight className="w-4 h-4 text-accent" />
-                     </Link>
+                      <div className="flex items-center gap-4 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                         <Calendar className="w-3 h-3" />
+                         {new Date(blog.date).toLocaleDateString()}
+                      </div>
+                      <h3 className="text-xl font-black text-black mb-4 uppercase tracking-tight group-hover:text-primary transition-colors leading-snug">
+                        <Link href={`/blog/${blog._id}`}>{blog.title}</Link>
+                      </h3>
+                      <p className="text-black/60 text-sm line-clamp-2 italic mb-6 border-l border-primary/10 pl-4">
+                        {blog.excerpt}
+                      </p>
+                      <Link href={`/blog/${blog._id}`} className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-black hover:text-primary hover:gap-4 transition-all">
+                         Explore <ArrowRight className="w-4 h-4 text-primary" />
+                      </Link>
+
                   </motion.article>
                ))}
             </div>

@@ -1,8 +1,12 @@
-
-const mongoose = require('mongoose');
+require('dotenv').config();
 
 async function checkData() {
-  const MONGODB_URI = "mongodb+srv://alfazkerroudji:alfaz@cluster0.puz4v.mongodb.net/corona-marine?retryWrites=true&w=majority";
+  const MONGODB_URI = process.env.DB_URI;
+  
+  if (!MONGODB_URI) {
+    console.error("Error: DB_URI not found in environment variables.");
+    process.exit(1);
+  }
   
   try {
     console.log("Connecting to database...");

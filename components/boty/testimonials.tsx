@@ -9,72 +9,72 @@ const testimonials = [
     name: "Chief Eng. Elias V.",
     location: "Global Shipping Corp",
     rating: 5,
-    text: "The reconditioned hydraulic units from Corona Marine exceeded OEM specs. Their technical team understands the urgency of vessel downtime.",
-    product: "Hydraulic Systems"
+    text: "The MAN B&W S50MC Piston Crowns supplied by AURAX Marine were technically flawless. Their attention to documentation for critical engine parts is impressive.",
+    product: "S50MC Spares"
   },
   {
     id: 2,
     name: "Thomas L.",
     location: "Port of Singapore",
     rating: 5,
-    text: "Sourcing navigation electronics from Alang can be risky, but Corona's certification process gives us total peace of mind. Quality is unmatched.",
-    product: "Radar Systems"
+    text: "Finding reliable Daihatsu DK20 components is a challenge, but AURAX has a proven inventory. Every part arrived with detailed inspection photography.",
+    product: "Daihatsu Spares"
   },
   {
     id: 3,
     name: "Marcus R.",
     location: "Rotterdam Logistics",
     rating: 5,
-    text: "Unrivaled inventory of legacy spares. They found a part for our 20-year-old automation system when no one else could in 48 hours.",
-    product: "Legacy Automation"
+    text: "Unrivaled stock of fuel injection equipment. They dispatched an S60MC fuel pump set within 24 hours to our vessel in the North Sea.",
+    product: "Fuel Pumps"
   },
   {
     id: 4,
     name: "Sarah K.",
     location: "Maritime Solutions LLC",
     rating: 5,
-    text: "Reliable, robust, and expertly refurbished. Corona Marine has become our primary stockist for all critical engine components.",
-    product: "Engine Components"
+    text: "Reliable, robust, and expertly inspected. AURAX Marine has become our primary technical partner for all critical 2-stroke engine machinery.",
+    product: "Engine Machinery"
   },
   {
     id: 5,
     name: "Eng. Hiroshi T.",
     location: "Yokohama Marine",
     rating: 5,
-    text: "Technical support is top-notch. They don't just sell parts; they provide engineering solutions tailored to our fleet's needs.",
-    product: "Control Panels"
+    text: "The technical expertise of the AURAX team is exceptional. They provided precise measurements for a crankshaft that other suppliers missed.",
+    product: "Crankshaft Units"
   },
   {
     id: 6,
     name: "Capt. Dimitri P.",
     location: "Mediterranean Fleet",
     rating: 5,
-    text: "Exceptional quality control. Every unit arrives with full documentation and sea-ready certification. A trusted partner indeed.",
-    product: "Bridge Equipment"
+    text: "Exceptional quality control. Every cylinder liner arrives with full documentation and is sea-ready. A trusted name in the industry.",
+    product: "Cylinder Liners"
   },
   {
     id: 7,
     name: "Robert B.",
     location: "Texas Offshore Services",
     rating: 5,
-    text: "The speed of delivery for critical hydraulic motors was impressive. Minimized our downtime significantly at a fraction of OEM cost.",
-    product: "Hydraulic Motors"
+    text: "The technical overhaul support for our auxiliary engines was top-notch. Minimized our downtime significantly at competitive rates.",
+    product: "Auxiliary Engines"
   },
   {
     id: 8,
     name: "Lily W.",
     location: "North Sea Logistics",
     rating: 5,
-    text: "High-integrity components that withstand the most brutal marine environments. Their reconditioning process is true engineering.",
-    product: "Auxiliary Machinery"
+    text: "High-integrity components that withstand the most brutal marine environments. Their reconditioning process for exhaust valves is true engineering.",
+    product: "Exhaust Assemblies"
   },
   {
     id: 9,
     name: "Rachel D.",
     location: "Cape Town Marine",
     rating: 5,
-    text: "From enquiry to delivery, the process is seamless. Their depth of knowledge across multiple marine brands is truly unique.",
-    product: "Automation Spares"
+    text: "From enquiry to global dispatch, the process is seamless and technically transparent. Their legacy of shipping spare parts is unmatched.",
+    product: "Logistics Spares"
   }
 ]
 
@@ -82,20 +82,22 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
   <div className="p-8 bg-white mb-6 flex-shrink-0 border border-border/50 hover:border-accent transition-all duration-700 shadow-sm"
   >
     {/* Quote */}
-    <p className="text-primary/90 leading-relaxed mb-8 text-pretty font-medium text-lg font-serif italic">
+    <p className="text-black leading-relaxed mb-8 text-pretty font-black text-xl font-sans uppercase tracking-tighter">
       &ldquo;{testimonial.text}&rdquo;
     </p>
 
+
     {/* Author */}
-    <div className="flex items-start justify-between gap-4 border-t border-border/30 pt-6">
+    <div className="flex items-start justify-between gap-4 border-t border-black/5 pt-6">
       <div>
-        <p className="text-primary text-[10px] font-bold uppercase tracking-widest">{testimonial.name}</p>
-        <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tighter">{testimonial.location}</p>
+        <p className="text-primary text-[10px] font-black uppercase tracking-widest">{testimonial.name}</p>
+        <p className="text-[10px] text-black/40 uppercase font-black tracking-tighter">{testimonial.location}</p>
       </div>
-      <span className="text-[9px] tracking-widest text-accent font-extrabold uppercase bg-accent/5 px-3 py-1 border border-accent/10 whitespace-nowrap">
+      <span className="text-[9px] tracking-widest text-primary font-black uppercase bg-primary/5 px-3 py-1 border border-primary/10 whitespace-nowrap">
         {testimonial.product}
       </span>
     </div>
+
   </div>
 )
 
@@ -133,13 +135,14 @@ export function Testimonials() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-24">
-          <span className={`text-[10px] tracking-[0.4em] uppercase text-accent font-bold mb-6 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
+          <span className={`text-[10px] tracking-[0.4em] uppercase text-primary font-black mb-6 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
             Technical Verdict
           </span>
-          <h2 className={`font-sans font-extrabold text-4xl leading-tight text-primary text-balance md:text-7xl uppercase tracking-tighter ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-            Trusted by Chief Engineers
+          <h2 className={`font-sans font-black text-4xl leading-none text-black text-balance md:text-7xl uppercase tracking-tighter ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
+            Trusted by <br className="hidden md:block"/> Chief Engineers
           </h2>
         </div>
+
 
         {/* Scrolling Testimonials */}
         <div className="relative">

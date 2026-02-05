@@ -49,43 +49,48 @@ export function ProductGrid() {
   const filteredProducts = products.slice(0, 8);
 
   if (loading && products.length === 0) return (
-     <div className="py-24 text-center">
-        <div className="w-12 h-12 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Syncing Fleet...</p>
+     <div className="py-24 text-center bg-[#0B1F33]">
+        <div className="w-12 h-12 border-4 border-[#4988C4] border-t-transparent rounded-none animate-spin mx-auto mb-4" />
+        <p className="text-[10px] font-black uppercase tracking-widest text-white/40 font-mono">Syncing Fleet Inventory...</p>
      </div>
   );
 
   return (
-    <section className="pb-16 sm:pb-20 md:pb-24 pt-8 sm:pt-10 md:pt-12 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-10 md:mb-12">
+    <section className="pb-16 sm:pb-20 md:pb-24 pt-8 sm:pt-10 md:pt-12 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16 md:mb-24">
         <div ref={headerRef} className="space-y-6">
-            <motion.span 
-              initial={{ opacity: 0, y: 10 }}
-              animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-              className="text-[10px] tracking-[0.4em] uppercase text-accent font-bold block"
+            <motion.div 
+               initial={{ opacity: 0, y: 10 }}
+               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
+               className="flex items-center justify-center gap-4"
             >
-              Essential Inventory
-            </motion.span>
+               <div className="w-12 h-px bg-[#0B1F33]/20" />
+               <span className="text-[10px] tracking-[0.4em] uppercase text-[#0B1F33] font-black block">
+                  Essential Inventory
+               </span>
+               <div className="w-12 h-px bg-[#0B1F33]/20" />
+            </motion.div>
+
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold text-primary leading-tight uppercase tracking-tighter">
-              Strategic *Marine* Components
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black text-[#0B1F33] leading-none uppercase tracking-tighter">
+              Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4988C4] to-[#0B1F33]">Assets</span>
             </motion.h2>
+            
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
-              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto italic font-medium">
-              Professional-grade reconditioned equipment, inspected for maximum operational efficiency in global commercial fleets.
+              className="text-sm sm:text-base text-[#0B1F33]/60 max-w-2xl mx-auto font-mono text-center uppercase tracking-widest">
+               // Reconditioned equipment inspected for operational efficiency.
             </motion.p>
         </div>
-
       </div>
 
-      <div className="max-w-[100vw] overflow-x-auto overflow-y-hidden px-6  lg:px-12 pb-12 no-scrollbar snap-x snap-mandatory">
-        <div className="flex gap-8 md:gap-12 min-w-max">
+      <div className="max-w-[100vw] overflow-x-auto overflow-y-hidden px-6 lg:px-12 pb-12 no-scrollbar snap-x snap-mandatory">
+        <div className="flex gap-6 min-w-max">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, index) => (
               <motion.div
@@ -94,33 +99,62 @@ export function ProductGrid() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ delay: index * 0.05, duration: 0.6 }}
-                className="w-[260px] sm:w-[300px] md:w-[400px] flex-none snap-center"
+                className="w-[280px] sm:w-[320px] md:w-[400px] flex-none snap-center group"
                 layout
               >
-                <Link href={`/product/${product._id}`} className="group block relative bg-white border border-border/50 transition-all duration-700 hover:shadow-[inset_0_0_60px_rgba(0,0,0,0.05)] h-full">
-                  <div className="aspect-[3/4] relative overflow-hidden bg-[#f3f3f3]">
-                    {product.images?.[0] && (
-                      <Image
-                        src={product.images[0]}
-                        alt={product.title}
-                        fill
-                        className="object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                      />
-                    )}
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.title}
-                      fill
-                      className={`object-cover transition-all duration-700 scale-100 group-hover:scale-110 ${product.images?.[0] ? 'group-hover:opacity-0' : ''}`}
-                    />
-                    <div className="absolute top-6 left-6">
-                      <span className="bg-primary text-white px-4 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em]">{product.category?.name || "Inventory"}</span>
+                <Link href={`/product/${product._id}`} className="block relative bg-[#F6FBFE] border border-[#D6E6F2] transition-all duration-300 hover:border-[#0B1F33] hover:shadow-2xl h-full">
+                  
+                  {/* Image Container */}
+                  <div className="aspect-[4/5] relative overflow-hidden bg-[#0B1F33]/5 p-8 flex items-center justify-center">
+                    
+                    {/* Technical Grid Overlay */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+                         style={{ backgroundImage: 'linear-gradient(#0B1F33 1px, transparent 1px), linear-gradient(90deg, #0B1F33 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4 z-10">
+                        <span className="bg-[#0B1F33] text-white px-3 py-1 text-[9px] font-black uppercase tracking-widest border border-white/20">
+                           In Stock
+                        </span>
+                    </div>
+
+                    {/* ID Badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                        <span className="text-[#0B1F33]/40 font-mono text-[9px]">ID: {product._id.slice(-6).toUpperCase()}</span>
+                    </div>
+
+                    <div className="relative w-full h-full transition-all duration-500 group-hover:scale-105">
+                         {product.images?.[0] ? (
+                            <Image
+                              src={product.images[0]}
+                              alt={product.title}
+                              fill
+                              className="object-contain mix-blend-multiply"
+                            />
+                         ) : (
+                            <Image
+                              src={product.image || "/placeholder.svg"}
+                              alt={product.title}
+                              fill
+                              className="object-contain mix-blend-multiply"
+                            />
+                         )}
                     </div>
                   </div>
-                  <div className="p-10 text-center transition-all duration-500 bg-white group-hover:bg-background">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.1em] text-primary mb-3 leading-snug line-clamp-2">{product.title}</h3>
-                    <div className="flex items-center justify-center gap-4 text-[10px] text-accent font-extrabold tracking-[0.2em] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                        SECURE ASSET <ArrowRight className="w-4 h-4" />
+
+                  {/* Info Card */}
+                  <div className="p-6 bg-white border-t border-[#D6E6F2] relative overflow-hidden group-hover:bg-[#0B1F33] group-hover:text-white transition-colors duration-300">
+                    
+                    <div className="mb-4">
+                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#4988C4] block mb-2">{product.category?.name || "Inventory"}</span>
+                       <h3 className="text-xl font-black uppercase tracking-tight leading-none min-h-[40px] line-clamp-2">{product.title}</h3>
+                    </div>
+
+                    <div className="flex items-center justify-between border-t border-[#0B1F33]/10 group-hover:border-white/20 pt-4 mt-4">
+                        <span className="text-[10px] font-mono uppercase text-[#0B1F33]/40 group-hover:text-white/40">Verified Asset</span>
+                        <div className="flex items-center gap-2 text-[#0B1F33] group-hover:text-[#4988C4] font-black text-xs uppercase tracking-widest">
+                           Inspect <ArrowRight className="w-3 h-3" />
+                        </div>
                     </div>
                   </div>
                 </Link>
@@ -130,13 +164,12 @@ export function ProductGrid() {
         </div>
       </div>
 
-      <div className="text-center mt-16 sm:mt-24 md:mt-32">
+      <div className="text-center mt-12 sm:mt-16 border-t border-[#0B1F33]/5 pt-16">
         <Link
           href="/products"
-          className="inline-flex items-center gap-4 sm:gap-6 md:gap-8 bg-primary text-white px-6 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] hover:bg-accent transition-all duration-500 shadow-2xl relative group overflow-hidden">
-          <span className="relative z-10">View Full Collection</span>
-          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-2 transition-transform" />
-          <div className="absolute inset-0 bg-accent translate-y-full hover:translate-y-0 transition-transform duration-500" />
+          className="inline-flex items-center gap-4 bg-white text-[#0B1F33] border-2 border-[#0B1F33] px-8 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#0B1F33] hover:text-white transition-all duration-300 group">
+          <span className="relative z-10">Access Full Inventory</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </section>

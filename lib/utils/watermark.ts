@@ -1,4 +1,4 @@
-export const addWatermark = (file: File, watermarkText = "Corona Marine Parts") => {
+export const addWatermark = (file: File, watermarkText = "AURAX Marine Solutions") => {
   return new Promise<File>((resolve, reject) => {
     const reader = new FileReader();
 

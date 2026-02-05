@@ -51,8 +51,8 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-primary flex items-center justify-center p-6 bg-[url('/assets/hero-bg.jpg')] bg-cover bg-center">
-      <div className="absolute inset-0 bg-primary/90 backdrop-blur-sm" />
+    <div className="min-h-screen bg-[#0B1F33] flex items-center justify-center p-6 bg-[url('/assets/hero-bg.jpg')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-[#0B1F33]/90 backdrop-blur-sm" />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
           <div className="text-center mb-10">
              <div className="flex items-center justify-center gap-3 mb-4">
                 <Anchor className="w-10 h-10 text-accent" />
-                <h1 className="text-3xl font-bold text-primary tracking-tighter uppercase">Corona Marine</h1>
+                <h1 className="text-3xl font-bold text-[#0B1F33] tracking-tighter uppercase">AURAX Marine</h1>
              </div>
              <p className="text-[10px] font-bold text-accent tracking-[0.4em] uppercase">Control Center Access</p>
           </div>
@@ -77,12 +77,12 @@ export default function AdminLoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-primary uppercase tracking-widest">Operator Email</label>
+              <label className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest">Operator Email</label>
               <div className="relative">
                 <input
                   type="email"
                   name="email"
-                  placeholder="admin@coronamarine.com"
+                  placeholder="example@gmail.com"
                   className="w-full px-4 py-4 pl-12 border border-border focus:border-accent outline-none text-sm transition-all bg-muted/20"
                   value={formData.email}
                   onChange={handleChange}
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-primary uppercase tracking-widest">Access Key</label>
+              <label className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest">Access Key</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -125,7 +125,7 @@ export default function AdminLoginPage() {
           </form>
           
           <div className="mt-8 pt-8 border-t border-border text-center">
-             <Link href="/" className="text-[10px] font-extrabold uppercase tracking-widest text-primary hover:text-accent transition-colors">Abort Access & Return Home</Link>
+             <Link href="/" className="text-[10px] font-extrabold uppercase tracking-widest text-[#0B1F33] hover:text-accent transition-colors">Abort Access & Return Home</Link>
           </div>
         </div>
       </motion.div>

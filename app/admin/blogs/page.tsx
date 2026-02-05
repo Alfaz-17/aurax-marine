@@ -44,7 +44,7 @@ export default function AdminBlogListPage() {
     <div className="space-y-12">
       <div className="flex items-center justify-between border-b border-border pb-8">
         <div>
-          <h1 className="text-3xl font-bold text-primary uppercase tracking-tighter">Intel & Briefing</h1>
+          <h1 className="text-3xl font-bold text-[#0B1F33] uppercase tracking-tighter">Intel & Briefing</h1>
           <p className="text-xs font-bold text-accent uppercase tracking-[0.3em] mt-2">Manage Industry Reports & Technical Bulletins</p>
         </div>
         <Link 
@@ -85,7 +85,7 @@ export default function AdminBlogListPage() {
                </div>
                <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                     <h3 className="text-lg font-bold text-primary uppercase tracking-tight mb-4 group-hover:text-accent transition-colors line-clamp-2">{blog.title}</h3>
+                     <h3 className="text-lg font-bold text-[#0B1F33] uppercase tracking-tight mb-4 group-hover:text-accent transition-colors line-clamp-2">{blog.title}</h3>
                      <p className="text-[10px] text-muted-foreground italic line-clamp-3 mb-6">{blog.excerpt}</p>
                   </div>
                   <div className="flex justify-between items-center border-t border-border pt-4">

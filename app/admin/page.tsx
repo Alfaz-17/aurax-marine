@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     <div className="space-y-12">
       <div className="flex justify-between items-end border-b border-border pb-8">
         <div>
-          <h1 className="text-3xl font-bold text-primary uppercase tracking-tighter">Command Center</h1>
+          <h1 className="text-3xl font-bold text-[#0B1F33] uppercase tracking-tighter">Command Center</h1>
           <p className="text-xs font-bold text-accent uppercase tracking-[0.3em] mt-2">Real-time Fleet & Inventory Overview</p>
         </div>
         <div className="text-right">
@@ -55,7 +55,7 @@ export default function AdminDashboard() {
           >
             <card.icon className="w-8 h-8 text-accent mb-6 group-hover:scale-110 transition-transform" />
             <dt className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">{card.title}</dt>
-            <dd className="text-4xl font-extrabold text-primary tracking-tighter">{card.value}</dd>
+            <dd className="text-4xl font-extrabold text-[#0B1F33] tracking-tighter">{card.value}</dd>
             <Link href={card.href} className="absolute top-4 right-4 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
                <ArrowUpRight className="w-5 h-5 text-accent" />
             </Link>
@@ -64,15 +64,15 @@ export default function AdminDashboard() {
       </div>
       
       <div className="grid lg:grid-cols-2 gap-8 mt-12">
-        <div className="bg-primary p-10 text-white relative h-64 flex flex-col justify-center">
+        <div className="bg-[#0B1F33] p-10 text-white relative h-64 flex flex-col justify-center">
             <h2 className="text-2xl font-bold uppercase tracking-tight mb-4">Inventory Operations</h2>
-            <p className="text-white/60 text-sm italic mb-8">Maintain the high standard of Corona Marine by reviewing and updating the spare parts catalog.</p>
+            <p className="text-white/60 text-sm italic mb-8">Maintain the high standard of AURAX Marine by reviewing and updating the spare parts catalog.</p>
             <Link href="/admin/products" className="inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-6 transition-all">
               Manage Components <ArrowUpRight className="w-4 h-4" />
             </Link>
         </div>
         <div className="bg-white p-10 border border-border h-64 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold text-primary uppercase tracking-tight mb-4">Content Strategy</h2>
+            <h2 className="text-2xl font-bold text-[#0B1F33] uppercase tracking-tight mb-4">Content Strategy</h2>
             <p className="text-muted-foreground text-sm mb-8">Publish technical insights or new brand partnerships to keep your clients informed.</p>
             <div className="flex gap-6">
                 <Link href="/admin/blogs" className="text-[10px] font-bold uppercase tracking-widest text-accent hover:text-primary">Update Blog</Link>

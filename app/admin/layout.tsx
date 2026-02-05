@@ -55,22 +55,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const isActive = (path: string) => pathname === path;
 
   return (
-    <div className="min-h-screen bg-muted/30 font-sans">
+    <div className="min-h-screen bg-background font-sans">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div 
           className="fixed inset-0 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         >
-          <div className="fixed inset-0 bg-primary/75 backdrop-blur-sm"></div>
+          <div className="fixed inset-0 bg-[#0B1F33]/75 backdrop-blur-sm"></div>
         </div>
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-primary shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-[#0B1F33] to-[#05111D] shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-[#3997b3]/10 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <div className="flex items-center justify-between h-24 px-6 border-b border-white/10">
+        <div className="flex items-center justify-between h-24 px-8 border-b border-white/5 bg-[#0B1F33]/50 backdrop-blur-sm">
           <Link href="/" className="flex items-center">
             <Logo variant="white" size="sm" />
           </Link>
@@ -82,7 +82,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </button>
         </div>
 
-        <nav className="mt-8 px-4 space-y-2">
+        <nav className="mt-8 px-4 space-y-3">
           {navigation.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -91,34 +91,43 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 key={item.name}
                 href={item.href}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center px-4 py-3 text-xs font-bold uppercase tracking-widest rounded-none transition-all border-l-4 ${
+                className={`flex items-center px-4 py-4 text-xs font-bold uppercase tracking-widest transition-all group relative overflow-hidden ${
                   active
-                    ? 'bg-white/10 text-accent border-accent shadow-lg'
-                    : 'text-white/60 border-transparent hover:bg-white/5 hover:text-white'
+                    ? 'bg-accent/10 text-accent border border-accent/20 shadow-[0_0_15px_rgba(57,151,179,0.1)]'
+                    : 'text-white/50 border border-transparent hover:bg-white/5 hover:text-white hover:border-white/10'
                 }`}
               >
-                <Icon className="w-5 h-5 mr-4" />
-                {item.name}
+                {active && (
+                   <div className="absolute inset-y-0 left-0 w-1 bg-accent shadow-[0_0_10px_#3997b3]" />
+                )}
+                <Icon className={`w-5 h-5 mr-4 transition-colors ${active ? 'text-accent' : 'text-white/50 group-hover:text-white'}`} />
+                <span className="relative z-10">{item.name}</span>
+                {active && (
+                   <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent opacity-50" />
+                )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10 bg-black/20">
-          <div className="flex items-center mb-6">
-            <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-primary font-bold">
-              {user?.name?.charAt(0) || 'A'}
-            </div>
-            <div className="ml-4">
-              <p className="text-xs font-bold text-white uppercase tracking-wider truncate max-w-[120px]">
-                {user?.name || user?.email || 'Admin'}
-              </p>
-              <p className="text-[10px] text-accent font-bold uppercase tracking-widest">Fleet Admin</p>
+        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#05111D] to-transparent">
+          <div className="bg-white/5 border border-white/10 p-4 backdrop-blur-md mb-4 group hover:border-accent/30 transition-colors cursor-pointer">
+            <div className="flex items-center">
+                <div className="w-10 h-10 bg-accent rounded-sm flex items-center justify-center text-[#0B1F33] font-bold shadow-lg shadow-accent/20">
+                {user?.name?.charAt(0) || 'A'}
+                </div>
+                <div className="ml-4 overflow-hidden">
+                <p className="text-xs font-bold text-white uppercase tracking-wider truncate">
+                    {user?.name || user?.email || 'Admin'}
+                </p>
+                <p className="text-[9px] text-accent/80 font-bold uppercase tracking-widest">Fleet Commander</p>
+                </div>
             </div>
           </div>
+          
           <button
             onClick={handleLogout}
-            className="flex items-center justify-center w-full px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-white bg-red-600/60 hover:bg-red-600 transition-all shadow-xl"
+            className="flex items-center justify-center w-full px-4 py-4 text-[10px] font-bold uppercase tracking-widest text-white/70 hover:text-white bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 hover:border-red-500/50 transition-all"
           >
             <LogOut className="w-4 h-4 mr-2" />
             End Session
