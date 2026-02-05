@@ -16,7 +16,7 @@ const categories = [
   { name: "Main Engines", description: "Primary propulsion units for commercial and industrial vessels.", image: "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg" },
   { name: "Auxiliary Engines", description: "Generator sets and secondary power units for vessel operations.", image: "https://images.pexels.com/photos/20581299/pexels-photo-20581299.jpeg" },
   { name: "Turbochargers", description: "High-performance air compression systems for improved engine efficiency.", image: "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg" },
-  { name: "Fuel Systems", description: "Injection pumps, nozzles, and fuel treatment components.", image: "https://images.pexels.com/photos/934445/pexels-photo-934445.jpeg" },
+  { name: "Fuel Systems", description: "Injection pumps, nozzles, and fuel treatment components.", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" },
   { name: "Cylinder Components", description: "Heads, liners, pistons, and ring sets for major engine overhauls.", image: "https://images.pexels.com/photos/20581299/pexels-photo-20581299.jpeg" },
   { name: "Automation & Control", description: "Engine monitoring and bridge control systems.", image: "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg" }
 ];
@@ -48,8 +48,8 @@ const products = [
     price: 12500,
     categoryName: "Fuel Systems",
     brandName: "MAN B&W",
-    image: "https://images.pexels.com/photos/934445/pexels-photo-934445.jpeg",
-    images: ["https://images.pexels.com/photos/934445/pexels-photo-934445.jpeg"],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+    images: ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"],
     featured: true
   },
   {
@@ -68,8 +68,8 @@ const products = [
     price: 185000,
     categoryName: "Main Engines",
     brandName: "Caterpillar",
-    image: "https://images.pexels.com/photos/934445/pexels-photo-934445.jpeg",
-    images: ["https://images.pexels.com/photos/934445/pexels-photo-934445.jpeg"],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+    images: ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"],
     featured: true
   }
 ];

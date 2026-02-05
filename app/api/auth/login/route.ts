@@ -8,7 +8,6 @@ import { cookies } from 'next/headers';
 
 export async function POST(req: Request) {
   try {
-    await connectToDatabase();
     const { email, password } = await req.json();
 
     if (!email || !password) {
@@ -34,6 +33,7 @@ export async function POST(req: Request) {
       });
     }
 
+    await connectToDatabase();
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -62,3 +62,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
+
+
+

@@ -35,7 +35,7 @@ export function Hero() {
               className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6"
             >
                <div className="w-8 sm:w-12 h-px bg-primary" />
-               <span className="text-[8px] sm:text-[10px] font-black text-primary uppercase tracking-[0.3em] sm:tracking-[0.4em]">Specialized Supplier of MAN B&W Spares</span>
+               <span className="text-[8px] sm:text-[10px] font-black text-primary uppercase tracking-[0.3em] sm:tracking-[0.4em]">Sister Company of Spice Ship Supplier</span>
             </motion.div>
 
 
@@ -45,8 +45,8 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans font-black text-white leading-[0.9] uppercase tracking-tighter mb-3 sm:mb-4"
             >
-                Reliable <span className="text-primary italic">Marine</span> <br className="hidden lg:block" />
-                Power Solutions
+                Precision <span className="text-primary italic">Marine</span> <br className="hidden lg:block" />
+                Engine Spares
             </motion.h1>
 
 
@@ -57,7 +57,7 @@ export function Hero() {
                transition={{ delay: 0.4 }}
                className="text-[13px] sm:text-sm md:text-base text-white/70 mb-5 sm:mb-6 md:mb-8 max-w-xl font-black italic border-l-2 border-primary/20 pl-6 leading-relaxed"
              >
-                Premium reconditioned spares and engineering support for global commercial vessels.
+                Global specialists in MAN B&W S50MC, Daihatsu, and auxiliary machinery. delivering 20+ years of maritime excellence.
                 <span className="text-primary font-black block mt-3 tracking-[0.2em] uppercase text-[10px] sm:text-xs">Direct Line: +91 93765 02550</span>
              </motion.p>
 
@@ -95,8 +95,8 @@ export function Hero() {
           >
              <ShieldCheck className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary" />
              <div className="text-white">
-                <span className="text-base sm:text-xl md:text-2xl font-black block leading-none">ISO 9001</span>
-                <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-widest uppercase font-black text-primary">Certified Quality</span>
+                <span className="text-base sm:text-xl md:text-2xl font-black block leading-none">20+ Years</span>
+                <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-widest uppercase font-black text-primary">Industry Legacy</span>
              </div>
           </motion.div>
           <motion.div 
@@ -108,7 +108,7 @@ export function Hero() {
              <Anchor className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary" />
              <div className="text-white">
                 <span className="text-base sm:text-xl md:text-2xl font-black block leading-none">Global</span>
-                <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-widest uppercase font-black text-primary">Worldwide Export</span>
+                <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-widest uppercase font-black text-primary">Export Network</span>
              </div>
           </motion.div>
 

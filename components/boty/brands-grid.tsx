@@ -57,7 +57,7 @@ export function BrandGrid() {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-all duration-700 invert brightness-0 group-hover:invert-0 group-hover:brightness-100"
+                className="w-full h-full object-contain transition-all duration-700"
               />
 
             </div>

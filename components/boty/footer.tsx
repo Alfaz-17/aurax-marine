@@ -48,7 +48,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Logo size="md" variant="light" className="mb-4 sm:mb-6 h-8 sm:h-10" />
             <p className="text-xs sm:text-sm text-[#0B1F33]/80 leading-relaxed mb-4 sm:mb-6">
-              Your trusted partner for marine equipment and supplies.
+              Sister company of Spice Ship Supplier (20+ Years Legacy). Specialized in MAN B&W S50MC & Auxiliary Engines.
             </p>
             <div className="flex gap-3 sm:gap-4">
               <a

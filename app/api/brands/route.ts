@@ -4,13 +4,16 @@ import connectToDatabase from '@/lib/db';
 import { Brand } from '@/lib/models';
 import { getSession } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     await connectToDatabase();
     const brands = await Brand.find({}).sort({ name: 1 }).lean();
     return NextResponse.json(brands, {
       headers: {
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'Pragma': 'no-cache',
       },
     });
   } catch (error) {

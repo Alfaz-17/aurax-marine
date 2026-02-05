@@ -10,25 +10,25 @@ const features = [
   {
     icon: Gauge,
     title: "Main Propulsion",
-    description: "Specialized spares for MAN B&W & Sulzer 2-Stroke engines (S50MC, RTA Series).",
+    description: "MAN B&W Low-Speed Engines: S50MC (Primary), S60MC, S70MC, S35MC & Sulzer RTA Series.",
     stat: "98% UPTIME"
   },
   {
     icon: Wrench,
     title: "Auxiliary Power",
-    description: "Complete support for Daihatsu, Yanmar, and Wartsila generator sets.",
+    description: "Specialized in Daihatsu DK20 Series & Diesel Generator Sets (Yanmar, Wartsila).",
      stat: "24/7 SUPPORT"
   },
   {
     icon: ShieldCheck,
     title: "Fluid Handling",
-    description: "Pumps and Oil Purifiers from leading brands like Alfa Laval and Westfalia.",
+    description: "Sea Water, Fresh Water & Oil Pumps, Oil Purifiers (Alfa Laval / Westfalia).",
      stat: "OEM GRADE"
   },
   {
     icon: Activity,
     title: "Compressed Air",
-    description: "Spares for Air Compressors, Screw Compressors, and associated systems.",
+    description: "AC, Fridge, Screw Compressors & Air Compressor Spares.",
      stat: "ISO 9001"
   },
   {
@@ -40,7 +40,7 @@ const features = [
   {
     icon: Anchor,
     title: "Deck & Hydraulic",
-    description: "Hydraulic motors, pumps, and spares for derrick cranes.",
+    description: "Derrick & Hydraulic Cranes, Hydraulic Motors, and Pumps.",
      stat: "HEAVY DUTY"
   }
 ]
