@@ -16,11 +16,31 @@ export function verifyToken(token: string) {
   }
 }
 
-export async function getSession() {
+export async function getSession(req?: Request) {
+  // 1. Try to get token from cookies
   const cookieStore = await cookies();
-  const token = cookieStore.get('auth_token')?.value;
+  let token = cookieStore.get('auth_token')?.value;
+  let source = 'cookie';
 
-  if (!token) return null;
+  // 2. Fallback to Authorization header if token not in cookies
+  if (!token && req) {
+    const authHeader = req.headers.get('Authorization');
+    if (authHeader?.startsWith('Bearer ')) {
+      token = authHeader.substring(7);
+      source = 'header';
+    }
+  }
 
-  return verifyToken(token);
+  if (!token) {
+    console.log('[Auth] No token found in cookies or header');
+    return null;
+  }
+
+  const payload = verifyToken(token);
+  if (!payload) {
+    console.log(`[Auth] Token verification failed from ${source}`);
+    return null;
+  }
+
+  return payload;
 }

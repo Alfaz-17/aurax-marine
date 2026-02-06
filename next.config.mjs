@@ -23,6 +23,26 @@ const nextConfig = {
   },
   // Empty turbopack config to silence Next.js 16 warning
   turbopack: {},
+  // Required for WebAssembly support and Transformers.js
+  webpack: (config, { isServer }) => {
+    // Enable async WebAssembly
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    };
+    
+    // Client-side fallbacks (ignore Node.js modules)
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+      };
+    }
+    
+    return config;
+  },
 }
 
 export default nextConfig

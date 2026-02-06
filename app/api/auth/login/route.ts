@@ -29,6 +29,7 @@ export async function POST(req: Request) {
       });
 
       return NextResponse.json({
+        token,
         user: { id: 'admin', name: 'System Admin', email: adminEmail }
       });
     }
@@ -55,6 +56,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({
+      token,
       user: { id: user._id, name: user.name, email: user.email }
     });
   } catch (error) {

@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Save, Upload, X, ChevronLeft, Plus } from 'lucide-react';
+import { Save, Upload, X, ChevronLeft, Plus, Crop, Loader2, Sparkles, ShieldCheck } from 'lucide-react';
 import { uploadToCloudinary } from '@/lib/utils/cloudinary';
 import { addWatermark } from '@/lib/utils/watermark';
+import { removeBackgroundClient } from '@/lib/background-removal-client';
 import api from '@/lib/api';
 import Link from 'next/link';
 import CropModal from '@/components/common/CropModal';
-import { Crop } from 'lucide-react';
 
 export default function AdminProductFormPage() {
   const [formData, setFormData] = useState({
@@ -31,19 +31,34 @@ export default function AdminProductFormPage() {
   // Cropping state
   const [cropTarget, setCropTarget] = useState<{ type: 'main' | 'gallery', index?: number, url: string } | null>(null);
   
-  // Watermark toggle state
-  const [watermarkEnabled, setWatermarkEnabled] = useState(true);
+  // Global Settings state
+  const [globalSettings, setGlobalSettings] = useState({
+    autoBackgroundRemoval: false,
+    applyWatermark: true,
+    watermarkText: 'AURAX Marine Solutions'
+  });
+
+  // Background removal state
+  const [isRemovingBg, setIsRemovingBg] = useState(false);
+  const [bgProcessingIndex, setBgProcessingIndex] = useState<{type: 'main' | 'gallery', index?: number} | null>(null);
+  const [bgStatus, setBgStatus] = useState('');
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const res = await api.get('/categories');
-        setCategories(res.data);
+        const [catRes, settingsRes] = await Promise.all([
+          api.get('/categories'),
+          api.get('/settings')
+        ]);
+        setCategories(catRes.data);
+        if (settingsRes.data) {
+          setGlobalSettings(settingsRes.data);
+        }
       } catch (error) {
-        console.error('Error fetching categories:', error);
+        console.error('Error fetching initial data:', error);
       }
     };
-    fetchCategories();
+    fetchData();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -85,12 +100,70 @@ export default function AdminProductFormPage() {
     if (cropTarget.type === 'main') {
       setImageFile(croppedFile);
       setImagePreview(URL.createObjectURL(croppedFile));
-
+      
+      if (globalSettings.autoBackgroundRemoval) {
+        handleRemoveBackground('main', undefined, croppedFile);
+      }
     } else {
+      const newIndex = imagesFile.length;
       setImagesFile(prev => [...prev, croppedFile]);
       setImagePreviews(prev => [...prev, URL.createObjectURL(croppedFile)]);
+      
+      if (globalSettings.autoBackgroundRemoval) {
+        handleRemoveBackground('gallery', newIndex, croppedFile);
+      }
     }
     setCropTarget(null);
+  };
+
+  const handleRemoveBackground = async (type: 'main' | 'gallery' = 'main', index?: number, fileOverride?: File) => {
+    let sourceFile = fileOverride || (type === 'main' ? imageFile : (index !== undefined ? imagesFile[index] : null));
+    if (!sourceFile) return;
+    
+    setIsRemovingBg(true);
+    setBgProcessingIndex({ type, index });
+    setBgStatus('Initializing AI...');
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setBgStatus('Removing background...');
+      
+      const processedBlob = await removeBackgroundClient(sourceFile);
+      const processedFile = new File([processedBlob], `processed-${type}${index !== undefined ? `-${index}` : ''}.png`, { type: 'image/png' });
+      
+      if (type === 'main') {
+        setImageFile(processedFile);
+        setImagePreview(URL.createObjectURL(processedFile));
+      } else if (index !== undefined) {
+        setImagesFile(prev => {
+          const newFiles = [...prev];
+          newFiles[index] = processedFile;
+          return newFiles;
+        });
+        
+        setImagePreviews(prev => {
+          const newPreviews = [...prev];
+          newPreviews[index] = URL.createObjectURL(processedFile);
+          return newPreviews;
+        });
+      }
+      
+      setBgStatus('Complete!');
+      setTimeout(() => {
+        setBgStatus('');
+        setBgProcessingIndex(null);
+      }, 2000);
+    } catch (error: any) {
+      console.error("Background removal error:", error);
+      if (error.message === 'MOBILE_MEMORY_ERROR') {
+        setMessage({ type: 'error', text: 'Image too large for your device memory. Try a smaller image.' });
+      } else {
+        setMessage({ type: 'error', text: 'Background removal failed or not supported on this device.' });
+      }
+      setBgProcessingIndex(null);
+    } finally {
+      setIsRemovingBg(false);
+    }
   };
 
 
@@ -106,15 +179,19 @@ export default function AdminProductFormPage() {
 
       setIsUploading(true);
       
-      // Upload main image with watermark (if enabled)
+      // Upload main image with watermark (if enabled globally)
       if (imageFile) {
-        const processedImage = watermarkEnabled ? await addWatermark(imageFile) : imageFile;
+        const processedImage = globalSettings.applyWatermark 
+          ? await addWatermark(imageFile, globalSettings.watermarkText) 
+          : imageFile;
         mainImageUrl = await uploadToCloudinary(processedImage);
       }
 
-      // Upload secondary images with watermark (if enabled)
+      // Upload secondary images with watermark (if enabled globally)
       for (const file of imagesFile) {
-        const processedImage = watermarkEnabled ? await addWatermark(file) : file;
+        const processedImage = globalSettings.applyWatermark 
+          ? await addWatermark(file, globalSettings.watermarkText) 
+          : file;
         const url = await uploadToCloudinary(processedImage);
         secondaryImageUrls.push(url);
       }
@@ -170,19 +247,19 @@ export default function AdminProductFormPage() {
               <div className="flex items-center justify-between border-b border-border pb-4 mb-2">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-primary">Main Image</h2>
                 
-                {/* Watermark Toggle Button */}
-                <button
-                  type="button"
-                  onClick={() => setWatermarkEnabled(!watermarkEnabled)}
-                  className={`flex items-center gap-2 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-all ${
-                    watermarkEnabled 
-                      ? 'bg-accent text-white' 
-                      : 'bg-muted/20 text-muted-foreground border border-border'
-                  }`}
-                >
-                  <span className={`w-3 h-3 rounded-full ${watermarkEnabled ? 'bg-white' : 'bg-muted-foreground'}`}></span>
-                  Watermark {watermarkEnabled ? 'ON' : 'OFF'}
-                </button>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 px-3 py-1 bg-muted/5 border border-border text-[9px] font-bold uppercase tracking-tight text-muted-foreground">
+                    <ShieldCheck className="w-3 h-3" />
+                    Watermark: {globalSettings.applyWatermark ? 'AUTO' : 'OFF'}
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1 bg-muted/5 border border-border text-[9px] font-bold uppercase tracking-tight text-muted-foreground">
+                    <Sparkles className="w-3 h-3" />
+                    Auto BG: {globalSettings.autoBackgroundRemoval ? 'AUTO' : 'OFF'}
+                  </div>
+                  <Link href="/admin/settings" className="text-[9px] font-bold text-accent hover:underline uppercase tracking-tight">
+                    Change Global Settings
+                  </Link>
+                </div>
               </div>
 
               <div className="space-y-6">
@@ -202,10 +279,21 @@ export default function AdminProductFormPage() {
                              type="button"
                              onClick={() => imagePreview && setCropTarget({ type: 'main', url: imagePreview })}
                              className="bg-accent/80 p-2 text-white backdrop-blur-sm"
+                             title="Crop Image"
                            >
                              <Crop className="w-4 h-4" />
                            </button>
+
                        </div>
+
+                       {isRemovingBg && bgProcessingIndex?.type === 'main' && (
+                         <div className="absolute inset-0 bg-primary/20 backdrop-blur-[2px] flex items-center justify-center flex-col gap-3">
+                           <div className="flex items-center gap-2 px-6 py-3 bg-white border border-border shadow-2xl">
+                             <Loader2 className="w-4 h-4 animate-spin text-accent" />
+                             <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{bgStatus}</span>
+                           </div>
+                         </div>
+                       )}
 
                     </div>
                  ) : (
@@ -235,14 +323,22 @@ export default function AdminProductFormPage() {
                         >
                           <X className="w-3 h-3" />
                         </button>
-                        <button 
-                          type="button"
-                          onClick={() => setCropTarget({ type: 'gallery', index: idx, url: src })} 
-                          className="absolute -bottom-2 -right-2 bg-accent p-1 text-white rounded-full shadow-lg"
-                        >
-                          <Crop className="w-3 h-3" />
-                        </button>
-                    </div>
+                           <button 
+                             type="button"
+                             onClick={() => setCropTarget({ type: 'gallery', index: idx, url: src })} 
+                             className="absolute -bottom-2 -right-2 bg-accent p-1 text-white rounded-full shadow-lg"
+                             title="Crop Image"
+                           >
+                             <Crop className="w-3 h-3" />
+                           </button>
+                        {isRemovingBg && bgProcessingIndex?.type === 'gallery' && bgProcessingIndex?.index === idx && (
+                          <div className="absolute inset-0 bg-primary/10 backdrop-blur-[1px] flex items-center justify-center">
+                            <div className="p-1 bg-white border border-border shadow-lg">
+                              <Loader2 className="w-3 h-3 animate-spin text-accent" />
+                            </div>
+                          </div>
+                        )}
+                     </div>
                  ))}
                  <label className="aspect-square border-2 border-dashed border-border flex items-center justify-center cursor-pointer bg-muted/10">
                     <Plus className="w-6 h-6 text-muted-foreground" />

@@ -15,7 +15,8 @@ import {
   User,
   Home,
   Anchor,
-  ShoppingCart
+  ShoppingCart,
+  Settings as SettingsIcon
 } from 'lucide-react';
 import { MarineLoader } from '@/components/common/marine-loader';
 import { Logo } from '@/components/common/logo';
@@ -45,6 +46,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Categories', href: '/admin/categories', icon: Grid3X3 },
     { name: 'Brands', href: '/admin/brands', icon: Award },
     { name: 'Blogs', href: '/admin/blogs', icon: FileText },
+    { name: 'Settings', href: '/admin/settings', icon: SettingsIcon },
   ];
 
   const handleLogout = async () => {
@@ -67,7 +69,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-[#0B1F33] to-[#05111D] shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-[#3997b3]/10 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-[#0B1F33] to-[#05111D] shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-[#3997b3]/10 flex flex-col ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex items-center justify-between h-24 px-8 border-b border-white/5 bg-[#0B1F33]/50 backdrop-blur-sm">
@@ -82,7 +84,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </button>
         </div>
 
-        <nav className="mt-8 px-4 space-y-3">
+        <nav className="flex-1 mt-8 px-4 space-y-3 overflow-y-auto custom-scrollbar pb-8">
           {navigation.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -110,7 +112,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           })}
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#05111D] to-transparent">
+        <div className="p-6 bg-gradient-to-t from-[#05111D] to-transparent border-t border-white/5">
           <div className="bg-white/5 border border-white/10 p-4 backdrop-blur-md mb-4 group hover:border-accent/30 transition-colors cursor-pointer">
             <div className="flex items-center">
                 <div className="w-10 h-10 bg-accent rounded-sm flex items-center justify-center text-[#0B1F33] font-bold shadow-lg shadow-accent/20">

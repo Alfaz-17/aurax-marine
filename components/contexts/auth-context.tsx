@@ -43,9 +43,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         try {
           const response = await api.get('/auth/me');
           setUser(response.data.user); // Update with fresh data from server
-        } catch (error) {
-          // Backend validation failed, but we keep the localStorage user
-          console.log('Backend validation skipped - using cached credentials');
+        } catch (error: any) {
+          if (error.response?.status === 401) {
+            console.log('Backend session expired - logging out');
+            await logout();
+          } else {
+            console.log('Backend validation skipped - network error or server down');
+          }
         }
       } else {
         // No stored credentials
