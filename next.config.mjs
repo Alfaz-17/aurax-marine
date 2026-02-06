@@ -21,7 +21,8 @@ const nextConfig = {
     ],
     minimumCacheTTL: 60,
   },
- 
+  // Empty turbopack config to silence Next.js 16 warning
+  turbopack: {},
 }
 
 export default nextConfig

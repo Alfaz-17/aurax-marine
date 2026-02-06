@@ -36,6 +36,9 @@ export default function AdminProductEditPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
   const [categories, setCategories] = useState<any[]>([]);
+  
+  // Watermark toggle state
+  const [watermarkEnabled, setWatermarkEnabled] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -106,16 +109,16 @@ export default function AdminProductEditPage() {
 
       setIsUploading(true);
       
-      // Upload new main image if selected
+      // Upload new main image if selected (with watermark if enabled)
       if (imageFile) {
-        const watermarked = await addWatermark(imageFile);
-        mainImageUrl = await uploadToCloudinary(watermarked);
+        const processedImage = watermarkEnabled ? await addWatermark(imageFile) : imageFile;
+        mainImageUrl = await uploadToCloudinary(processedImage);
       }
 
-      // Upload new secondary images
+      // Upload new secondary images (with watermark if enabled)
       for (const file of imagesFile) {
-        const watermarked = await addWatermark(file);
-        const url = await uploadToCloudinary(watermarked);
+        const processedImage = watermarkEnabled ? await addWatermark(file) : file;
+        const url = await uploadToCloudinary(processedImage);
         secondaryImageUrls.push(url);
       }
       
@@ -217,7 +220,23 @@ export default function AdminProductEditPage() {
 
         <div className="space-y-8">
            <div className="bg-white p-10 border border-border">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-primary border-b border-border pb-4 mb-6">Main Image</h2>
+              <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-primary">Main Image</h2>
+                
+                {/* Watermark Toggle Button */}
+                <button
+                  type="button"
+                  onClick={() => setWatermarkEnabled(!watermarkEnabled)}
+                  className={`flex items-center gap-2 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-all ${
+                    watermarkEnabled 
+                      ? 'bg-accent text-white' 
+                      : 'bg-muted/20 text-muted-foreground border border-border'
+                  }`}
+                >
+                  <span className={`w-3 h-3 rounded-full ${watermarkEnabled ? 'bg-white' : 'bg-muted-foreground'}`}></span>
+                  Watermark {watermarkEnabled ? 'ON' : 'OFF'}
+                </button>
+              </div>
               <div className="space-y-6">
                  {(imagePreview || existingImage) ? (
                     <div className="relative aspect-video border border-border overflow-hidden">

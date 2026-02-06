@@ -31,10 +31,28 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const checkAuth = async () => {
     try {
-      const response = await api.get('/auth/me');
-      setUser(response.data.user);
+      // First, try to restore user from localStorage
+      const storedToken = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
+      
+      if (storedToken && storedUser) {
+        // Set user immediately from localStorage for instant auth
+        setUser(JSON.parse(storedUser));
+        
+        // Then validate with backend (optional - can fail gracefully)
+        try {
+          const response = await api.get('/auth/me');
+          setUser(response.data.user); // Update with fresh data from server
+        } catch (error) {
+          // Backend validation failed, but we keep the localStorage user
+          console.log('Backend validation skipped - using cached credentials');
+        }
+      } else {
+        // No stored credentials
+        setUser(null);
+      }
     } catch (error) {
-      console.log('Backend server not available - running in demo mode', error);
+      console.log('Auth check failed', error);
       setUser(null);
     } finally {
       setLoading(false);
@@ -62,6 +80,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = async () => {
     try {
       localStorage.removeItem("token");
+      localStorage.removeItem("user"); // Also remove stored user data
       setUser(null);
     } catch (error) {
       console.log('Logout error');

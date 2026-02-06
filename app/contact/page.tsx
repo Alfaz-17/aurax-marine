@@ -80,12 +80,12 @@ export default function ContactPage() {
         <div className="absolute inset-0">
            <Image 
             src="/contact-hero.png" 
-            alt="Contact" 
+            alt="Marine Contact - Aurax Marine Solutions" 
             fill
             priority
-            className="object-cover opacity-20 mix-blend-multiply"
+            className="object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </div>
         <div className="relative z-10 text-center text-white px-4 sm:px-6">
           <motion.div
@@ -262,6 +262,78 @@ export default function ContactPage() {
                   )}
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Trust Section with Image */}
+      <section className="bg-black py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image Side */}
+            <div className="relative h-[400px] lg:h-[500px] overflow-hidden border-l-4 border-primary">
+              <Image
+                src="/engine-room.png"
+                alt="Marine Engine Facility"
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <h3 className="text-3xl font-black uppercase tracking-tighter mb-2">
+                  State-of-the-Art <span className="text-primary">Facility</span>
+                </h3>
+                <p className="text-white/80 italic">Precision Engineering for Maritime Excellence</p>
+              </div>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="space-y-8">
+              <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-6">
+                Why Choose <span className="text-primary italic">Aurax Marine</span>?
+              </h2>
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "30+ Years Experience",
+                    description: "Proven expertise in marine engine parts and machinery since 1990"
+                  },
+                  {
+                    title: "Global Supply Network",
+                    description: "Worldwide shipping and distribution to major ports and fleets"
+                  },
+                  {
+                    title: "24/7 Emergency Support",
+                    description: "Round-the-clock technical assistance for urgent marine requirements"
+                  },
+                  {
+                    title: "Quality Certified",
+                    description: "All parts meet international maritime standards and certifications"
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="flex gap-4 group">
+                    <div className="w-2 bg-primary shrink-0 group-hover:w-4 transition-all" />
+                    <div>
+                      <h4 className="text-white font-black uppercase text-sm mb-1 group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-white/60 text-sm italic">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-6">
+                <a
+                  href="tel:+919376502550"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all"
+                >
+                  <Phone className="w-5 h-5" />
+                  Connect Now
+                </a>
+              </div>
             </div>
           </div>
         </div>
