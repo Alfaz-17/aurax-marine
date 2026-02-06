@@ -131,6 +131,9 @@ importers:
       embla-carousel-react:
         specifier: 8.5.1
         version: 8.5.1(react@19.2.0)
+      enhanced-resolve:
+        specifier: ^5.19.0
+        version: 5.19.0
       framer-motion:
         specifier: ^12.29.0
         version: 12.29.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1489,8 +1492,8 @@ packages:
     resolution: {integrity: sha512-EuJWwlHPZ1LbADuKTClvHtwbaFn4rOD+dRAbWysqEOXRc2Uui0hJInNJrsdH0c+OhJA4nrCBdSkW4DD5YxAo6A==}
     engines: {node: '>=8.10.0'}
 
-  enhanced-resolve@5.18.4:
-    resolution: {integrity: sha512-LgQMM4WXU3QI+SYgEc2liRgznaD5ojbmY3sb8LxyguVkIg5FxdpTkvk72te2R38/TGKxH634oLxXRGY6d7AP+Q==}
+  enhanced-resolve@5.19.0:
+    resolution: {integrity: sha512-phv3E1Xl4tQOShqSte26C7Fl84EwUdZsyOuSSk9qtAGyyQs2s3jJzComh+Abf4g187lUUAvH+H26omrqia2aGg==}
     engines: {node: '>=10.13.0'}
 
   entities@4.5.0:
@@ -3079,7 +3082,7 @@ snapshots:
   '@tailwindcss/node@4.1.9':
     dependencies:
       '@ampproject/remapping': 2.3.0
-      enhanced-resolve: 5.18.4
+      enhanced-resolve: 5.19.0
       jiti: 2.6.1
       lightningcss: 1.30.1
       magic-string: 0.30.21
@@ -3396,7 +3399,7 @@ snapshots:
 
   encoding-japanese@2.2.0: {}
 
-  enhanced-resolve@5.18.4:
+  enhanced-resolve@5.19.0:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.0
