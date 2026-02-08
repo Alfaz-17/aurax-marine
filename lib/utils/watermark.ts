@@ -47,14 +47,14 @@ export const addWatermark = (file: File, watermarkText = "AURAX Marine Solutions
 
             const watermarkedFile = new File(
               [blob],
-              file.name.replace(/\.\w+$/, ".jpg"),
-              { type: "image/jpeg" }
+              file.name.replace(/\.\w+$/, ".png"),
+              { type: "image/png" }
             );
 
             resolve(watermarkedFile);
           },
-          "image/jpeg",
-          0.85
+          "image/png",
+          0.90
         );
       };
 

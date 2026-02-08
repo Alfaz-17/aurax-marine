@@ -40,8 +40,8 @@ export default async function getCroppedImg(
         resolve(null);
         return;
       }
-      const file = new File([blob], 'cropped_image.jpg', { type: 'image/jpeg' });
+      const file = new File([blob], 'cropped_image.png', { type: 'image/png' });
       resolve(file);
-    }, 'image/jpeg');
+    }, 'image/png');
   });
 }
