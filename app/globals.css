@@ -2,8 +2,6 @@
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
-@custom-variant hover @media (hover: hover) { &:hover };
-@custom-variant group-hover @media (hover: hover) { .group:hover & };
 
 /* AURAX Marine Solutions — Soft Marine Blue Theme */
 :root {
