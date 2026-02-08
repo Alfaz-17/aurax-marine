@@ -51,7 +51,7 @@ export function BrandGrid() {
           {duplicatedBrands.map((brand, index) => (
             <div
               key={`${brand._id}-${index}`}
-              className="flex-none w-48 h-24 relative group bg-white/5 border border-white/10 hover:border-primary/40 transition-all duration-700 p-8"
+              className="flex-none w-60 h-30 relative group bg-white/5 border border-white/10 hover:border-primary/40 transition-all duration-700 p-8"
             >
 
               <img
