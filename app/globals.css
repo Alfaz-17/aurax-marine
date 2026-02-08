@@ -2,6 +2,8 @@
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant hover @media (hover: hover) { &:hover };
+@custom-variant group-hover @media (hover: hover) { .group:hover & };
 
 /* AURAX Marine Solutions — Soft Marine Blue Theme */
 :root {
@@ -138,6 +140,8 @@
   border-radius: 10px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(57, 151, 179, 0.4);
+@media (hover: hover) {
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(57, 151, 179, 0.4);
+  }
 }
