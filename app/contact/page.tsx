@@ -277,7 +277,7 @@ export default function ContactPage() {
                 src="/engine-room.png"
                 alt="Marine Engine Facility"
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
               <div className="absolute bottom-8 left-8 text-white">

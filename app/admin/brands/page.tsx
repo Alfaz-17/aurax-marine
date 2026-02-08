@@ -161,7 +161,7 @@ export default function AdminBrandPage() {
          {brands.map(brand => (
             <div key={brand._id} className="bg-white p-6 border border-border flex flex-col items-center group relative h-48">
                <div className="flex-1 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
-                  <img src={brand.logo} alt={brand.name} className="max-h-16 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-700" />
+                  <img src={brand.logo} alt={brand.name} className="max-h-16 max-w-full object-contain transition-all duration-700" />
                </div>
                <h3 className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest text-center border-t border-border pt-4 w-full">{brand.name}</h3>
                <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">

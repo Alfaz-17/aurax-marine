@@ -68,7 +68,7 @@ export default function BrandsPage() {
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="max-h-full max-w-full object-contain"
                 />
                 <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
                    <h3 className="text-white font-black text-center uppercase tracking-[0.2em] text-xs mb-2">{brand.name}</h3>
