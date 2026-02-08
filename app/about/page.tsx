@@ -35,11 +35,11 @@ export default function AboutPage() {
       <section className="relative min-h-[55dvh] pt-28 sm:pt-32 md:pt-36 flex items-center justify-center overflow-hidden bg-black">
          <div className="absolute inset-0 z-0">
           <Image 
-            src="/about-hero-new.png" 
+            src="/spare-parts-new.png" 
             alt="About AURAX Marine" 
             fill
             priority
-            className="object-cover opacity-30"
+            className="object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40" />
         </div>
@@ -102,11 +102,11 @@ export default function AboutPage() {
               className="relative mt-8 lg:mt-0"
             >
               <Image
-                src="/spare-parts-new.png"
+                src="/AboutMain.png"
                 alt="AURAX Marine Technical Inventory"
                 width={800}
                 height={600}
-                className="shadow-2xl border border-black/10 grayscale hover:grayscale-0 transition-all duration-1000"
+                className="shadow-2xl border border-black/10"
               />
               <div className="absolute -bottom-6 -right-6 bg-black p-8 hidden md:block border border-white/10">
                 <span className="text-4xl font-black text-primary block">20+</span>
@@ -228,6 +228,84 @@ export default function AboutPage() {
                 Emphasizing accuracy in part identification and proper documentation for uninterrupted onboard power.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Infrastructure & Inventory */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div>
+                <h2 className="text-[10px] tracking-[0.4em] uppercase text-primary font-black mb-4">Our Facilities</h2>
+                <h3 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tighter leading-none">
+                  World-Class <span className="text-primary italic">Infrastructure</span>
+                </h3>
+              </div>
+              <p className="text-lg text-black/70 leading-relaxed">
+                Our massive inventory facility spans across specialized zones for engine components, crankshafts, and auxiliary machinery. We maintain a ready-to-dispatch stock of vetted components to minimize vessel turnaround time.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="border-l-4 border-primary pl-4">
+                  <span className="text-3xl font-black text-black block">10k+</span>
+                  <span className="text-[10px] uppercase font-black text-black/40 tracking-widest">Square Feet</span>
+                </div>
+                <div className="border-l-4 border-primary pl-4">
+                  <span className="text-3xl font-black text-black block">5k+</span>
+                  <span className="text-[10px] uppercase font-black text-black/40 tracking-widest">Parts in Stock</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-4"
+            >
+              <div className="space-y-4">
+                <div className="aspect-[4/5] relative overflow-hidden ring-1 ring-black/5">
+                  <Image 
+                    src="/AboutUs1.png" 
+                    alt="Storage Facility" 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+                <div className="aspect-square relative overflow-hidden ring-1 ring-black/5">
+                  <Image 
+                    src="/engine-room.png" 
+                    alt="Engine Components" 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="pt-8 space-y-4">
+                <div className="aspect-square relative overflow-hidden ring-1 ring-black/5">
+                  <Image 
+                    src="/AboutUs2.png" 
+                    alt="Crankshaft Inventory" 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+                <div className="aspect-[4/5] relative overflow-hidden ring-1 ring-black/5">
+                  <Image 
+                    src="/spare-parts-new.png" 
+                    alt="Technical Inventory" 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
