@@ -102,7 +102,7 @@ export default function AboutPage() {
               className="relative mt-8 lg:mt-0"
             >
               <Image
-                src="/AboutMain.png"
+                src="/engine-maintenance-new.png"
                 alt="AURAX Marine Technical Inventory"
                 width={800}
                 height={600}
@@ -272,7 +272,7 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="aspect-[4/5] relative overflow-hidden ring-1 ring-black/5">
                   <Image 
-                    src="/AboutUs1.png" 
+                    src="/global-fleet-new.png" 
                     alt="Storage Facility" 
                     fill 
                     className="object-cover"
@@ -290,7 +290,7 @@ export default function AboutPage() {
               <div className="pt-8 space-y-4">
                 <div className="aspect-square relative overflow-hidden ring-1 ring-black/5">
                   <Image 
-                    src="/AboutUs2.png" 
+                    src="/marine-automation-new.png" 
                     alt="Crankshaft Inventory" 
                     fill 
                     className="object-cover"
