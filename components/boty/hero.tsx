@@ -58,7 +58,7 @@ export function Hero() {
                className="text-[13px] sm:text-sm md:text-base text-white/70 mb-5 sm:mb-6 md:mb-8 max-w-xl font-black italic border-l-2 border-primary/20 pl-6 leading-relaxed"
              >
                 Global specialists in MAN B&W S50MC, Daihatsu, and auxiliary machinery. delivering 20+ years of maritime excellence.
-                <span className="text-primary font-black block mt-3 tracking-[0.2em] uppercase text-[10px] sm:text-xs">Direct Line: +91 93765 02550</span>
+                <span className="text-primary font-black block mt-3 tracking-[0.2em] uppercase text-[10px] sm:text-xs">Direct Line: +91 90239 68557</span>
              </motion.p>
 
 

@@ -21,7 +21,7 @@ export async function sendInquiryEmail(data: InquiryEmailData) {
     }
     const { data: resendData, error } = await resend.emails.send({
       from: 'AURAX Marine <onboarding@resend.dev>', // Update this after domain verification
-      to: process.env.EMAIL_TO || 'info@auraxmarine.com',
+      to: process.env.EMAIL_TO || 'auraxmarinesolutions@gmail.com',
       subject: `New Inquiry: ${productTitle}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; text-align: left;">
@@ -76,7 +76,7 @@ export async function sendContactEmail(data: ContactEmailData) {
     }
     const { data: resendData, error } = await resend.emails.send({
       from: 'AURAX Marine Contact <onboarding@resend.dev>', // Update this after domain verification
-      to: process.env.EMAIL_TO || 'info@auraxmarine.com',
+      to: process.env.EMAIL_TO || 'auraxmarinesolutions@gmail.com',
       subject: `General Contact: ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; text-align: left;">

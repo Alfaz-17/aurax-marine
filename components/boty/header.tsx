@@ -277,11 +277,11 @@ export function Header() {
                   <div className="pt-8 border-t border-white/10 mt-auto">
                     <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-accent/70 mb-6">Operations</h3>
                     <div className="space-y-4">
-                      <a href="tel:+919376502550" className="flex items-center gap-4 group bg-white/5 p-4 rounded-sm border border-white/5 hover:border-accent/30 transition-all">
+                      <a href="tel:+919023968557" className="flex items-center gap-4 group bg-white/5 p-4 rounded-sm border border-white/5 hover:border-accent/30 transition-all">
                         <div className="w-8 h-8 bg-accent flex items-center justify-center rounded-full shadow-[0_0_10px_#3997b3]">
                           <Phone className="w-3 h-3 text-[#0B1F33]" />
                         </div>
-                        <span className="text-[10px] font-black text-white tracking-widest group-hover:text-accent transition-colors">+91 93765 02550</span>
+                        <span className="text-[10px] font-black text-white tracking-widest group-hover:text-accent transition-colors">+91 90239 68557</span>
                       </a>
                     </div>
                   </div>

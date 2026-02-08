@@ -166,10 +166,10 @@ export default function ProductDetailPage() {
             <div className="space-y-4 mb-12">
                <OrderForm productId={product._id} productTitle={product.title} />
                 <div className="grid grid-cols-2 gap-4">
-                   <a href={`tel:+919376502550`} className="flex items-center justify-center gap-2 py-4 border border-black text-black font-black uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">
+                   <a href={`tel:+919023968557`} className="flex items-center justify-center gap-2 py-4 border border-black text-black font-black uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">
                      <Phone className="w-4 h-4" /> Call Hotline
                    </a>
-                   <a href={`mailto:info@auraxmarine.com?subject=Enquiry for ${product.title}`} className="flex items-center justify-center gap-2 py-4 border border-black text-black font-black uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">
+                   <a href={`mailto:auraxmarinesolutions@gmail.com?subject=Enquiry for ${product.title}`} className="flex items-center justify-center gap-2 py-4 border border-black text-black font-black uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">
                       <Mail className="w-4 h-4" /> Email Inquiry
                    </a>
                 </div>

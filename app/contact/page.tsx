@@ -46,14 +46,14 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 93765 02550"],
-      action: "tel:+919376502550",
+      details: ["+91 90239 68557"],
+      action: "tel:+919023968557",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@auraxmarine.com"],
-      action: "mailto:info@auraxmarine.com",
+      details: ["auraxmarinesolutions@gmail.com"],
+      action: "mailto:auraxmarinesolutions@gmail.com",
     },
     {
       icon: MapPin,
@@ -101,7 +101,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <a
-                href="tel:+919376502550"
+                href="tel:+919023968557"
                 className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-all"
               >
                 Direct Line
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 <p className="text-white/60 mb-6 italic border-b border-white/10 pb-4">
                   Available 24/7 for urgent marine assistance and emergency repairs.
                 </p>
-                <a href="tel:+919376502550" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
+                <a href="tel:+919023968557" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
                    <Phone className="w-4 h-4 mr-2" /> CALL EMERGENCY HOTLINE
                 </a>
             </div>
@@ -327,7 +327,7 @@ export default function ContactPage() {
 
               <div className="pt-6">
                 <a
-                  href="tel:+919376502550"
+                  href="tel:+919023968557"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all"
                 >
                   <Phone className="w-5 h-5" />
