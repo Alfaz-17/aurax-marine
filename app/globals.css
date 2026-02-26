@@ -3,41 +3,41 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* AURAX Marine Solutions — Soft Marine Blue Theme */
+/* Spice Ship Supplier — Custom Theme */
 :root {
   /* Base */
-  --background: #F6FBFE;          /* Light marine white */
-  --foreground: #0B1F33;          /* Deep navy */
+  --background: #F5F5F5;          /* Off White */
+  --foreground: #1A1A1A;          /* Charcoal Black */
 
   /* Surfaces */
-  --card: #FFFFFF;
-  --card-foreground: #0B1F33;
+  --card: #FFFFFF;                /* White */
+  --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
-  --popover-foreground: #0B1F33;
+  --popover-foreground: #1A1A1A;
 
   /* Brand */
-  --primary: #4988C4;             /* Core brand blue */
+  --primary: #FF3B30;             /* Vibrant Red-Orange */
   --primary-foreground: #FFFFFF;
 
-  --secondary: #0B1F33;           /* Navy */
+  --secondary: #1A1A1A;           /* Charcoal Black */
   --secondary-foreground: #FFFFFF;
 
   /* Muted / UI */
-  --muted: #E8F3FA;               /* From BDE8F5 */
-  --muted-foreground: #4A647D;
+  --muted: #E5E7EB;
+  --muted-foreground: #4B5563;
 
   /* Accent */
-  --accent: #427181;              /* Soft highlight */
-  --accent-foreground: #0B1F33;
+  --accent: #6E6E6E;              /* Mid Gray */
+  --accent-foreground: #FFFFFF;
 
   /* Status */
-  --destructive: #1E3A5F;
+  --destructive: #991B1B;
   --destructive-foreground: #FFFFFF;
 
   /* Borders / Inputs */
-  --border: #D6E6F2;
-  --input: #D6E6F2;
-  --ring: #4988C4;
+  --border: #D1D5DB;
+  --input: #D1D5DB;
+  --ring: #FF3B30;
 
   /* Shape */
   --radius: 0rem;                 /* Industrial / technical */
@@ -45,33 +45,33 @@
 
 /* 🌙 Dark Mode */
 .dark {
-  --background: #0B1F33;          /* Navy dark */
-  --foreground: #F6FBFE;
+  --background: #1A1A1A;          /* Charcoal Black */
+  --foreground: #F5F5F5;          /* Off White */
 
-  --card: #102A44;
-  --card-foreground: #F6FBFE;
+  --card: #2B2B2B;                /* Slightly lighter than bg */
+  --card-foreground: #F5F5F5;
 
-  --popover: #102A44;
-  --popover-foreground: #F6FBFE;
+  --popover: #2B2B2B;
+  --popover-foreground: #F5F5F5;
 
-  --primary: #6FA6D9;             /* Lighter marine blue */
-  --primary-foreground: #0B1F33;
+  --primary: #FF3B30;             /* Vibrant Red-Orange */
+  --primary-foreground: #FFFFFF;
 
-  --secondary: #163A5F;
-  --secondary-foreground: #F6FBFE;
+  --secondary: #3B3B3B;
+  --secondary-foreground: #F5F5F5;
 
-  --muted: #163A5F;
-  --muted-foreground: #9DB6CC;
+  --muted: #3B3B3B;
+  --muted-foreground: #9CA3AF;
 
-  --accent: #BBE0EF;              /* Soft blue glow */
-  --accent-foreground: #0B1F33;
+  --accent: #6E6E6E;              /* Mid Gray */
+  --accent-foreground: #FFFFFF;
 
-  --destructive: #355F8A;
+  --destructive: #7F1D1D;
   --destructive-foreground: #FFFFFF;
 
-  --border: #1F4C73;
-  --input: #1F4C73;
-  --ring: #6FA6D9;
+  --border: #4B5563;
+  --input: #4B5563;
+  --ring: #FF3B30;
 }
 
 @theme inline {
@@ -112,11 +112,11 @@
   }
 }
 
-/* Marine-grade soft shadow */
+/* Spice soft shadow */
 .marine-shadow {
   box-shadow:
-    rgba(73, 136, 196, 0.08) 0px 1px 2px,
-    rgba(73, 136, 196, 0.06) 0px 4px 12px;
+    rgba(255, 59, 48, 0.08) 0px 1px 2px,
+    rgba(255, 59, 48, 0.06) 0px 4px 12px;
 }
 
 /* Smooth transitions */
@@ -134,12 +134,12 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(57, 151, 179, 0.2);
+  background: rgba(255, 59, 48, 0.2);
   border-radius: 10px;
 }
 
 @media (hover: hover) {
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(57, 151, 179, 0.4);
+    background: rgba(255, 59, 48, 0.4);
   }
 }

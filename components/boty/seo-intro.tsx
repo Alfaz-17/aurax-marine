@@ -72,11 +72,11 @@ export function SEOIntro() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-6 sm:p-8 md:p-10 lg:p-16 border border-[#4988C4]/20 relative">
+            className="bg-white p-6 sm:p-8 md:p-10 lg:p-16 border border-primary/20 relative">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 -translate-y-1/2 translate-x-1/2 rounded-full blur-3xl" />
             
-            <h3 className="text-xl sm:text-2xl font-sans font-black text-[#0B1F33] mb-6 sm:mb-8 md:mb-10 tracking-tight uppercase leading-none">
+            <h3 className="text-xl sm:text-2xl font-sans font-black text-secondary mb-6 sm:mb-8 md:mb-10 tracking-tight uppercase leading-none">
               Core Product <span className="text-primary italic">Offerings</span>:
             </h3>
 
@@ -84,10 +84,10 @@ export function SEOIntro() {
             <div className="grid sm:grid-cols-2 gap-6">
               {services.map((service, i) => (
                 <div key={i} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 bg-white border border-[#0B1F33]/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
+                  <div className="w-10 h-10 bg-white border border-secondary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
                     <service.icon className="w-4 h-4 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-xs font-black text-[#0B1F33]/60 leading-snug group-hover:text-[#0B1F33] transition-colors uppercase tracking-[0.1em] pt-1">
+                  <span className="text-xs font-black text-secondary/60 leading-snug group-hover:text-secondary transition-colors uppercase tracking-[0.1em] pt-1">
                     {service.title}
                   </span>
                 </div>
@@ -95,8 +95,8 @@ export function SEOIntro() {
               ))}
             </div>
 
-            <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 md:pt-10 border-t border-[#0B1F33]/10">
-              <p className="text-[9px] sm:text-[10px] text-[#0B1F33]/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-relaxed">
+            <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 md:pt-10 border-t border-secondary/10">
+              <p className="text-[9px] sm:text-[10px] text-secondary/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-relaxed">
                 Available as: New OEM alternative, Reconditioned (with reports), and Ready Stock.
               </p>
             </div>

@@ -49,8 +49,8 @@ export function ProductGrid() {
   const filteredProducts = products.slice(0, 8);
 
   if (loading && products.length === 0) return (
-     <div className="py-24 text-center bg-[#0B1F33]">
-        <div className="w-12 h-12 border-4 border-[#4988C4] border-t-transparent rounded-none animate-spin mx-auto mb-4" />
+     <div className="py-24 text-center bg-secondary">
+        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-none animate-spin mx-auto mb-4" />
         <p className="text-[10px] font-black uppercase tracking-widest text-white/40 font-mono">Syncing Fleet Inventory...</p>
      </div>
   );
@@ -64,26 +64,26 @@ export function ProductGrid() {
                animate={headerVisible ? { opacity: 1, y: 0 } : {}}
                className="flex items-center justify-center gap-4"
             >
-               <div className="w-12 h-px bg-[#0B1F33]/20" />
-               <span className="text-[10px] tracking-[0.4em] uppercase text-[#0B1F33] font-black block">
+               <div className="w-12 h-px bg-secondary/20" />
+               <span className="text-[10px] tracking-[0.4em] uppercase text-secondary font-black block">
                   Essential Inventory
                </span>
-               <div className="w-12 h-px bg-[#0B1F33]/20" />
+               <div className="w-12 h-px bg-secondary/20" />
             </motion.div>
 
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black text-[#0B1F33] leading-none uppercase tracking-tighter">
-              Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4988C4] to-[#0B1F33]">Assets</span>
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black text-secondary leading-none uppercase tracking-tighter">
+              Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Assets</span>
             </motion.h2>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
-              className="text-sm sm:text-base text-[#0B1F33]/60 max-w-2xl mx-auto font-mono text-center uppercase tracking-widest">
+              className="text-sm sm:text-base text-secondary/60 max-w-2xl mx-auto font-mono text-center uppercase tracking-widest">
                // Reconditioned equipment inspected for operational efficiency.
             </motion.p>
         </div>
@@ -102,25 +102,25 @@ export function ProductGrid() {
                 className="w-[280px] sm:w-[320px] md:w-[400px] flex-none snap-center group"
                 layout
               >
-                <Link href={`/product/${product._id}`} className="block relative bg-[#F6FBFE] border border-[#D6E6F2] transition-all duration-300 hover:border-[#0B1F33] hover:shadow-2xl h-full">
+                <Link href={`/product/${product._id}`} className="block relative bg-[#F6FBFE] border border-[#D6E6F2] transition-all duration-300 hover:border-secondary hover:shadow-2xl h-full">
                   
                   {/* Image Container */}
-                  <div className="aspect-[4/5] relative overflow-hidden bg-[#0B1F33]/5 p-8 flex items-center justify-center">
+                  <div className="aspect-[4/5] relative overflow-hidden bg-secondary/5 p-8 flex items-center justify-center">
                     
                     {/* Technical Grid Overlay */}
                     <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
-                         style={{ backgroundImage: 'linear-gradient(#0B1F33 1px, transparent 1px), linear-gradient(90deg, #0B1F33 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+                         style={{ backgroundImage: 'linear-gradient(var(--secondary) 1px, transparent 1px), linear-gradient(90deg, var(--secondary) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
 
                     {/* Status Badge */}
                     <div className="absolute top-4 right-4 z-10">
-                        <span className="bg-[#0B1F33] text-white px-3 py-1 text-[9px] font-black uppercase tracking-widest border border-white/20">
+                        <span className="bg-secondary text-white px-3 py-1 text-[9px] font-black uppercase tracking-widest border border-white/20">
                            In Stock
                         </span>
                     </div>
 
                     {/* ID Badge */}
                     <div className="absolute top-4 left-4 z-10">
-                        <span className="text-[#0B1F33]/40 font-mono text-[9px]">ID: {product._id.slice(-6).toUpperCase()}</span>
+                        <span className="text-secondary/40 font-mono text-[9px]">ID: {product._id.slice(-6).toUpperCase()}</span>
                     </div>
 
                     <div className="relative w-full h-full transition-all duration-500 group-hover:scale-105">
@@ -143,16 +143,16 @@ export function ProductGrid() {
                   </div>
 
                   {/* Info Card */}
-                  <div className="p-6 bg-white border-t border-[#D6E6F2] relative overflow-hidden group-hover:bg-[#0B1F33] group-hover:text-white transition-colors duration-300">
+                  <div className="p-6 bg-white border-t border-[#D6E6F2] relative overflow-hidden group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                     
                     <div className="mb-4">
-                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#4988C4] block mb-2">{product.category?.name || "Inventory"}</span>
+                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-primary block mb-2">{product.category?.name || "Inventory"}</span>
                        <h3 className="text-xl font-black uppercase tracking-tight leading-none min-h-[40px] line-clamp-2">{product.title}</h3>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-[#0B1F33]/10 group-hover:border-white/20 pt-4 mt-4">
-                        <span className="text-[10px] font-mono uppercase text-[#0B1F33]/40 group-hover:text-white/40">Verified Asset</span>
-                        <div className="flex items-center gap-2 text-[#0B1F33] group-hover:text-[#4988C4] font-black text-xs uppercase tracking-widest">
+                    <div className="flex items-center justify-between border-t border-secondary/10 group-hover:border-white/20 pt-4 mt-4">
+                        <span className="text-[10px] font-mono uppercase text-secondary/40 group-hover:text-white/40">Verified Asset</span>
+                        <div className="flex items-center gap-2 text-secondary group-hover:text-primary font-black text-xs uppercase tracking-widest">
                            Inspect <ArrowRight className="w-3 h-3" />
                         </div>
                     </div>
@@ -164,10 +164,10 @@ export function ProductGrid() {
         </div>
       </div>
 
-      <div className="text-center mt-12 sm:mt-16 border-t border-[#0B1F33]/5 pt-16">
+      <div className="text-center mt-12 sm:mt-16 border-t border-secondary/5 pt-16">
         <Link
           href="/products"
-          className="inline-flex items-center gap-4 bg-white text-[#0B1F33] border-2 border-[#0B1F33] px-8 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#0B1F33] hover:text-white transition-all duration-300 group">
+          className="inline-flex items-center gap-4 bg-white text-secondary border-2 border-secondary px-8 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-secondary hover:text-white transition-all duration-300 group">
           <span className="relative z-10">Access Full Inventory</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>

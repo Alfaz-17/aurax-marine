@@ -106,7 +106,7 @@ export default function AdminBrandPage() {
   return (
     <div className="max-w-4xl space-y-12">
       <div className="border-b border-border pb-8">
-        <h1 className="text-3xl font-bold text-[#0B1F33] uppercase tracking-tighter">Strategic Partners</h1>
+        <h1 className="text-3xl font-bold text-secondary uppercase tracking-tighter">Strategic Partners</h1>
         <p className="text-xs font-bold text-accent uppercase tracking-[0.3em] mt-2">Manage Manufacturer Relationships & Branding</p>
       </div>
 
@@ -118,7 +118,7 @@ export default function AdminBrandPage() {
 
       <div className="bg-white p-10 border border-border">
          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-[#0B1F33]">{editingId ? 'Modify Strategic Partner' : 'Onboard New Partner'}</h2>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-secondary">{editingId ? 'Modify Strategic Partner' : 'Onboard New Partner'}</h2>
             {editingId && (
                <button onClick={handleCancelEdit} className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground hover:text-primary">Cancel Edit</button>
             )}
@@ -126,7 +126,7 @@ export default function AdminBrandPage() {
          <form onSubmit={handleAddBrand} className="space-y-6">
             <div className="flex gap-6 items-end">
                <div className="flex-1 space-y-2">
-                  <label className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest">Brand Name</label>
+                  <label className="text-[10px] font-bold text-secondary uppercase tracking-widest">Brand Name</label>
                   <input 
                     type="text" 
                     placeholder="e.g. Caterpillar Marine" 
@@ -137,7 +137,7 @@ export default function AdminBrandPage() {
                   />
                </div>
                <div className="w-48 space-y-2 text-center">
-                  <label className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest block mb-4">Logo ID</label>
+                  <label className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-4">Logo ID</label>
                   {logoPreview ? (
                      <div className="relative h-14 border border-border bg-muted flex items-center justify-center p-2">
                         <img src={logoPreview} alt="Logo" className="max-h-full max-w-full object-contain" />
@@ -163,7 +163,7 @@ export default function AdminBrandPage() {
                <div className="flex-1 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
                   <img src={brand.logo} alt={brand.name} className="max-h-16 max-w-full object-contain transition-all duration-700" />
                </div>
-               <h3 className="text-[10px] font-bold text-[#0B1F33] uppercase tracking-widest text-center border-t border-border pt-4 w-full">{brand.name}</h3>
+               <h3 className="text-[10px] font-bold text-secondary uppercase tracking-widest text-center border-t border-border pt-4 w-full">{brand.name}</h3>
                <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   <button onClick={() => handleEdit(brand)} className="p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md text-primary hover:text-accent">
                      <Award className="w-3 h-3" />

@@ -64,27 +64,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           className="fixed inset-0 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         >
-          <div className="fixed inset-0 bg-[#0B1F33]/75 backdrop-blur-sm"></div>
+          <div className="fixed inset-0 bg-secondary/75 backdrop-blur-sm"></div>
         </div>
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-[#0B1F33] to-[#05111D] shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-[#3997b3]/10 flex flex-col ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-[280px] bg-secondary shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-border flex flex-col ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <div className="flex items-center justify-between h-24 px-8 border-b border-white/5 bg-[#0B1F33]/50 backdrop-blur-sm">
-          <Link href="/" className="flex items-center">
+        <div className="flex items-center justify-between h-20 px-8 border-b border-border/10 bg-secondary">
+          <Link href="/" className="flex items-center opacity-90 hover:opacity-100 transition-opacity">
             <Logo variant="white" size="sm" />
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
-            className="lg:hidden p-2 rounded-md text-white/70 hover:text-white"
+            className="lg:hidden p-2 rounded-md text-white/50 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <nav className="flex-1 mt-8 px-4 space-y-3 overflow-y-auto custom-scrollbar pb-8">
+        <nav className="flex-1 mt-6 px-4 space-y-2 overflow-y-auto custom-scrollbar pb-8">
           {navigation.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -93,52 +93,46 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 key={item.name}
                 href={item.href}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center px-4 py-4 text-xs font-bold uppercase tracking-widest transition-all group relative overflow-hidden ${
+                className={`flex items-center px-4 py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all group relative overflow-hidden ${
                   active
-                    ? 'bg-accent/10 text-accent border border-accent/20 shadow-[0_0_15px_rgba(57,151,179,0.1)]'
-                    : 'text-white/50 border border-transparent hover:bg-white/5 hover:text-white hover:border-white/10'
+                    ? 'bg-primary/10 text-primary border border-primary/20 shadow-sm'
+                    : 'text-white/60 border border-transparent hover:bg-white/5 hover:text-white'
                 }`}
               >
-                {active && (
-                   <div className="absolute inset-y-0 left-0 w-1 bg-accent shadow-[0_0_10px_#3997b3]" />
-                )}
-                <Icon className={`w-5 h-5 mr-4 transition-colors ${active ? 'text-accent' : 'text-white/50 group-hover:text-white'}`} />
+                <Icon className={`w-5 h-5 mr-4 transition-colors ${active ? 'text-primary' : 'text-white/40 group-hover:text-white'}`} />
                 <span className="relative z-10">{item.name}</span>
-                {active && (
-                   <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent opacity-50" />
-                )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-6 bg-gradient-to-t from-[#05111D] to-transparent border-t border-white/5">
-          <div className="bg-white/5 border border-white/10 p-4 backdrop-blur-md mb-4 group hover:border-accent/30 transition-colors cursor-pointer">
+        <div className="p-6 bg-secondary border-t border-border/10">
+          <div className="bg-white/5 rounded-lg p-4 mb-4 group hover:bg-white/10 transition-colors cursor-pointer border border-transparent hover:border-white/10">
             <div className="flex items-center">
-                <div className="w-10 h-10 bg-accent rounded-sm flex items-center justify-center text-[#0B1F33] font-bold shadow-lg shadow-accent/20">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary font-black border border-primary/30">
                 {user?.name?.charAt(0) || 'A'}
                 </div>
                 <div className="ml-4 overflow-hidden">
                 <p className="text-xs font-bold text-white uppercase tracking-wider truncate">
                     {user?.name || user?.email || 'Admin'}
                 </p>
-                <p className="text-[9px] text-accent/80 font-bold uppercase tracking-widest">Fleet Commander</p>
+                <p className="text-[9px] text-white/50 font-medium uppercase tracking-widest mt-0.5">Fleet Commander</p>
                 </div>
             </div>
           </div>
           
           <button
             onClick={handleLogout}
-            className="flex items-center justify-center w-full px-4 py-4 text-[10px] font-bold uppercase tracking-widest text-white/70 hover:text-white bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 hover:border-red-500/50 transition-all"
+            className="flex items-center justify-center w-full px-4 py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white hover:bg-white/5 border border-white/10 transition-all"
           >
-            <LogOut className="w-4 h-4 mr-2" />
+            <LogOut className="w-4 h-4 mr-3" />
             End Session
           </button>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64">
+      <div className="lg:pl-[280px]">
         <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-border h-16 flex items-center justify-between px-8">
             <button
               onClick={() => setSidebarOpen(true)}

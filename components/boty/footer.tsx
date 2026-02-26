@@ -37,7 +37,7 @@ export function Footer() {
     <footer className="bg-white pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 md:pb-10 relative overflow-hidden">
       {/* Giant Background Text */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0">
-        <span className="font-serif text-[60px] sm:text-[100px] md:text-[180px] lg:text-[250px] xl:text-[300px] font-bold text-[#4988C4]/5 whitespace-nowrap leading-none uppercase tracking-tighter">
+        <span className="font-serif text-[60px] sm:text-[100px] md:text-[180px] lg:text-[250px] xl:text-[300px] font-bold text-primary/5 whitespace-nowrap leading-none uppercase tracking-tighter">
           AURAX Marine Solutions
         </span>
       </div>
@@ -47,7 +47,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Logo size="md" variant="light" className="mb-4 sm:mb-6 h-8 sm:h-10" />
-            <p className="text-xs sm:text-sm text-[#0B1F33]/80 leading-relaxed mb-4 sm:mb-6">
+            <p className="text-xs sm:text-sm text-secondary/80 leading-relaxed mb-4 sm:mb-6">
               Sister company of Spice Ship Supplier (20+ Years Legacy). Specialized in MAN B&W S50MC & Auxiliary Engines.
             </p>
             <div className="flex gap-3 sm:gap-4">
@@ -107,13 +107,13 @@ export function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h3 className="font-medium text-[#0B1F33] mb-4">Shop</h3>
+            <h3 className="font-medium text-secondary mb-4">Shop</h3>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#0B1F33]/70 hover:text-[#4988C4] marine-transition"
+                    className="text-sm text-secondary/70 hover:text-primary marine-transition"
                   >
                     {link.name}
                   </Link>
@@ -124,13 +124,13 @@ export function Footer() {
 
           {/* About Links */}
           <div>
-            <h3 className="font-medium text-[#0B1F33] mb-4">About</h3>
+            <h3 className="font-medium text-secondary mb-4">About</h3>
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#0B1F33]/70 hover:text-[#4988C4] marine-transition"
+                    className="text-sm text-secondary/70 hover:text-primary marine-transition"
                   >
                     {link.name}
                   </Link>
@@ -141,13 +141,13 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="font-medium text-[#0B1F33] mb-4">Support</h3>
+            <h3 className="font-medium text-secondary mb-4">Support</h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#0B1F33]/70 hover:text-[#4988C4] marine-transition"
+                    className="text-sm text-secondary/70 hover:text-primary marine-transition"
                   >
                     {link.name}
                   </Link>

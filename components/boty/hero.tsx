@@ -6,10 +6,10 @@ import { motion } from "framer-motion"
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-[#0B1F33]">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-secondary">
       {/* Background with video and subtle overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#0B1F33]/30 z-10" />
+        <div className="absolute inset-0 bg-secondary/30 z-10" />
 
         <video
           autoPlay
@@ -22,7 +22,7 @@ export function Hero() {
           <source src="/hero.mp4" type="video/mp4" />
         </video>
         {/* Gradients */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-[#0B1F33]/80 md:from-[#0B1F33]/60 to-transparent z-15" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-secondary/80 md:from-secondary/60 to-transparent z-15" />
       </div>
 
 

@@ -81,7 +81,7 @@ export function Header() {
       <nav 
         className={`max-w-full mx-auto px-6 lg:px-12 marine-transition border-b ${
           (isScrolled || !isHome)
-            ? "bg-[#0B1F33]/90 backdrop-blur-md border-[#3997b3]/20 py-4 shadow-[0_4px_30px_rgba(11,31,51,0.5)]" 
+            ? "bg-white border-border py-4 shadow-md" 
             : "bg-transparent border-transparent py-8"
         }`}
       >
@@ -90,7 +90,7 @@ export function Header() {
           <button
             type="button"
             className={`lg:hidden p-2 marine-transition transition-colors ${
-              (isScrolled || !isHome) ? "text-white hover:text-accent" : "text-white hover:text-accent"
+              (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-foreground hover:text-primary"
             }`}
             onClick={() => setIsMenuOpen(true)}
             aria-label="Toggle menu"
@@ -109,12 +109,12 @@ export function Header() {
               >
                 <Link
                   href={link.href}
-                  className={`text-[10px] font-bold uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
-                    (isScrolled || !isHome) ? "text-white/80 hover:text-accent" : "text-white/80 hover:text-accent"
+                  className={`text-[10px] font-black uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
+                    (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-foreground hover:text-primary"
                   }`}
                 >
                   {link.name}
-                  <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#3997b3]"></span>
+                  <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                   {link.dropdown && <ChevronDown className="w-3 h-3 opacity-50" />}
                 </Link>
 
@@ -125,18 +125,18 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute top-full left-0 pt-12 w-80 z-50"
                   >
-                    <div className="bg-[#0B1F33]/95 border border-[#3997b3]/20 shadow-[0_0_30px_rgba(11,31,51,0.8)] p-6 backdrop-blur-xl rounded-sm">
+                    <div className="bg-white border border-border shadow-lg p-6 rounded-md">
                       <div className="space-y-3">
                         {link.dropdown.slice(0, 8).map((item: any, idx: number) => (
                           <Link 
                             key={`${link.name}-${idx}-${item.name}`} 
                             href={item.href}
-                            className="block text-sm font-bold text-white/80 hover:text-accent transition-colors py-2 border-b border-white/5 hover:border-accent/30 hover:pl-2 duration-200"
+                            className="block text-sm font-bold text-foreground/80 hover:text-primary transition-colors py-2 border-b border-border/50 hover:border-primary/30 hover:pl-2 duration-200"
                           >
                             {item.name}
                           </Link>
                         ))}
-                        <Link href={link.href} className="pt-3 mt-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-4 transition-all hover:brightness-125">
+                        <Link href={link.href} className="pt-3 mt-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-primary hover:gap-4 transition-all hover:brightness-125">
                           View All {link.name} <ArrowRight className="w-4 h-4" />
                         </Link>
                       </div>
@@ -172,12 +172,12 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
-                    className={`text-[10px] font-bold uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
-                      (isScrolled || !isHome) ? "text-white/80 hover:text-accent" : "text-white/80 hover:text-accent"
+                    className={`text-[10px] font-black uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
+                      (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-foreground hover:text-primary"
                     }`}
                   >
                     {link.name}
-                    <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#3997b3]"></span>
+                    <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                     {link.dropdown && <ChevronDown className="w-3 h-3 opacity-50" />}
                   </Link>
 
@@ -188,18 +188,18 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       className="absolute top-full right-0 pt-12 w-80 z-50"
                     >
-                      <div className="bg-[#0B1F33]/95 border border-[#3997b3]/20 shadow-[0_0_30px_rgba(11,31,51,0.8)] p-6 backdrop-blur-xl rounded-sm">
+                      <div className="bg-white border border-border shadow-lg p-6 rounded-md">
                         <div className="space-y-3">
                           {link.dropdown.slice(0, 8).map((item: any, idx: number) => (
                             <Link 
                               key={`${link.name}-${idx}-${item.name}`} 
                               href={item.href}
-                              className="block text-sm font-bold text-white/80 hover:text-accent transition-colors py-2 border-b border-white/5 hover:border-accent/30 hover:pl-2 duration-200"
+                              className="block text-sm font-bold text-foreground/80 hover:text-primary transition-colors py-2 border-b border-border/50 hover:border-primary/30 hover:pl-2 duration-200"
                             >
                               {item.name}
                             </Link>
                           ))}
-                          <Link href={link.href} className="pt-3 mt-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-accent hover:gap-4 transition-all hover:brightness-125">
+                          <Link href={link.href} className="pt-3 mt-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-primary hover:gap-4 transition-all hover:brightness-125">
                             Explore {link.name} <ArrowRight className="w-4 h-4" />
                           </Link>
                         </div>
@@ -222,7 +222,7 @@ export function Header() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setIsMenuOpen(false)}
-                className="fixed inset-0 bg-[#0B1F33]/80 backdrop-blur-md z-[60] lg:hidden"
+                className="fixed inset-0 bg-secondary/80 backdrop-blur-md z-[60] lg:hidden"
               />
               
               {/* Sidebar Panel */}
@@ -231,14 +231,14 @@ export function Header() {
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-gradient-to-b from-[#0B1F33] to-[#05111D] z-[70] shadow-2xl lg:hidden flex flex-col h-screen border-r border-[#3997b3]/20"
+                className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white z-[70] shadow-2xl lg:hidden flex flex-col h-screen border-r border-border"
               >
-                <div className="shrink-0 p-8 border-b border-white/5 flex items-center justify-between bg-[#0B1F33]/50">
-                  <h2 className="font-sans text-xl font-black tracking-tight uppercase text-white">
-                    AURAX <span className="text-accent italic">Marine</span>
+                <div className="shrink-0 p-8 border-b border-border flex items-center justify-between bg-muted/30">
+                  <h2 className="font-sans text-xl font-black tracking-tight uppercase text-foreground">
+                    AURAX <span className="text-primary italic">Marine</span>
                   </h2>
-                  <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-white/10 rounded-md transition-colors">
-                    <X className="w-6 h-6 text-white" />
+                  <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-muted rounded-md transition-colors">
+                    <X className="w-6 h-6 text-foreground" />
                   </button>
                 </div>
 
@@ -249,19 +249,19 @@ export function Header() {
                       <div key={link.name} className="space-y-2">
                         <Link
                           href={link.href}
-                          className="text-sm font-black uppercase tracking-[0.3em] text-white/80 hover:text-accent transition-all block border-l-2 border-transparent hover:border-accent hover:pl-4 duration-300"
+                          className="text-sm font-black uppercase tracking-[0.3em] text-foreground hover:text-primary transition-all block border-l-2 border-transparent hover:border-primary hover:pl-4 duration-300"
                           onClick={() => !link.dropdown && setIsMenuOpen(false)}
                         >
                           {link.name}
                         </Link>
                         
                         {link.dropdown && link.dropdown.length > 0 && (
-                          <div className="pl-6 border-l border-white/10 space-y-3 mt-2">
+                          <div className="pl-6 border-l border-border space-y-3 mt-2">
                             {link.dropdown.slice(0, 6).map((item: any, idx: number) => (
                               <Link
                                 key={`mobile-${link.name}-${idx}-${item.name}`}
                                 href={item.href}
-                                className="text-[10px] font-bold uppercase tracking-widest text-white/50 hover:text-white block transition-colors"
+                                className="text-[10px] font-bold uppercase tracking-widest text-foreground/60 hover:text-foreground block transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {item.name}
@@ -274,23 +274,23 @@ export function Header() {
                   </div>
 
                   {/* Operational Contacts */}
-                  <div className="pt-8 border-t border-white/10 mt-auto">
-                    <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-accent/70 mb-6">Operations</h3>
+                  <div className="pt-8 border-t border-border mt-auto">
+                    <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-primary/80 mb-6">Operations</h3>
                     <div className="space-y-4">
-                      <a href="tel:+919023968557" className="flex items-center gap-4 group bg-white/5 p-4 rounded-sm border border-white/5 hover:border-accent/30 transition-all">
-                        <div className="w-8 h-8 bg-accent flex items-center justify-center rounded-full shadow-[0_0_10px_#3997b3]">
-                          <Phone className="w-3 h-3 text-[#0B1F33]" />
+                      <a href="tel:+919023968557" className="flex items-center gap-4 group bg-muted/50 p-4 rounded-sm border border-border hover:border-primary/30 transition-all">
+                        <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-full shadow-sm">
+                          <Phone className="w-3 h-3 text-white" />
                         </div>
-                        <span className="text-[10px] font-black text-white tracking-widest group-hover:text-accent transition-colors">+91 90239 68557</span>
+                        <span className="text-[10px] font-black text-foreground tracking-widest group-hover:text-primary transition-colors">+91 90239 68557</span>
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="shrink-0 p-6 border-t border-white/10 bg-[#0B1F33]/50">
+                <div className="shrink-0 p-6 border-t border-border bg-muted/30">
                    <div className="flex items-center gap-6 justify-center">
-                      <a href="#" className="p-2 text-white/60 hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
-                      <a href="#" className="p-2 text-white/60 hover:text-accent transition-colors"><Linkedin className="w-5 h-5" /></a>
+                      <a href="#" className="p-2 text-foreground/60 hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
+                      <a href="#" className="p-2 text-foreground/60 hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
                    </div>
                 </div>
               </motion.div>
@@ -300,7 +300,7 @@ export function Header() {
         </AnimatePresence>
         {/* Scroll Progress Line */}
         <motion.div 
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent shadow-[0_0_10px_#3997b3] origin-left z-[60]"
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary shadow-sm origin-left z-[60]"
           style={{ scaleX: scrollProgress }}
         />
 

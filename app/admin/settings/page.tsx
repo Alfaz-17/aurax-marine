@@ -90,7 +90,7 @@ export default function AdminSettingsPage() {
               onClick={() => setSettings(prev => ({ ...prev, autoBackgroundRemoval: !prev.autoBackgroundRemoval }))}
               className={`w-full py-4 text-[10px] font-bold uppercase tracking-widest transition-all ${
                 settings.autoBackgroundRemoval 
-                  ? 'bg-[#0B1F33] text-white shadow-xl shadow-indigo-100' 
+                  ? 'bg-secondary text-white shadow-xl shadow-indigo-100' 
                   : 'bg-muted/10 text-muted-foreground border border-border'
               }`}
             >
@@ -146,7 +146,7 @@ export default function AdminSettingsPage() {
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="w-full md:w-auto px-12 py-5 bg-[#0B1F33] text-white font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-accent transition-all shadow-2xl flex items-center justify-center gap-4 disabled:opacity-50"
+          className="w-full md:w-auto px-12 py-5 bg-secondary text-white font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-accent transition-all shadow-2xl flex items-center justify-center gap-4 disabled:opacity-50"
         >
           {isSaving ? (
             <>
