@@ -14,7 +14,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          poster="/hero-bg.png"
+          poster="/hero-bg.jpg"
           className="w-full h-full object-cover opacity-100 transition-opacity duration-1000"
         >
           <source src="/hero.mp4" type="video/mp4" />
