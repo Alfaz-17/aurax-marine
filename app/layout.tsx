@@ -21,9 +21,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'AURAX Marine Solutions | Marine Engines & Machinery Spares Global Supplier',
-  description: 'AURAX Marine Solutions is a specialized supplier of MAN B&W S50MC engine spares, auxiliary engines, and marine machinery components worldwide.',
-  keywords: ['AURAX Marine', 'MAN B&W S50MC spares', 'ship machinery supplier', 'marine engine parts', 'vessel spares', 'Daihatsu generator spares'],
+  title: 'Spice Ship Supplier | Marine Engines & Machinery Spares Global Specialist',
+  description: 'Spice Ship Supplier is a specialized marine ship spares and equipment retailer based in Bhavnagar, Gujarat. We supply MAN B&W S35MC, S50MC components, Daihatsu spares, and auxiliary machinery worldwide.',
+  keywords: ['Spice Ship Supplier', 'Marine Ship Spares', 'MAN B&W S50MC spares', 'ship machinery supplier', 'marine engine parts', 'Bhavnagar ship spares', 'Daihatsu marine spares'],
   icons: {
     icon: '/logo.png',
     apple: '/logo.png',

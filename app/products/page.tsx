@@ -90,7 +90,7 @@ export default function ProductsPage() {
               transition={{ delay: 0.2 }}
               className="text-lg text-white/60 max-w-2xl mx-auto italic border-l-2 border-primary/40 pl-6"
             >
-              Specialized marine engine spares and machinery, rigorously inspected by AURAX Marine experts.
+              Specialized marine engine spares and machinery, rigorously inspected by Spice Ship Supplier experts.
             </motion.p>
         </div>
       </div>

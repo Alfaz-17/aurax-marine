@@ -9,7 +9,7 @@ const testimonials = [
     name: "Chief Eng. Elias V.",
     location: "Global Shipping Corp",
     rating: 5,
-    text: "The MAN B&W S50MC Piston Crowns supplied by AURAX Marine were technically flawless. Their attention to documentation for critical engine parts is impressive.",
+    text: "The MAN B&W S50MC Piston Crowns supplied by Spice Ship Supplier were technically flawless. Their attention to documentation for critical engine parts is impressive.",
     product: "S50MC Spares"
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     name: "Thomas L.",
     location: "Port of Singapore",
     rating: 5,
-    text: "Finding reliable Daihatsu DK20 components is a challenge, but AURAX has a proven inventory. Every part arrived with detailed inspection photography.",
+    text: "Finding reliable Daihatsu DK20 components is a challenge, but Spice Ship Supplier has a proven inventory. Every part arrived with detailed inspection photography.",
     product: "Daihatsu Spares"
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     name: "Sarah K.",
     location: "Maritime Solutions LLC",
     rating: 5,
-    text: "Reliable, robust, and expertly inspected. AURAX Marine has become our primary technical partner for all critical 2-stroke engine machinery.",
+    text: "Reliable, robust, and expertly inspected. Spice Ship Supplier has become our primary technical partner for all critical 2-stroke engine machinery.",
     product: "Engine Machinery"
   },
   {
@@ -41,7 +41,7 @@ const testimonials = [
     name: "Eng. Hiroshi T.",
     location: "Yokohama Marine",
     rating: 5,
-    text: "The technical expertise of the AURAX team is exceptional. They provided precise measurements for a crankshaft that other suppliers missed.",
+    text: "The technical expertise of the Spice team is exceptional. They provided precise measurements for a crankshaft that other suppliers missed.",
     product: "Crankshaft Units"
   },
   {

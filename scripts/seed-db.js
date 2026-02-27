@@ -2,7 +2,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-// Unified Seed Data for Aurax Marine Solutions
+// Unified Seed Data for Spice Ship Supplier
 const brands = [
   { name: "MAN B&W", logo: "https://www.man-es.com/images/default-source/logos/man-energy-solutions-logo.svg", description: "World-leading provider of large-bore diesel engines and turbomachinery." },
   { name: "Wartsila", logo: "https://www.wartsila.com/images/default-source/global-images/wartsila_logo_og.jpg", description: "Global leader in smart technologies and complete lifecycle solutions for the marine market." },

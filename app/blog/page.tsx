@@ -40,7 +40,7 @@ export default function BlogPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] pt-32 flex items-center justify-center bg-black overflow-hidden">
          <div className="absolute inset-0 z-0 text-white/5 font-sans text-[15rem] font-black leading-none select-none pointer-events-none uppercase">
-            AURAX
+            SPICE
          </div>
         <div className="relative z-10 text-center text-white px-6">
           <motion.div

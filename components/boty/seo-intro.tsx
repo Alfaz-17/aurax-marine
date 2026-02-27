@@ -31,7 +31,7 @@ export function SEOIntro() {
             <div>
               <span className="text-primary tracking-[0.3em] sm:tracking-[0.4em] uppercase text-[9px] sm:text-[10px] font-black mb-3 sm:mb-4 block">Our Legacy & Technical Expertise</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-black text-black leading-none tracking-tighter uppercase mb-4 sm:mb-6">
-                AURAX <span className="text-primary italic">Marine</span> – <br className="hidden sm:block"/>
+                SPICE <span className="text-primary italic">Ship Supplier</span> – <br className="hidden sm:block"/>
                 <span className="text-black italic">Legacy of</span> Excellence
               </h2>
 
@@ -41,12 +41,12 @@ export function SEOIntro() {
             </div>
 
             <div className="p-5 sm:p-6 md:p-8 bg-black/5 border-l-4 border-primary">
-              <h3 className="text-xs sm:text-sm font-black uppercase tracking-widest text-black mb-2">Sister Company of Spice Ship Supplier</h3>
+              <h3 className="text-xs sm:text-sm font-black uppercase tracking-widest text-black mb-2">Spice Ship Supplier – Marine Tech Specialists</h3>
               <p className="text-xs sm:text-sm text-black/70 leading-relaxed mb-4">
-                Aurax Marine Solutions is proud to be a sister company of <strong>Spice Ship Supplier</strong>, a name that has been actively serving the maritime industry for over 20 years.
+                <strong>Spice Ship Supplier</strong> has been actively serving the maritime industry for over 20 years, supporting ship owners and fleet operators with dependable machinery solutions.
               </p>
               <p className="text-xs sm:text-sm text-black/70 leading-relaxed">
-                Building on this strong foundation, Aurax Marine Solutions was established with a focused vision—to specialize in marine engines, machinery spares, and power solutions for ocean-going vessels and auxiliary systems.
+                As a specialized proprietorship retailer, we focus on marine engines, machinery spares, and power solutions for ocean-going vessels and auxiliary systems worldwide.
               </p>
             </div>
 

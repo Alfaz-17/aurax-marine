@@ -20,7 +20,7 @@ export default function AboutPage() {
     {
       icon: Award,
       title: '20+ Year Legacy',
-      description: 'Backed by the experience of our sister company, Spice Ship Supplier.'
+      description: 'A trusted name serving the maritime industry with excellence since 2017.'
     },
     {
       icon: Globe,
@@ -36,7 +36,7 @@ export default function AboutPage() {
          <div className="absolute inset-0 z-0">
           <Image 
             src="/spare-parts-new.png" 
-            alt="About AURAX Marine" 
+            alt="About Spice Ship Supplier" 
             fill
             priority
             className="object-cover opacity-50"
@@ -54,7 +54,7 @@ export default function AboutPage() {
           >
             <span className="text-primary tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm font-black mb-3 sm:mb-4 block">Proven Experience</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-black text-white uppercase tracking-tighter mb-4 sm:mb-6 leading-none">
-              About <span className="bg-white text-black px-2 sm:px-4">AURAX</span> <span className="text-primary italic">Marine</span>
+              About <span className="bg-white text-black px-2 sm:px-4">SPICE</span> <span className="text-primary italic">Ship Supplier</span>
             </h1>
             <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl mx-auto italic font-medium border-l-2 border-primary pl-6">
               The Engine Room Specialists for the Global Maritime Fleet
@@ -81,13 +81,13 @@ export default function AboutPage() {
               </h3>
               <div className="space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg text-black/70 leading-relaxed font-medium">
                 <p>
-                  <strong>Aurax Marine Solutions</strong> is proud to be a sister company of <strong>Spice Ship Supplier</strong>, a name that has been actively serving the maritime industry for over 20 years.
+                  <strong>Spice Ship Supplier</strong> is a premier proprietorship retailer based in Bhavnagar, Gujarat, India. Since our establishment, we have been a cornerstone of the maritime supply chain, specializing in the provision of high-quality marine ship spares and critical machinery equipment.
                 </p>
                 <p>
-                  For more than two decades, Spice Ship Supplier has supported ship owners, fleet operators, and technical management teams by providing dependable ship supplies and machinery-related solutions. The company’s growth has been driven by a deep understanding of shipboard operations, strict attention to quality, and an uncompromising work ethic.
+                  For more than two decades, we have supported ship owners, fleet operators, and technical management teams worldwide. Despite our name, our focus has always been on the technical "spice" of the ship—its engines and auxiliary machinery. Our growth has been driven by a deep understanding of shipboard operations, strict attention to quality, and an uncompromising work ethic.
                 </p>
                 <p>
-                  Building on this strong foundation, <strong>Aurax Marine Solutions</strong> was established with a focused vision—to specialize in marine engines, machinery spares, and power solutions for ocean-going vessels and auxiliary systems. While our foundation is rooted in proven marine service history, our outlook is global, responsive, and technically driven.
+                  With a nature of business spanning wholesale, import, and export, we maintain a robust global network. Our technical vision is focused—to provide the most reliable power solutions for ocean-going vessels, auxiliary systems, and critical engine rooms. Our foundation is rooted in over 20 years of proven marine service history.
                 </p>
               </div>
             </motion.div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             >
               <Image
                 src="/engine-maintenance-new.png"
-                alt="AURAX Marine Technical Inventory"
+                alt="Spice Ship Supplier Technical Inventory"
                 width={800}
                 height={600}
                 className="shadow-2xl border border-black/10"

@@ -24,7 +24,7 @@ export function Logo({ className = "", variant = 'dark', size = 'md' }: LogoProp
       <div className={`relative ${sizes[size]}`}>
         <img 
           src="/logo.png" 
-          alt="AURAX Marine Logo" 
+          alt="Spice Ship Supplier Logo" 
           className="h-full w-auto object-contain"
           onError={(e) => {
             // Fallback if logo.png fails to load

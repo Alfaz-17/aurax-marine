@@ -72,7 +72,7 @@ export const Order: Model<any> = models.Order || model('Order', OrderSchema);
 const SettingsSchema = new Schema({
   autoBackgroundRemoval: { type: Boolean, default: false },
   applyWatermark: { type: Boolean, default: true },
-  watermarkText: { type: String, default: 'AURAX Marine Solutions' }
+  watermarkText: { type: String, default: 'Spice Ship Supplier' }
 }, { timestamps: true });
 
 export const Settings: Model<any> = models.Settings || model('Settings', SettingsSchema);

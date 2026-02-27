@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
           <div className="text-center mb-10">
              <div className="flex items-center justify-center gap-3 mb-4">
                 <Anchor className="w-10 h-10 text-accent" />
-                <h1 className="text-3xl font-bold text-secondary tracking-tighter uppercase">AURAX Marine</h1>
+                <h1 className="text-3xl font-bold text-secondary tracking-tighter uppercase">SPICE SHIP SUPPLIER</h1>
              </div>
              <p className="text-[10px] font-bold text-accent tracking-[0.4em] uppercase">Control Center Access</p>
           </div>

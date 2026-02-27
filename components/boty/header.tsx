@@ -231,15 +231,29 @@ export function Header() {
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white z-[70] shadow-2xl lg:hidden flex flex-col h-screen border-r border-border"
+                className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-secondary z-[70] shadow-2xl lg:hidden flex flex-col h-screen border-r border-primary/20 overflow-hidden"
               >
-                <div className="shrink-0 p-8 border-b border-border flex items-center justify-between bg-muted/30">
-                  <h2 className="font-sans text-xl font-black tracking-tight uppercase text-foreground">
-                    AURAX <span className="text-primary italic">Marine</span>
+                {/* Marine Tech Grid Background */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,59,48,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,59,48,0.03)_1px,transparent_1px)] bg-[size:30px_30px] opacity-20 pointer-events-none" />
+                
+                <div className="shrink-0 p-8 border-b border-primary/10 flex items-center justify-between bg-secondary/80 backdrop-blur-md relative">
+                   {/* HUD Brackets */}
+                  <div className="absolute top-4 left-4 w-2 h-2 border-t border-l border-primary/40" />
+                  <div className="absolute top-4 right-4 w-2 h-2 border-t border-r border-primary/40" />
+                  <div className="absolute bottom-4 left-4 w-2 h-2 border-b border-l border-primary/40" />
+                  <div className="absolute bottom-4 right-4 w-2 h-2 border-b border-r border-primary/40" />
+
+                  <h2 className="font-sans text-xl font-black tracking-tight uppercase text-white relative z-10">
+                    SPICE <span className="text-primary italic">Ship Supplier</span>
                   </h2>
-                  <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-muted rounded-md transition-colors">
-                    <X className="w-6 h-6 text-foreground" />
+                  <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-primary/10 rounded-md transition-colors relative z-10">
+                    <X className="w-6 h-6 text-white" />
                   </button>
+                </div>
+
+                <div className="px-8 py-2 border-b border-primary/5 bg-black/20 flex justify-between items-center">
+                   <span className="text-[7px] font-mono text-primary/60 tracking-[0.2em] uppercase">System: Online</span>
+                   <span className="text-[7px] font-mono text-primary/60 tracking-[0.2em] uppercase">Vessel: AX-902</span>
                 </div>
 
                 <div className="flex-1 overflow-y-auto px-6 py-8 space-y-8 custom-scrollbar">
@@ -249,10 +263,13 @@ export function Header() {
                       <div key={link.name} className="space-y-2">
                         <Link
                           href={link.href}
-                          className="text-sm font-black uppercase tracking-[0.3em] text-foreground hover:text-primary transition-all block border-l-2 border-transparent hover:border-primary hover:pl-4 duration-300"
+                          className="text-xs font-black uppercase tracking-[0.2em] text-white/80 hover:text-primary transition-all block relative py-2 font-mono"
                           onClick={() => !link.dropdown && setIsMenuOpen(false)}
                         >
-                          {link.name}
+                          <span className="relative z-10">{link.name}</span>
+                          {pathname === link.href && (
+                             <div className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 w-1 h-4 bg-primary rounded-r-full shadow-[0_0_10px_#FF3B30]" />
+                          )}
                         </Link>
                         
                         {link.dropdown && link.dropdown.length > 0 && (
@@ -261,7 +278,7 @@ export function Header() {
                               <Link
                                 key={`mobile-${link.name}-${idx}-${item.name}`}
                                 href={item.href}
-                                className="text-[10px] font-bold uppercase tracking-widest text-foreground/60 hover:text-foreground block transition-colors"
+                                className="text-[9px] font-bold uppercase tracking-widest text-white/40 hover:text-white block transition-colors font-mono py-1"
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {item.name}
@@ -274,23 +291,25 @@ export function Header() {
                   </div>
 
                   {/* Operational Contacts */}
-                  <div className="pt-8 border-t border-border mt-auto">
-                    <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-primary/80 mb-6">Operations</h3>
+                  <div className="pt-8 border-t border-primary/10 mt-auto relative">
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                    <h3 className="text-[8px] font-mono font-black uppercase tracking-[0.3em] text-primary/60 mb-6">Ops Communications</h3>
                     <div className="space-y-4">
-                      <a href="tel:+919023968557" className="flex items-center gap-4 group bg-muted/50 p-4 rounded-sm border border-border hover:border-primary/30 transition-all">
-                        <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-full shadow-sm">
-                          <Phone className="w-3 h-3 text-white" />
+                      <a href="tel:+919023968557" className="flex items-center gap-4 group bg-black/40 p-4 border border-primary/10 hover:border-primary/40 transition-all relative">
+                         <div className="absolute top-0 right-0 w-1 h-1 bg-primary/40" />
+                        <div className="w-8 h-8 bg-black border border-primary/30 flex items-center justify-center rounded-sm">
+                          <Phone className="w-3 h-3 text-primary animate-pulse" />
                         </div>
-                        <span className="text-[10px] font-black text-foreground tracking-widest group-hover:text-primary transition-colors">+91 90239 68557</span>
+                        <span className="text-[10px] font-mono font-black text-white/80 tracking-widest group-hover:text-primary transition-colors">+91 90239 68557</span>
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="shrink-0 p-6 border-t border-border bg-muted/30">
+                <div className="shrink-0 p-6 border-t border-primary/10 bg-secondary/80 backdrop-blur-md relative">
                    <div className="flex items-center gap-6 justify-center">
-                      <a href="#" className="p-2 text-foreground/60 hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
-                      <a href="#" className="p-2 text-foreground/60 hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
+                      <a href="#" className="p-2 text-white/40 hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
+                      <a href="#" className="p-2 text-white/40 hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
                    </div>
                 </div>
               </motion.div>

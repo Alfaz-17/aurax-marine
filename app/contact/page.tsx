@@ -46,19 +46,19 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 90239 68557"],
-      action: "tel:+919023968557",
+      details: ["+91 8044 0109 264", "+91 8044 5664 276"],
+      action: "tel:+9180440109264",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["auraxmarinesolutions@gmail.com"],
-      action: "mailto:auraxmarinesolutions@gmail.com",
+      details: ["spiceshipsupplier@gmail.com"],
+      action: "mailto:spiceshipsupplier@gmail.com",
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["PLOT NO. F/14/4, GODOWN NO. A/11 BEST INDUSTRIAL PARK, MADHIYA ROAD, KUMBHARWADA, BHAVNAGAR, GUJARAT- 364006."],
+      details: ["Hill Drive, Bhavnagar, Gujarat 364002, India."],
       action: null,
     },
     {
@@ -80,7 +80,7 @@ export default function ContactPage() {
         <div className="absolute inset-0">
            <Image 
             src="/contact-hero.png" 
-            alt="Marine Contact - Aurax Marine Solutions" 
+            alt="Marine Contact - Spice Ship Supplier" 
             fill
             priority
             className="object-cover opacity-40"
@@ -101,7 +101,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <a
-                href="tel:+919023968557"
+                href="tel:+9180440109264"
                 className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-all"
               >
                 Direct Line
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 <p className="text-white/60 mb-6 italic border-b border-white/10 pb-4">
                   Available 24/7 for urgent marine assistance and emergency repairs.
                 </p>
-                <a href="tel:+919023968557" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
+                <a href="tel:+9180440109264" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
                    <Phone className="w-4 h-4 mr-2" /> CALL EMERGENCY HOTLINE
                 </a>
             </div>
@@ -291,7 +291,7 @@ export default function ContactPage() {
             {/* Trust Indicators */}
             <div className="space-y-8">
               <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-6">
-                Why Choose <span className="text-primary italic">Aurax Marine</span>?
+                Why Choose <span className="text-primary italic">Spice Ship Supplier</span>?
               </h2>
               
               <div className="space-y-6">
@@ -327,7 +327,7 @@ export default function ContactPage() {
 
               <div className="pt-6">
                 <a
-                  href="tel:+919023968557"
+                  href="tel:+9180440109264"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all"
                 >
                   <Phone className="w-5 h-5" />

@@ -15,7 +15,7 @@ const footerLinks = {
   ],
   about: [
     { name: "Company Overview", href: "/about" },
-    { name: "Why AURAX Marine", href: "/about" },
+    { name: "Why Spice Ship Supplier", href: "/about" },
     { name: "Global Reach", href: "/about" },
     { name: "Quality Assurance", href: "/about" }
   ],
@@ -38,7 +38,7 @@ export function Footer() {
       {/* Giant Background Text */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0">
         <span className="font-serif text-[60px] sm:text-[100px] md:text-[180px] lg:text-[250px] xl:text-[300px] font-bold text-primary/5 whitespace-nowrap leading-none uppercase tracking-tighter">
-          AURAX Marine Solutions
+          Spice Ship Supplier
         </span>
       </div>
       
@@ -48,7 +48,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Logo size="md" variant="light" className="mb-4 sm:mb-6 h-8 sm:h-10" />
             <p className="text-xs sm:text-sm text-secondary/80 leading-relaxed mb-4 sm:mb-6">
-              Sister company of Spice Ship Supplier (20+ Years Legacy). Specialized in MAN B&W S50MC & Auxiliary Engines.
+              Specialized Marine Ship Spares and Equipment Retailer. Delivering maritime excellence for over 20 years with a focus on MAN B&W, Daihatsu, and Critical Auxiliary Machinery.
             </p>
             <div className="flex gap-3 sm:gap-4">
               <a
@@ -65,7 +65,7 @@ export function Footer() {
                 </div>
               </a>
               <a
-                href="mailto:auraxmarinesolutions@gmail.com"
+                href="mailto:spiceshipsupplier@gmail.com"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground marine-transition marine-shadow"
                 aria-label="Email"
               >
@@ -76,7 +76,7 @@ export function Footer() {
                 </div>
               </a>
               <a
-                href="https://www.linkedin.com/company/aurax-marine-solutions/"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground marine-transition marine-shadow"
@@ -90,17 +90,17 @@ export function Footer() {
               </a>
             </div>
             <div className="mt-6 space-y-2">
-              <a href="tel:+919023968557" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+              <a href="tel:+9180440109264" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                 <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-accent transition-colors">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.81 12.81 0 00.62 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.62A2 2 0 0122 16.92z"/></svg>
                 </div>
-                <span className="font-bold tracking-widest uppercase">+91 90239 68557</span>
+                <span className="font-bold tracking-widest uppercase">+91 8044 0109 264</span>
               </a>
-              <a href="mailto:auraxmarinesolutions@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+              <a href="mailto:spiceshipsupplier@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                 <div className="w-10 h-10 bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="font-bold tracking-widest">auraxmarinesolutions@gmail.com</span>
+                <span className="font-bold tracking-widest text-[10px]">spiceshipsupplier@gmail.com</span>
               </a>
             </div>
           </div>
@@ -160,9 +160,11 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} AURAX Marine Solutions – Marine Engines & Machinery Spares Global Supplier
-            </p>
+            <div className="text-xs text-muted-foreground space-y-1">
+              <p>© {new Date().getFullYear()} Spice Ship Supplier – Marine Engines & Machinery Spares Global Specialist</p>
+              <p className="font-mono text-[10px] uppercase tracking-tighter opacity-50">GST: 24AMBPK1542J1ZD | IEC: 2412002550</p>
+              <p className="opacity-50">Hill Drive, Bhavnagar, Gujarat 364002, India</p>
+            </div>
             <div className="flex gap-6">
               <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground marine-transition">
                 Privacy Policy

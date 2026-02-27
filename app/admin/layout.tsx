@@ -69,19 +69,34 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-[280px] bg-secondary shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-border flex flex-col ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-[280px] bg-secondary shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-primary/20 flex flex-col overflow-hidden ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <div className="flex items-center justify-between h-20 px-8 border-b border-border/10 bg-secondary">
-          <Link href="/" className="flex items-center opacity-90 hover:opacity-100 transition-opacity">
-            <Logo variant="white" size="sm" />
-          </Link>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="lg:hidden p-2 rounded-md text-white/50 hover:text-white transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+        {/* Marine Tech Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,59,48,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,59,48,0.03)_1px,transparent_1px)] bg-[size:30px_30px] opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/50 to-secondary pointer-events-none" />
+        <div className="flex flex-col items-center justify-center p-8 border-b border-primary/10 bg-secondary/80 backdrop-blur-md relative overflow-hidden">
+          {/* HUD Brackets for logo area */}
+          <div className="absolute top-4 left-4 w-2 h-2 border-t border-l border-primary/40" />
+          <div className="absolute top-4 right-4 w-2 h-2 border-t border-r border-primary/40" />
+          <div className="absolute bottom-4 left-4 w-2 h-2 border-b border-l border-primary/40" />
+          <div className="absolute bottom-4 right-4 w-2 h-2 border-b border-r border-primary/40" />
+          
+          <div className="w-full flex items-center justify-between mb-4">
+            <Link href="/" className="flex items-center opacity-90 hover:opacity-100 transition-opacity">
+              <Logo variant="white" size="sm" />
+            </Link>
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden p-2 rounded-md text-white/50 hover:text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="w-full flex justify-between items-center px-1">
+             <span className="text-[8px] font-mono text-primary/60 tracking-[0.2em] uppercase">Vessel ID: AX-902</span>
+             <span className="text-[8px] font-mono text-primary/60 tracking-[0.2em] uppercase">Auth: L3</span>
+          </div>
         </div>
 
         <nav className="flex-1 mt-6 px-4 space-y-2 overflow-y-auto custom-scrollbar pb-8">
@@ -93,40 +108,60 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 key={item.name}
                 href={item.href}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center px-4 py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all group relative overflow-hidden ${
+                className={`flex items-center px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] transition-all group relative ${
                   active
-                    ? 'bg-primary/10 text-primary border border-primary/20 shadow-sm'
-                    : 'text-white/60 border border-transparent hover:bg-white/5 hover:text-white'
+                    ? 'text-primary'
+                    : 'text-white/40 hover:text-white'
                 }`}
               >
-                <Icon className={`w-5 h-5 mr-4 transition-colors ${active ? 'text-primary' : 'text-white/40 group-hover:text-white'}`} />
-                <span className="relative z-10">{item.name}</span>
+                {active && (
+                  <>
+                    <div className="absolute inset-0 bg-primary/5 border-l-2 border-primary" />
+                    <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary/60" />
+                    <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary/60" />
+                  </>
+                )}
+                {!active && (
+                   <div className="absolute left-0 w-0.5 h-full bg-white/5 group-hover:bg-primary/20 transition-all" />
+                )}
+                <Icon className={`w-4 h-4 mr-4 transition-all duration-300 ${active ? 'text-primary scale-110' : 'text-white/30 group-hover:text-white/70'}`} />
+                <span className="relative z-10 font-mono tracking-widest">{item.name}</span>
+                {active && (
+                   <div className="ml-auto w-1 h-1 bg-primary animate-pulse rounded-full shadow-[0_0_8px_#FF3B30]" />
+                )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-6 bg-secondary border-t border-border/10">
-          <div className="bg-white/5 rounded-lg p-4 mb-4 group hover:bg-white/10 transition-colors cursor-pointer border border-transparent hover:border-white/10">
+        <div className="p-6 bg-secondary/80 backdrop-blur-md border-t border-primary/10 relative">
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          
+          <div className="bg-black/40 rounded-sm p-4 mb-4 border border-primary/10 relative group overflow-hidden">
+            <div className="absolute top-0 right-0 px-2 py-0.5 bg-primary/10 border-b border-l border-primary/20">
+               <span className="text-[7px] font-mono text-primary/80">CORE_SYNC</span>
+            </div>
             <div className="flex items-center">
-                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary font-black border border-primary/30">
-                {user?.name?.charAt(0) || 'A'}
+                <div className="w-10 h-10 bg-black border border-primary/30 rounded-sm flex items-center justify-center text-primary font-black shadow-[0_0_15px_rgba(255,59,48,0.1)] relative">
+                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,var(--primary),transparent)]" />
+                  {user?.name?.charAt(0) || 'A'}
                 </div>
                 <div className="ml-4 overflow-hidden">
-                <p className="text-xs font-bold text-white uppercase tracking-wider truncate">
+                <p className="text-[10px] font-mono font-black text-white uppercase tracking-tighter truncate">
                     {user?.name || user?.email || 'Admin'}
                 </p>
-                <p className="text-[9px] text-white/50 font-medium uppercase tracking-widest mt-0.5">Fleet Commander</p>
+                <p className="text-[8px] text-primary/60 font-mono uppercase tracking-[0.2em] mt-0.5">Spice Commander</p>
                 </div>
             </div>
           </div>
           
           <button
             onClick={handleLogout}
-            className="flex items-center justify-center w-full px-4 py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white hover:bg-white/5 border border-white/10 transition-all"
+            className="flex items-center justify-center w-full px-4 py-3 border border-red-500/20 text-[10px] font-mono font-black uppercase tracking-[0.3em] text-red-500/60 hover:text-red-500 hover:bg-red-500/5 hover:border-red-500/40 transition-all relative overflow-hidden group"
           >
-            <LogOut className="w-4 h-4 mr-3" />
-            End Session
+            <div className="absolute inset-y-0 left-0 w-0 group-hover:w-1 bg-red-500 transition-all" />
+            <LogOut className="w-3 h-3 mr-3 opacity-70 group-hover:opacity-100" />
+            Termination
           </button>
         </div>
       </div>

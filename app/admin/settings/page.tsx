@@ -10,7 +10,7 @@ export default function AdminSettingsPage() {
   const [settings, setSettings] = useState({
     autoBackgroundRemoval: false,
     applyWatermark: true,
-    watermarkText: 'AURAX Marine Solutions'
+    watermarkText: 'Spice Ship Supplier'
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
