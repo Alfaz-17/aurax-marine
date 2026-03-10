@@ -19,7 +19,7 @@ export function Newsletter() {
 
   return (
     <section className="py-24 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-sans font-black text-4xl leading-none text-secondary mb-4 text-balance md:text-6xl uppercase tracking-tighter">
             Fleet Intelligence.

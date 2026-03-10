@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Shield, Award, Clock, Anchor, Globe } from "lucide-react";
 
 const stats = [
-  { icon: Award, label: "Years Experience", value: "20+" },
+  { icon: Award, label: "Years Experience", value: "30+" },
   { icon: Globe, label: "Exporting Regions", value: "40+" },
   { icon: Anchor, label: "Satisfied Clients", value: "1000+" },
   { icon: Shield, label: "Certified Spares", value: "100%" },

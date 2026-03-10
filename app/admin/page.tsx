@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Package, Grid3X3, Award, FileText, ArrowUpRight, ShoppingCart } from 'lucide-react';
+import { Package, Grid3X3, Award, ArrowUpRight, ShoppingCart } from 'lucide-react';
 import api from '@/lib/api';
 import Link from 'next/link';
 
@@ -27,7 +27,6 @@ export default function AdminDashboard() {
     { title: 'Total Inventory', value: stats.products, icon: Package, href: '/admin/products' },
     { title: 'Categories', value: stats.categories, icon: Grid3X3, href: '/admin/categories' },
     { title: 'Partner Brands', value: stats.brands, icon: Award, href: '/admin/brands' },
-    { title: 'Technical Blogs', value: stats.blogs, icon: FileText, href: '/admin/blogs' },
     { title: 'Customer Orders', value: stats.orders || 0, icon: ShoppingCart, href: '/admin/orders' },
   ];
 
@@ -72,10 +71,9 @@ export default function AdminDashboard() {
             </Link>
         </div>
         <div className="bg-white p-10 border border-border h-64 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold text-secondary uppercase tracking-tight mb-4">Content Strategy</h2>
-            <p className="text-muted-foreground text-sm mb-8">Publish technical insights or new brand partnerships to keep your clients informed.</p>
+            <h2 className="text-2xl font-bold text-secondary uppercase tracking-tight mb-4">Brand Partnerships</h2>
+            <p className="text-muted-foreground text-sm mb-8">Manage brand partnerships to keep your clients informed.</p>
             <div className="flex gap-6">
-                <Link href="/admin/blogs" className="text-[10px] font-bold uppercase tracking-widest text-accent hover:text-primary">Update Blog</Link>
                 <Link href="/admin/brands" className="text-[10px] font-bold uppercase tracking-widest text-accent hover:text-primary">Manage Brands</Link>
             </div>
         </div>

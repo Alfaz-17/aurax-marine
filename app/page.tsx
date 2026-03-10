@@ -8,12 +8,14 @@ import { Testimonials } from "@/components/boty/testimonials"
 import { CTABanner } from "@/components/boty/cta-banner"
 import { Newsletter } from "@/components/boty/newsletter"
 import { SEOIntro } from "@/components/boty/seo-intro"
+import { LeadershipShowcase } from "@/components/boty/leadership-showcase"
 
 export default function HomePage() {
   return (
     <main>
       <Hero />
       <SEOIntro />
+      <LeadershipShowcase />
       <ProductGrid />
       <BrandGrid />
       <FeatureSection />

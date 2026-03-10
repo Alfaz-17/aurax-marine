@@ -131,10 +131,10 @@ export function Testimonials() {
   }, [])
 
   return (
-    <section className="py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="pt-12 sm:pt-16 pb-24 bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-24">
+        <div ref={headerRef} className="text-center mb-12 sm:mb-16">
           <span className={`text-[10px] tracking-[0.4em] uppercase text-primary font-black mb-6 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
             Technical Verdict
           </span>

@@ -10,7 +10,6 @@ import {
   Package, 
   Grid3X3, 
   Award, 
-  FileText, 
   LogOut,
   User,
   Home,
@@ -45,7 +44,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Products', href: '/admin/products', icon: Package },
     { name: 'Categories', href: '/admin/categories', icon: Grid3X3 },
     { name: 'Brands', href: '/admin/brands', icon: Award },
-    { name: 'Blogs', href: '/admin/blogs', icon: FileText },
     { name: 'Settings', href: '/admin/settings', icon: SettingsIcon },
   ];
 

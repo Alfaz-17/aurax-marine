@@ -23,7 +23,7 @@ export function Hero() {
 
 
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 py-6 sm:py-8 md:pt-10">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 relative z-20 py-6 sm:py-8 md:pt-10">
         <div className="max-w-4xl">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
@@ -31,7 +31,7 @@ export function Hero() {
               className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6"
             >
                <div className="w-8 sm:w-12 h-px bg-primary" />
-                <span className="text-[8px] sm:text-[10px] font-black text-primary uppercase tracking-[0.3em] sm:tracking-[0.4em]">Proprietorship Retailer in Bhavnagar, Gujarat</span>
+                <span className="text-[8px] sm:text-[10px] font-black text-primary uppercase tracking-[0.3em] sm:tracking-[0.4em]">Wholesale & Retail Export Specialists | </span>
             </motion.div>
 
 
@@ -41,8 +41,8 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans font-black text-black leading-[0.9] uppercase tracking-tighter mb-3 sm:mb-4"
             >
-                Precision <span className="text-primary italic">Marine</span> <br className="hidden lg:block" />
-                Engine Spares
+                Global Marine Engine & <br className="hidden lg:block" />
+                Machinery Solutions
             </motion.h1>
 
 
@@ -53,8 +53,7 @@ export function Hero() {
                 transition={{ delay: 0.4 }}
                 className="text-[13px] sm:text-sm md:text-base text-black/70 mb-5 sm:mb-6 md:mb-8 max-w-xl font-black italic border-l-2 border-primary/20 pl-6 leading-relaxed"
               >
-                 Global specialists in MAN B&W, Daihatsu, and auxiliary machinery spares. delivering 20+ years of maritime excellence.
-                 <span className="text-primary font-black block mt-3 tracking-[0.2em] uppercase text-[10px] sm:text-xs">Direct Line: +91 8044 0109 264</span>
+                 Global technical partners for high-performance engine spares and critical machinery. Delivering 20+ years of maritime excellence to the worldwide shipping industry.
               </motion.p>
 
 
@@ -91,7 +90,7 @@ export function Hero() {
           >
              <ShieldCheck className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary" />
              <div className="text-black">
-                <span className="text-base sm:text-xl md:text-2xl font-black block leading-none">20+ Years</span>
+                <span className="text-base sm:text-xl md:text-2xl font-black block leading-none">30+ Years</span>
                 <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-widest uppercase font-black text-primary">Industry Legacy</span>
              </div>
           </motion.div>

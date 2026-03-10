@@ -13,7 +13,7 @@ export const FloatingWhatsappButton = () => {
       whileTap={{ scale: 0.95 }}
     >
       <a
-        href="https://wa.me/919376502550?text=Hello%20AURAX%20Marine%20Solutions,%20I%20am%20interested%20in%20your%20marine%20engine%20and%20machinery%20spares.%20Could%20you%20please%20provide%20more%20information?"
+        href="https://wa.me/919023968557?text=Hello%20Spice%20Ship%20Supplier,%20I%20am%20interested%20in%20your%20marine%20engine%20and%20machinery%20spares.%20Could%20you%20please%20provide%20more%20information?"
         target="_blank"
         rel="noopener noreferrer"
         className="w-16 h-16 bg-green-500 hover:bg-green-600 text-white shadow-lg flex items-center justify-center rounded-full transition-colors"

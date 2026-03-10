@@ -46,8 +46,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 8044 0109 264", "+91 8044 5664 276"],
-      action: "tel:+9180440109264",
+      details: ["+91 90239 68557"],
+      action: "tel:+919023968557",
     },
     {
       icon: Mail,
@@ -65,8 +65,7 @@ export default function ContactPage() {
       icon: Clock,
       title: "Business Hours",
       details: [
-        "Mon - Fri: 8:00 AM - 6:00 PM",
-        "Sat: 9:00 AM - 4:00 PM",
+        "Mon - Sat: 10:00 AM - 8:00 PM",
         "Sun: Emergency Only",
       ],
       action: null,
@@ -100,12 +99,7 @@ export default function ContactPage() {
               Marine Engine & Machinery Spares Worldwide
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-              <a
-                href="tel:+9180440109264"
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-all"
-              >
-                Direct Line
-              </a>
+             
               <a
                 href="#contact-form"
                 className="px-6 sm:px-8 py-3 sm:py-4 border border-white/30 text-white font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-all"
@@ -156,7 +150,7 @@ export default function ContactPage() {
                 <p className="text-white/60 mb-6 italic border-b border-white/10 pb-4">
                   Available 24/7 for urgent marine assistance and emergency repairs.
                 </p>
-                <a href="tel:+9180440109264" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
+                <a href="tel:+919023968557" className="inline-flex items-center text-primary font-black hover:gap-4 transition-all uppercase tracking-widest text-xs">
                    <Phone className="w-4 h-4 mr-2" /> CALL EMERGENCY HOTLINE
                 </a>
             </div>
@@ -187,7 +181,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-border focus:border-accent outline-none bg-muted/10"
                         required
-                        placeholder="e.g. Capt. James Cook"
+                        placeholder="Full Name"
                       />
                     </div>
                     <div className="space-y-2">
@@ -199,7 +193,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-border focus:border-accent outline-none bg-muted/10"
                         required
-                        placeholder="james@fleetmanagement.com"
+                        placeholder="Email Address"
                       />
                     </div>
                   </div>
@@ -213,7 +207,7 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-border focus:border-accent outline-none bg-muted/10"
-                        placeholder="+91 00000 00000"
+                        placeholder="Phone Number"
                       />
                     </div>
                     <div className="space-y-2">
@@ -224,7 +218,7 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-border focus:border-accent outline-none bg-muted/10"
-                        placeholder="Logistics Corp"
+                        placeholder="Company Name"
                       />
                     </div>
                   </div>
@@ -237,7 +231,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-border focus:border-accent outline-none bg-muted/10 h-40 resize-none"
                       required
-                      placeholder="List engine models or spare parts required (e.g., MAN B&W S50MC Cylinder Liner)..."
+                      placeholder="List engine models or spare parts required..."
                     />
                   </div>
 
@@ -327,7 +321,7 @@ export default function ContactPage() {
 
               <div className="pt-6">
                 <a
-                  href="tel:+9180440109264"
+                  href="tel:+919023968557"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all"
                 >
                   <Phone className="w-5 h-5" />
@@ -368,7 +362,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
-                href="tel:+919376502550" 
+                href="tel:+919023968557" 
                 className="px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-3"
               >
                 <Phone className="w-5 h-5" />

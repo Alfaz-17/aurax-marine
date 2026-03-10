@@ -19,7 +19,7 @@ export function SEOIntro() {
 
   return (
     <section className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-start">
           {/* Left Content - Introduction */}
           <motion.div
@@ -52,18 +52,16 @@ export function SEOIntro() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                "Specialized in MAN B&W S50MC",
-                "20+ Years Industry Legacy",
+                "30+ Years Industry Legacy",
                 "New OEM & Reconditioned Options",
-                "Ready Stock / Fast Delivery",
-                "Davihatsu Generator Specialists"
+                "Daihatsu Generator Specialists",
+                "MAN B&W Technical Library"
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span className="text-[10px] font-black uppercase tracking-wider text-black">{item}</span>
+                <div key={i} className="flex items-center gap-3 p-4 bg-primary/5 border border-primary/10 group hover:border-accent transition-colors">
+                  <div className="w-1.5 h-1.5 bg-accent" />
+                  <span className="text-primary font-black uppercase tracking-widest text-[10px]">{item}</span>
                 </div>
               ))}
-
             </div>
           </motion.div>
 
@@ -72,31 +70,29 @@ export function SEOIntro() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-6 sm:p-8 md:p-10 lg:p-16 border border-primary/20 relative">
+            className="bg-primary/5 p-6 sm:p-8 md:p-10 lg:p-16 border border-primary/10 relative">
             {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 -translate-y-1/2 translate-x-1/2 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 -translate-y-1/2 translate-x-1/2 rounded-full blur-3xl" />
             
-            <h3 className="text-xl sm:text-2xl font-sans font-black text-secondary mb-6 sm:mb-8 md:mb-10 tracking-tight uppercase leading-none">
-              Core Product <span className="text-primary italic">Offerings</span>:
+            <h3 className="text-xl sm:text-2xl font-sans font-black text-primary mb-6 sm:mb-8 md:mb-10 tracking-tight uppercase leading-none">
+              Core Product <span className="text-accent italic">Offerings</span>:
             </h3>
-
 
             <div className="grid sm:grid-cols-2 gap-6">
               {services.map((service, i) => (
                 <div key={i} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 bg-white border border-secondary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
+                  <div className="w-10 h-10 bg-white border border-primary/10 flex items-center justify-center shrink-0 group-hover:bg-accent transition-colors">
                     <service.icon className="w-4 h-4 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-xs font-black text-secondary/60 leading-snug group-hover:text-secondary transition-colors uppercase tracking-[0.1em] pt-1">
+                  <span className="text-xs font-black text-primary/70 leading-snug group-hover:text-primary transition-colors uppercase tracking-[0.1em] pt-1">
                     {service.title}
                   </span>
                 </div>
-
               ))}
             </div>
 
-            <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 md:pt-10 border-t border-secondary/10">
-              <p className="text-[9px] sm:text-[10px] text-secondary/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-relaxed">
+            <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 md:pt-10 border-t border-primary/10">
+              <p className="text-[9px] sm:text-[10px] text-primary/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-relaxed">
                 Available as: New OEM alternative, Reconditioned (with reports), and Ready Stock.
               </p>
             </div>

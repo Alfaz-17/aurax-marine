@@ -56,8 +56,8 @@ export function ProductGrid() {
   );
 
   return (
-    <section className="pb-16 sm:pb-20 md:pb-24 pt-8 sm:pt-10 md:pt-12 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16 md:mb-24">
+    <section className="pb-16 sm:pb-20 md:pb-24 pt-6 sm:pt-8 md:pt-12 bg-white">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 text-center mb-8 sm:mb-12 md:mb-16">
         <div ref={headerRef} className="space-y-6">
             <motion.div 
                initial={{ opacity: 0, y: 10 }}
@@ -65,7 +65,7 @@ export function ProductGrid() {
                className="flex items-center justify-center gap-4"
             >
                <div className="w-12 h-px bg-secondary/20" />
-               <span className="text-[10px] tracking-[0.4em] uppercase text-secondary font-black block">
+               <span className="text-[10px] tracking-[0.4em] uppercase text-primary font-black block">
                   Essential Inventory
                </span>
                <div className="w-12 h-px bg-secondary/20" />
@@ -75,21 +75,21 @@ export function ProductGrid() {
               initial={{ opacity: 0, y: 20 }}
               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black text-secondary leading-none uppercase tracking-tighter">
-              Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Assets</span>
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black text-primary leading-none uppercase tracking-tighter">
+              Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Assets</span>
             </motion.h2>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={headerVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
-              className="text-sm sm:text-base text-secondary/60 max-w-2xl mx-auto font-mono text-center uppercase tracking-widest">
+              className="text-sm sm:text-base text-primary/60 max-w-2xl mx-auto font-mono text-center uppercase tracking-widest">
                // Reconditioned equipment inspected for operational efficiency.
             </motion.p>
         </div>
       </div>
 
-      <div className="max-w-[100vw] overflow-x-auto overflow-y-hidden px-6 lg:px-12 pb-12 no-scrollbar snap-x snap-mandatory">
+      <div className="max-w-[100vw] overflow-x-auto overflow-y-hidden px-2 sm:px-4 lg:px-6 pb-12 no-scrollbar snap-x snap-mandatory">
         <div className="flex gap-6 min-w-max">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, index) => (
@@ -113,7 +113,7 @@ export function ProductGrid() {
 
                     {/* Status Badge */}
                     <div className="absolute top-4 right-4 z-10">
-                        <span className="bg-secondary text-white px-3 py-1 text-[9px] font-black uppercase tracking-widest border border-white/20">
+                        <span className="bg-primary text-white px-3 py-1 text-[9px] font-black uppercase tracking-widest border border-white/20">
                            In Stock
                         </span>
                     </div>
@@ -143,16 +143,16 @@ export function ProductGrid() {
                   </div>
 
                   {/* Info Card */}
-                  <div className="p-6 bg-white border-t border-[#D6E6F2] relative overflow-hidden group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                  <div className="p-6 bg-white border-t border-[#D6E6F2] relative overflow-hidden group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     
                     <div className="mb-4">
                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-primary block mb-2">{product.category?.name || "Inventory"}</span>
                        <h3 className="text-xl font-black uppercase tracking-tight leading-none min-h-[40px] line-clamp-2">{product.title}</h3>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-secondary/10 group-hover:border-white/20 pt-4 mt-4">
-                        <span className="text-[10px] font-mono uppercase text-secondary/40 group-hover:text-white/40">Verified Asset</span>
-                        <div className="flex items-center gap-2 text-secondary group-hover:text-primary font-black text-xs uppercase tracking-widest">
+                    <div className="flex items-center justify-between border-t border-primary/10 group-hover:border-white/20 pt-4 mt-4">
+                        <span className="text-[10px] font-mono uppercase text-primary/40 group-hover:text-white/40">Verified Asset</span>
+                        <div className="flex items-center gap-2 text-primary group-hover:text-accent font-black text-xs uppercase tracking-widest">
                            Inspect <ArrowRight className="w-3 h-3" />
                         </div>
                     </div>
@@ -164,10 +164,10 @@ export function ProductGrid() {
         </div>
       </div>
 
-      <div className="text-center mt-12 sm:mt-16 border-t border-secondary/5 pt-16">
+      <div className="text-center mt-12 sm:mt-16 border-t border-primary/5 pt-16">
         <Link
           href="/products"
-          className="inline-flex items-center gap-4 bg-white text-secondary border-2 border-secondary px-8 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-secondary hover:text-white transition-all duration-300 group">
+          className="inline-flex items-center gap-4 bg-white text-primary border-2 border-primary px-8 py-4 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-primary hover:text-white transition-all duration-300 group">
           <span className="relative z-10">Access Full Inventory</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>

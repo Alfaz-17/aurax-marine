@@ -1,8 +1,8 @@
 
 import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/db';
-import { Product, Category, Brand, Blog } from '@/lib/models';
-import { products, categories, brands, blogs } from '@/lib/seed-data';
+import { Product, Category, Brand } from '@/lib/models';
+import { products, categories, brands } from '@/lib/seed-data';
 
 export async function GET() {
   try {
@@ -12,8 +12,7 @@ export async function GET() {
     await Promise.all([
       Product.deleteMany({}),
       Category.deleteMany({}),
-      Brand.deleteMany({}),
-      Blog.deleteMany({})
+      Brand.deleteMany({})
     ]);
 
     // Seed Categories
@@ -30,8 +29,6 @@ export async function GET() {
       return acc;
     }, {} as Record<string, any>);
 
-    // Seed Blogs
-    await Blog.insertMany(blogs);
 
     // Seed Products
     const productsWithRefs = products.map(p => ({
@@ -47,8 +44,7 @@ export async function GET() {
       stats: {
         categories: createdCategories.length,
         brands: createdBrands.length,
-        products: products.length,
-        blogs: blogs.length
+        products: products.length
       } 
     });
   } catch (error) {

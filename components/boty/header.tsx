@@ -72,7 +72,6 @@ export function Header() {
       name: "Brands", 
       href: "/brands" 
     },
-    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" }
   ]
 

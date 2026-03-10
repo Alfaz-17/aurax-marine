@@ -9,39 +9,39 @@ import { ShieldCheck, Server, Globe, Cpu, Anchor, Wifi, Activity, Box, Gauge, Wr
 const features = [
   {
     icon: Gauge,
-    title: "Main Propulsion",
-    description: "MAN B&W Low-Speed Engines: S50MC (Primary), S60MC, S70MC, S35MC & Sulzer RTA Series.",
-    stat: "98% UPTIME"
+    title: "MAN B&W S35MC Parts",
+    description: "Extensive inventory of S35MC series engine components, specializing in high-performance spares and reconditioned units.",
+    stat: "IN STOCK"
   },
   {
     icon: Wrench,
-    title: "Auxiliary Power",
-    description: "Specialized in Daihatsu DK20 Series & Diesel Generator Sets (Yanmar, Wartsila).",
-     stat: "24/7 SUPPORT"
+    title: "Daihatsu Marine Spares",
+    description: "Comprehensive supply of Daihatsu marine engine spare parts including DK20 series and auxiliary generator components.",
+    stat: "READY SHIP"
   },
   {
     icon: ShieldCheck,
-    title: "Fluid Handling",
-    description: "Sea Water, Fresh Water & Oil Pumps, Oil Purifiers (Alfa Laval / Westfalia).",
-     stat: "OEM GRADE"
+    title: "Verified Factsheet",
+    description: "Licensed Wholesale & Retail business specializing in the Import and Export of technical maritime equipment globally.",
+    stat: "CERTIFIED"
   },
   {
     icon: Activity,
-    title: "Compressed Air",
-    description: "AC, Fridge, Screw Compressors & Air Compressor Spares.",
-     stat: "ISO 9001"
+    title: "Engine & Aux Mach",
+    description: "Diverse range of auxiliary machinery, sea water pumps, oil purifiers (Alfa Laval/Westfalia) and air compressors.",
+    stat: "OEM GRADE"
   },
   {
     icon: Box,
-    title: "Heat Transfer",
-    description: "Heat exchangers, fresh water generators, and oil coolers.",
-     stat: "CERTIFIED"
+    title: "Global Export",
+    description: "Facilitating seamless international maritime supply chains with GST-compliant documentation and technical vetting.",
+    stat: "EXPORT"
   },
   {
     icon: Anchor,
-    title: "Deck & Hydraulic",
-    description: "Derrick & Hydraulic Cranes, Hydraulic Motors, and Pumps.",
-     stat: "HEAVY DUTY"
+    title: "Industrial Grade",
+    description: "Derrick & Hydraulic cranes, hydraulic motors, and heavy-duty deck machinery tested for deep-sea reliability.",
+    stat: "HEAVY DUTY"
   }
 ]
 
@@ -71,27 +71,27 @@ export function FeatureSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 bg-secondary overflow-hidden relative border-t border-primary/20">
+    <section ref={sectionRef} className="py-20 sm:py-28 bg-white overflow-hidden relative border-t border-primary/5">
       
       {/* Background Tech Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,59,48,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,59,48,0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-100" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         
         {/* Header HUD */}
-        <div className="flex justify-between items-end mb-16 border-b border-primary/30 pb-6 relative">
+        <div className="flex justify-between items-end mb-16 border-b border-primary/10 pb-6 relative">
              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary" />
              <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary" />
              
              <div>
-                <span className="text-muted font-black uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">System Status: Nominal</span>
-                <h2 className="text-4xl md:text-6xl font-black text-secondary uppercase tracking-tighter leading-none">
-                  Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-muted">capabilities</span>
+                <span className="text-primary/60 font-black uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">System Status: Nominal</span>
+                <h2 className="text-4xl md:text-6xl font-black text-primary uppercase tracking-tighter leading-none">
+                  Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">capabilities</span>
                 </h2>
              </div>
              <div className="hidden md:block text-right">
-                <div className="text-muted/60 font-mono text-xs mb-1">SEC_04 // CORE_SYSTEMS</div>
-                <div className="text-muted/60 font-mono text-xs">V.2.0.24</div>
+                <div className="text-primary/40 font-mono text-xs mb-1">FACTS // SPICE_FLEET</div>
+                <div className="text-primary/40 font-mono text-xs">GST: 24AMBPK1542J1ZD</div>
              </div>
         </div>
 
@@ -99,60 +99,64 @@ export function FeatureSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
             {/* Primary Visual Module */}
-            <div className="lg:col-span-2 bg-secondary/80 border border-primary/20 relative group overflow-hidden h-[500px]">
+            <div className="lg:col-span-2 bg-primary/5 border border-primary/10 relative group overflow-hidden h-[500px]">
                 <img 
-                   src="/marine-automation-new.png" 
-                   alt="Marine Automation" 
-                   className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+                   src="/marine-warehouse.png" 
+                   alt="Marine Warehouse" 
+                   className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 
                 {/* HUD Overlay Elements */}
-                <div className="absolute top-6 left-6 border border-primary/40 px-3 py-1 bg-secondary/80 backdrop-blur-sm">
-                   <span className="text-muted font-mono text-xs tracking-widest">LIVE_FEED_01</span>
+                <div className="absolute top-6 left-6 border border-white/20 px-3 py-1 bg-black/40 backdrop-blur-sm">
+                   <span className="text-white font-mono text-xs tracking-widest uppercase">Inventory_Live</span>
                 </div>
                 
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                   <div className="w-[80%] h-[80%] border border-muted/20 relative">
-                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
-                      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary" />
-                      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary" />
-                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
+                   <div className="w-[80%] h-[80%] border border-white/20 relative">
+                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent" />
+                      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent" />
+                      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent" />
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent" />
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-black tracking-widest text-2xl uppercase">System Active</div>
                    </div>
                 </div>
 
-                <div className="absolute bottom-8 left-8">
-                   <h3 className="text-3xl font-black text-secondary uppercase leading-none mb-4 group-hover:text-primary transition-colors">Bridge Integration</h3>
-                   <p className="text-sm font-bold text-secondary/70 leading-relaxed mb-8 border-l-2 border-primary/20 pl-4">Next-gen telemetry and automated control systems for seamless vessel operation.</p>
+                <div className="absolute bottom-8 left-8 transition-transform duration-500 group-hover:-translate-y-2">
+                   <h3 className="text-3xl font-black text-white uppercase leading-none mb-4 group-hover:text-accent transition-colors">Spice Ship Supplier</h3>
+                   <p className="text-sm font-bold text-white/70 leading-relaxed mb-8 border-l-2 border-accent/60 pl-4 max-w-lg">
+                     Serving the maritime industry for over 20 years from Bhavnagar, Gujarat with uncompromised engine spare reliability.
+                   </p>
                 </div>
             </div>
 
             {/* Secondary Visual Module */}
-            <div className="bg-white border border-primary/20 relative group overflow-hidden h-[500px]">
+            <div className="bg-primary/5 border border-primary/10 relative group overflow-hidden h-[500px]">
                <img 
-                   src="/industrial-electronics-new.png" 
-                   alt="Electronics" 
-                   className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+                   src="/marine-engine.png" 
+                   alt="Engine Details" 
+                   className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
                  <div className="absolute top-6 right-6 flex flex-col items-end gap-1">
-                     <div className="w-16 h-1 bg-primary/50" />
-                     <div className="w-10 h-1 bg-primary/30" />
-                     <div className="w-4 h-1 bg-primary/10" />
+                     <div className="w-16 h-1 bg-accent/80" />
+                     <div className="w-10 h-1 bg-accent/60" />
+                     <div className="w-4 h-1 bg-accent/40" />
                  </div>
 
-                 <div className="absolute bottom-8 left-8 right-8">
-                    <h3 className="text-2xl font-black text-secondary uppercase tracking-tighter mb-2">Cyber Logic</h3>
-                    <p className="text-muted/80 text-sm mb-6">IMO compliant secured data channels.</p>
+                 <div className="absolute bottom-8 left-8 right-8 transition-transform duration-500 group-hover:-translate-y-2">
+                    <h3 className="text-2xl font-black text-white uppercase tracking-tighter mb-2">Technical Core</h3>
+                    <p className="text-white/60 text-sm mb-6">Expert vetting of all machinery units.</p>
                     
                     <div className="grid grid-cols-2 gap-2">
-                       <div className="bg-secondary/60 p-2 text-center border border-primary/20">
-                          <div className="text-primary font-black text-xl">99.9</div>
-                          <div className="text-[9px] text-muted/60 uppercase">Reliability</div>
+                       <div className="bg-black/40 backdrop-blur-md p-2 text-center border border-white/10">
+                          <div className="text-accent font-black text-xl">MAN</div>
+                          <div className="text-[9px] text-white/60 uppercase">Certified</div>
                        </div>
-                       <div className="bg-secondary/60 p-2 text-center border border-primary/20">
-                          <div className="text-primary font-black text-xl">AES</div>
-                          <div className="text-[9px] text-muted/60 uppercase">Encryption</div>
+                       <div className="bg-black/40 backdrop-blur-md p-2 text-center border border-white/10">
+                          <div className="text-accent font-black text-xl">30+Y</div>
+                          <div className="text-[9px] text-white/60 uppercase">Legacy</div>
                        </div>
                     </div>
                  </div>
@@ -167,26 +171,26 @@ export function FeatureSection() {
                return (
                  <div 
                    key={idx}
-                   className="bg-secondary/40 border border-primary/10 p-6 relative group hover:bg-muted/10 transition-all duration-300 hover:border-primary/50"
+                   className="bg-white border border-primary/10 p-6 relative group hover:bg-primary/5 transition-all duration-300 hover:border-accent"
                  >
                     <div className="flex justify-between items-start mb-4">
-                       <div className="p-3 bg-secondary border border-primary/20 group-hover:border-primary transition-colors">
-                          <Icon className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
+                       <div className="p-3 bg-primary border border-primary/10 group-hover:border-accent transition-colors">
+                          <Icon className="w-6 h-6 text-white group-hover:text-white transition-colors" />
                        </div>
-                       <span className="font-mono text-[10px] text-primary/40 group-hover:text-primary transition-colors">0{idx + 1}</span>
+                       <span className="font-mono text-[10px] text-primary/40 group-hover:text-accent transition-colors">FACT_0{idx + 1}</span>
                     </div>
                     
-                    <h4 className="text-white font-black uppercase tracking-widest text-sm mb-2">{feature.title}</h4>
-                    <p className="text-muted/60 text-xs leading-relaxed mb-4 min-h-[48px]">{feature.description}</p>
+                    <h4 className="text-primary font-black uppercase tracking-widest text-sm mb-2">{feature.title}</h4>
+                    <p className="text-primary/60 text-xs leading-relaxed mb-4 min-h-[48px]">{feature.description}</p>
                     
-                    <div className="border-t border-primary/10 pt-3 flex justify-between items-center">
-                          <span className="text-[10px] font-bold text-secondary/50 uppercase tracking-widest">{feature.title}</span>
-                       <span className="text-[9px] text-primary font-black uppercase tracking-widest bg-primary/10 px-2 py-1">{feature.stat}</span>
+                    <div className="border-t border-primary/5 pt-3 flex justify-between items-center">
+                        <span className="text-[10px] font-bold text-primary/40 uppercase tracking-widest">Spice Global</span>
+                       <span className="text-[9px] text-accent font-black uppercase tracking-widest bg-accent/10 px-2 py-1">{feature.stat}</span>
                     </div>
 
                     {/* Corner accents */}
-                    <div className="absolute top-0 right-0 w-0 h-0 border-t-[8px] border-r-[8px] border-t-primary/20 border-r-transparent group-hover:border-t-primary transition-all" />
-                    <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[8px] border-l-[8px] border-b-primary/20 border-l-transparent group-hover:border-b-primary transition-all" />
+                    <div className="absolute top-0 right-0 w-0 h-0 border-t-[8px] border-r-[8px] border-t-primary/10 border-r-transparent group-hover:border-t-accent transition-all" />
+                    <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[8px] border-l-[8px] border-b-primary/10 border-l-transparent group-hover:border-b-accent transition-all" />
                  </div>
                )
             })}

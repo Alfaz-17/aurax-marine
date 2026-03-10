@@ -32,7 +32,7 @@ export function BrandGrid() {
   return (
     <section className="py-24 bg-black border-y border-white/5 overflow-hidden">
 
-      <div className="container mx-auto px-6 lg:px-8 mb-16">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 mb-16">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}

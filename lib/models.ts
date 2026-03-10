@@ -38,16 +38,6 @@ const BrandSchema = new Schema({
 
 export const Brand: Model<any> = models.Brand || model('Brand', BrandSchema);
 
-const BlogSchema = new Schema({
-  title: { type: String, required: true },
-  excerpt: { type: String },
-  content: { type: String },
-  image: { type: String },
-  date: { type: Date, default: Date.now }
-}, { timestamps: true });
-
-export const Blog: Model<any> = models.Blog || model('Blog', BlogSchema);
-
 const OrderItemSchema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
   productTitle: { type: String, required: true },
