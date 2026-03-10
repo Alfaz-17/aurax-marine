@@ -53,7 +53,7 @@ export function Hero() {
                 transition={{ delay: 0.4 }}
                 className="text-[13px] sm:text-sm md:text-base text-black/70 mb-5 sm:mb-6 md:mb-8 max-w-xl font-black italic border-l-2 border-primary/20 pl-6 leading-relaxed"
               >
-                 Global technical partners for high-performance engine spares and critical machinery. Delivering 20+ years of maritime excellence to the worldwide shipping industry.
+                 Global technical partners for high-performance engine spares and critical machinery. Delivering 30+ years of maritime excellence to the worldwide shipping industry.
               </motion.p>
 
 
