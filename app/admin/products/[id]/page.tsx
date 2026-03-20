@@ -10,6 +10,8 @@ import api from '@/lib/api';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { MarineLoader } from '@/components/common/marine-loader';
+import CropModal from '@/components/common/CropModal';
+
 
 export default function AdminProductEditPage() {
   const params = useParams();
@@ -31,6 +33,8 @@ export default function AdminProductEditPage() {
   const [imagePreview, setImagePreview] = useState('');
   const [imagesFile, setImagesFile] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [fileQueue, setFileQueue] = useState<File[]>([]);
+
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -47,8 +51,24 @@ export default function AdminProductEditPage() {
 
   // Background removal state
   const [isRemovingBg, setIsRemovingBg] = useState(false);
+  const [cropTarget, setCropTarget] = useState<{ type: 'main' | 'gallery-existing' | 'gallery-new', index?: number, url: string } | null>(null);
   const [bgProcessingIndex, setBgProcessingIndex] = useState<{type: 'main' | 'gallery-existing' | 'gallery-new', index?: number} | null>(null);
+
   const [bgStatus, setBgStatus] = useState('');
+
+  // Handle file queue processing
+  useEffect(() => {
+    if (!cropTarget && fileQueue.length > 0) {
+      const nextFile = fileQueue[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        setCropTarget({ type: 'gallery-new', url: reader.result as string });
+        setFileQueue(prev => prev.slice(1));
+      };
+      reader.readAsDataURL(nextFile);
+    }
+  }, [cropTarget, fileQueue]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -99,25 +119,18 @@ export default function AdminProductEditPage() {
       setImagePreview(URL.createObjectURL(file));
       setExistingImage(''); // New image replaces existing
       
-      if (globalSettings.autoBackgroundRemoval) {
-        handleRemoveBackground('main', undefined, file);
-      }
+      setCropTarget({ type: 'main', url: URL.createObjectURL(file) });
     }
   };
 
+
   const handleImagesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    files.forEach((file, idx) => {
-      const newIndex = imagesFile.length + idx;
-      
-      setImagesFile(prev => [...prev, file]);
-      setImagePreviews(prev => [...prev, URL.createObjectURL(file)]);
-      
-      if (globalSettings.autoBackgroundRemoval) {
-        handleRemoveBackground('gallery-new', newIndex, file);
-      }
-    });
+    if (files.length > 0) {
+      setFileQueue(prev => [...prev, ...files]);
+    }
   };
+
 
   const handleRemoveExistingSecondary = (index: number) => {
     setExistingImages(prev => prev.filter((_, i) => i !== index));
@@ -209,6 +222,30 @@ export default function AdminProductEditPage() {
       setIsRemovingBg(false);
     }
   };
+
+  const onCropComplete = async (croppedFile: File) => {
+    if (!cropTarget) return;
+
+    if (cropTarget.type === 'main') {
+      setImageFile(croppedFile);
+      setImagePreview(URL.createObjectURL(croppedFile));
+      setExistingImage('');
+      
+      if (globalSettings.autoBackgroundRemoval) {
+        handleRemoveBackground('main', undefined, croppedFile);
+      }
+    } else {
+      const newIndex = imagesFile.length;
+      setImagesFile(prev => [...prev, croppedFile]);
+      setImagePreviews(prev => [...prev, URL.createObjectURL(croppedFile)]);
+      
+      if (globalSettings.autoBackgroundRemoval) {
+        handleRemoveBackground('gallery-new', newIndex, croppedFile);
+      }
+    }
+    setCropTarget(null);
+  };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -443,6 +480,14 @@ export default function AdminProductEditPage() {
            </button>
         </div>
       </form>
+
+      {cropTarget && (
+        <CropModal
+          image={cropTarget.url}
+          onCropComplete={onCropComplete}
+          onCancel={() => setCropTarget(null)}
+        />
+      )}
     </div>
   );
 }

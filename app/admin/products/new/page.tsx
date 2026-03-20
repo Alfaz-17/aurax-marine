@@ -30,6 +30,8 @@ export default function AdminProductFormPage() {
 
   // Cropping state
   const [cropTarget, setCropTarget] = useState<{ type: 'main' | 'gallery', index?: number, url: string } | null>(null);
+  const [fileQueue, setFileQueue] = useState<File[]>([]);
+
   
   // Global Settings state
   const [globalSettings, setGlobalSettings] = useState({
@@ -61,6 +63,19 @@ export default function AdminProductFormPage() {
     fetchData();
   }, []);
 
+  // Handle file queue processing
+  useEffect(() => {
+    if (!cropTarget && fileQueue.length > 0) {
+      const nextFile = fileQueue[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        setCropTarget({ type: 'gallery', url: reader.result as string });
+        setFileQueue(prev => prev.slice(1));
+      };
+      reader.readAsDataURL(nextFile);
+    }
+  }, [cropTarget, fileQueue]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
@@ -85,13 +100,9 @@ export default function AdminProductFormPage() {
 
   const handleImagesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    files.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setCropTarget({ type: 'gallery', url: reader.result as string });
-      };
-      reader.readAsDataURL(file);
-    });
+    if (files.length > 0) {
+      setFileQueue(prev => [...prev, ...files]);
+    }
   };
 
   const onCropComplete = async (croppedFile: File) => {

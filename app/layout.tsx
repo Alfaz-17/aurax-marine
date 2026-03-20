@@ -1,57 +1,27 @@
-import React from "react"
-import type { Metadata, Viewport } from 'next'
-import { DM_Sans, Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
-import { Header } from "@/components/boty/header"
-import { Footer } from "@/components/boty/footer"
-import { FloatingWhatsappButton } from "@/components/common/floating-whatsapp-button"
-import { AuthProvider } from "@/components/contexts/auth-context"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { AuthProvider } from "@/components/contexts/auth-context";
 
-const dmSans = DM_Sans({ 
-  subsets: ["latin"],
-  variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '600']
-});
-
-const playfairDisplay = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: '--font-playfair',
-  weight: ['400', '500', '600', '700']
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Spice Ship Supplier | Marine Engines & Machinery Spares Global Specialist',
-  description: 'Spice Ship Supplier is a specialized marine ship spares and equipment retailer based in Bhavnagar, Gujarat. We supply MAN B&W S35MC, S50MC components, Daihatsu spares, and auxiliary machinery worldwide.',
-  keywords: ['Spice Ship Supplier', 'Marine Ship Spares', 'MAN B&W S50MC spares', 'ship machinery supplier', 'marine engine parts', 'Bhavnagar ship spares', 'Daihatsu marine spares'],
-  icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
-  },
-}
-
-export const viewport: Viewport = {
-  themeColor: '#0B1320',
-}
+  title: "AURAX Marine Solutions",
+  description: "Global Ship Supplier & Marine Services",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased bg-background text-foreground`}>
-          <AuthProvider>
-            <Header />
-            <div className="flex flex-col min-h-screen">
-              {children}
-            </div>
-            <Footer />
-            <FloatingWhatsappButton />
-          </AuthProvider>
-        <Analytics />
+      <body className={inter.className}>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
-  )
+  );
 }
