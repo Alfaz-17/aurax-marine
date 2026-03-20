@@ -130,14 +130,18 @@ export function ProductGrid() {
                               alt={product.title}
                               fill
                               className="object-contain mix-blend-multiply"
+                              sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 400px"
                             />
+
                          ) : (
                             <Image
                               src={product.image || "/placeholder.svg"}
                               alt={product.title}
                               fill
                               className="object-contain mix-blend-multiply"
+                              sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 400px"
                             />
+
                          )}
                     </div>
                   </div>

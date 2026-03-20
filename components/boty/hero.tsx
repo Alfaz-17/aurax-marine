@@ -3,23 +3,33 @@
 import Link from "next/link"
 import { ArrowRight, Anchor, ShieldCheck } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
+
 
 export function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-secondary">
       {/* Background with video and subtle overlay */}
       <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-bg.jpg"
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
         <video
           autoPlay
           muted
           loop
           playsInline
-          poster="/hero-bg.jpg"
-          className="w-full h-full object-cover opacity-100 transition-opacity duration-1000"
+          className="w-full h-full object-cover opacity-100 transition-opacity duration-1000 relative z-10"
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
       </div>
+
 
 
 

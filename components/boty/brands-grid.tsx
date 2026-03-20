@@ -3,7 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import api from "@/lib/api";
+
 
 export function BrandGrid() {
   const [brands, setBrands] = useState<any[]>([]);
@@ -54,11 +56,14 @@ export function BrandGrid() {
               className="flex-none w-60 h-30 relative group bg-white/5 border border-white/10 hover:border-primary/40 transition-all duration-700 p-8"
             >
 
-              <img
+              <Image
                 src={brand.logo}
                 alt={brand.name}
-                className="w-full h-full object-contain transition-all duration-700"
+                fill
+                className="object-contain transition-all duration-700"
+                sizes="(max-width: 768px) 150px, 240px"
               />
+
 
             </div>
           ))}
