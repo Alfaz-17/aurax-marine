@@ -152,7 +152,7 @@ export function Header() {
               <div className="relative">
                 <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <Logo 
-                  variant={(isScrolled || !isHome) ? "dark" : "white"} 
+                  variant="white" 
                   size="md" 
                 />
               </div>
