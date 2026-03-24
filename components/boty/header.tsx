@@ -89,7 +89,7 @@ export function Header() {
           <button
             type="button"
             className={`lg:hidden p-2 marine-transition transition-colors ${
-              (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-foreground hover:text-primary"
+              (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-white hover:text-primary"
             }`}
             onClick={() => setIsMenuOpen(true)}
             aria-label="Toggle menu"
@@ -109,7 +109,7 @@ export function Header() {
                 <Link
                   href={link.href}
                   className={`text-[10px] font-black uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
-                    (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-foreground hover:text-primary"
+                    (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-white hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -152,7 +152,7 @@ export function Header() {
               <div className="relative">
                 <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <Logo 
-                  variant="white" 
+                  variant={(isScrolled || !isHome) ? "dark" : "white"} 
                   size="md" 
                 />
               </div>
@@ -172,7 +172,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     className={`text-[10px] font-black uppercase tracking-[0.3em] marine-transition flex items-center gap-2 relative ${
-                      (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-foreground hover:text-primary"
+                      (isScrolled || !isHome) ? "text-foreground hover:text-primary" : "text-white hover:text-primary"
                     }`}
                   >
                     {link.name}

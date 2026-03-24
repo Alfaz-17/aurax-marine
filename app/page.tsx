@@ -18,7 +18,6 @@ const Newsletter = dynamic(() => import("@/components/boty/newsletter").then(mod
 export default function HomePage() {
   return (
     <main>
-      <Header />
       <Hero />
       <SEOIntro />
       <LeadershipShowcase />
@@ -28,7 +27,6 @@ export default function HomePage() {
       <Testimonials />
       <CTABanner />
       <Newsletter />
-      <Footer />
     </main>
 
   )

@@ -25,7 +25,7 @@ export function Logo({ className = "", variant = 'dark', size = 'md' }: LogoProp
         <img 
           src="/logo.png" 
           alt="Spice Ship Supplier Logo" 
-          className="h-full w-auto object-contain"
+          className={`h-full w-auto object-contain ${variant === 'dark' || variant === 'light' ? 'brightness-0' : ''}`}
           onError={(e) => {
             // Fallback if logo.png fails to load
             e.currentTarget.style.display = 'none';
