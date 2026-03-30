@@ -14,9 +14,9 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['business', 'shopping', 'industrial'],
     icons: [
       {
-        src: '/icon.svg',
-        sizes: 'any',
-        type: 'image/svg+xml',
+        src: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
       },
       {
         src: '/apple-icon.png',
@@ -24,9 +24,16 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
       {
-        src: '/icon-dark-32x32.png',
-        sizes: '32x32',
+        src: '/icon-192x192.png',
+        sizes: '192x192',
         type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: '/icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
       },
     ],
   }
