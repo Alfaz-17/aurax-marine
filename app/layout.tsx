@@ -230,10 +230,8 @@ export default function RootLayout({
         <meta name="geo.placename" content="Bhavnagar" />
         <meta name="geo.position" content="21.7645;72.1416" />
         <meta name="ICBM" content="21.7645, 72.1416" />
-        <link rel="icon" href="/favicon.ico" sizes="48x48" />
-        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
-        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         {/* Preconnect to external resources for faster loading (improves LCP) */}
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
