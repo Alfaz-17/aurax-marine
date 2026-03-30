@@ -13,7 +13,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero-bg.jpg"
-          alt="Hero Background"
+          alt="Marine engine spares and ship machinery parts by Spice Ship Supplier"
           fill
           priority
           className="object-cover"

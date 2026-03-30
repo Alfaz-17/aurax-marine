@@ -2,6 +2,16 @@ import type { Metadata } from "next";
 
 const siteUrl = "https://spiceshipsupplier.com";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Brands", item: `${siteUrl}/brands` },
+    { "@type": "ListItem", position: 3, name: "Brand Products" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Marine Brand Products – Authorized Inventory & Logistics",
   description:
@@ -22,5 +32,13 @@ export const metadata: Metadata = {
 };
 
 export default function BrandDetailLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

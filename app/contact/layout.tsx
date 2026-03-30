@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 
 const siteUrl = "https://spiceshipsupplier.com";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Contact Spice Ship Supplier – Marine Engine Spares Inquiry & Emergency Support",
   description:
@@ -27,5 +36,13 @@ export const metadata: Metadata = {
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

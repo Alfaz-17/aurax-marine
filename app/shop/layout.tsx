@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 
 const siteUrl = "https://spiceshipsupplier.com";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Shop", item: `${siteUrl}/shop` },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Shop Marine Engine Spares – Engine Room Catalog & Ship Parts Store",
   description:
@@ -27,5 +36,13 @@ export const metadata: Metadata = {
 };
 
 export default function ShopLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

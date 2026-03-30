@@ -342,6 +342,8 @@ export default function ContactPage() {
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
+            title="Spice Ship Supplier Location - Hill Drive, Bhavnagar, Gujarat, India"
+            aria-label="Google Maps showing Spice Ship Supplier office location in Bhavnagar"
           ></iframe>
       </section>
 
