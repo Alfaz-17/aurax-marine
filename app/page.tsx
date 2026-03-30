@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic';
 import { Hero } from "@/components/boty/hero";
 import { SEOIntro } from "@/components/boty/seo-intro";
-import { Header } from "@/components/boty/header";
-import { Footer } from "@/components/boty/footer";
 
 
 // Dynamic imports for below-the-fold components

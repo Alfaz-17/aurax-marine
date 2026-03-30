@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import api from '@/lib/api';
 import { MarineLoader } from '@/components/common/marine-loader';
@@ -31,10 +32,12 @@ export default function BrandsPage() {
       {/* Hero Section */}
       <section className="relative h-[40vh] pt-32 flex items-center justify-center bg-black overflow-hidden">
          <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/pexels-pixabay-163726.jpg" 
-            alt="Brands" 
-            className="w-full h-full object-cover opacity-20 mix-blend-multiply"
+            alt="Trusted Marine Engine Brands and Supply Partners" 
+            fill
+            priority
+            className="object-cover opacity-20 mix-blend-multiply"
           />
         </div>
         <div className="relative z-10 text-center text-white px-6">
@@ -65,10 +68,12 @@ export default function BrandsPage() {
               transition={{ delay: index * 0.05 }}
             >
               <div className="absolute inset-0 p-8 flex items-center justify-center">
-                <img
+                <Image
                   src={brand.logo}
-                  alt={brand.name}
-                  className="max-h-full max-w-full object-contain"
+                  alt={`${brand.name} marine engine brand logo`}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-contain p-4"
                 />
                 <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4">
                    <h3 className="text-white font-black text-center uppercase tracking-[0.2em] text-xs mb-2">{brand.name}</h3>
