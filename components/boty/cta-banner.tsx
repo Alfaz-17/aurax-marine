@@ -91,7 +91,7 @@ export function CTABanner() {
                   </div>
                </div>
 
-               <button className="group relative px-8 py-4 bg-primary hover:bg-white transition-colors duration-300">
+               <button suppressHydrationWarning className="group relative px-8 py-4 bg-primary hover:bg-white transition-colors duration-300">
                   <span className="relative z-10 text-white group-hover:text-secondary font-black uppercase tracking-[0.2em] text-xs">Establish Contact</span>
                   <div className="absolute inset-0 border border-white/20 group-hover:border-secondary/20" />
                </button>
