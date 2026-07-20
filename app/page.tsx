@@ -8,8 +8,6 @@ const ProductGrid = dynamic(() => import("@/components/boty/product-grid").then(
 const BrandGrid = dynamic(() => import("@/components/boty/brands-grid").then(mod => mod.BrandGrid));
 const FeatureSection = dynamic(() => import("@/components/boty/feature-section").then(mod => mod.FeatureSection));
 const Testimonials = dynamic(() => import("@/components/boty/testimonials").then(mod => mod.Testimonials));
-const CTABanner = dynamic(() => import("@/components/boty/cta-banner").then(mod => mod.CTABanner));
-const Newsletter = dynamic(() => import("@/components/boty/newsletter").then(mod => mod.Newsletter));
 
 
 export default function HomePage() {
@@ -21,9 +19,6 @@ export default function HomePage() {
       <BrandGrid />
       <FeatureSection />
       <Testimonials />
-      <CTABanner />
-      <Newsletter />
     </main>
-
   )
 }
