@@ -8,6 +8,8 @@ import { Product } from '@/lib/models';
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
+
+    
     const category = searchParams.get('category');
     const brand = searchParams.get('brand');
     const featured = searchParams.get('featured');
