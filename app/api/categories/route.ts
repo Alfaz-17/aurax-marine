@@ -1,13 +1,13 @@
 
 import { NextResponse } from 'next/server';
+import { getCachedCategories, invalidateCategoriesCache } from '@/lib/cache';
+import { getSession } from '@/lib/auth';
 import connectToDatabase from '@/lib/db';
 import { Category } from '@/lib/models';
-import { getSession } from '@/lib/auth';
 
 export async function GET() {
   try {
-    await connectToDatabase();
-    const categories = await Category.find({}).sort({ name: 1 }).lean();
+    const categories = await getCachedCategories();
     return NextResponse.json(categories, {
       headers: {
         'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
@@ -29,6 +29,10 @@ export async function POST(req: Request) {
     await connectToDatabase();
     const body = await req.json();
     const category = await Category.create(body);
+    
+    // Invalidate categories cache and pre-warm in background
+    invalidateCategoriesCache();
+    
     return NextResponse.json(category);
   } catch (error) {
     console.error('Categories POST error:', error);

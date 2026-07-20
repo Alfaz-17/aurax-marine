@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/db';
 import { Product } from '@/lib/models';
 import { getSession } from '@/lib/auth';
+import { invalidateProductsCache } from '@/lib/cache';
 
 export async function POST(
   req: Request,
@@ -24,6 +25,9 @@ export async function POST(
 
     product.featured = !product.featured;
     await product.save();
+
+    // Invalidate products cache and pre-warm in background
+    invalidateProductsCache();
 
     return NextResponse.json(product);
   } catch (error) {

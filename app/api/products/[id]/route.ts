@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/db';
 import { Product } from '@/lib/models';
 import { getSession } from '@/lib/auth';
+import { invalidateProductsCache } from '@/lib/cache';
 
 export async function GET(
   req: Request,
@@ -42,6 +43,9 @@ export async function DELETE(
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
+    // Invalidate products cache and pre-warm in background
+    invalidateProductsCache();
+
     return NextResponse.json({ message: 'Product deleted successfully' });
   } catch (error) {
     console.error('Product DELETE error:', error);
@@ -67,6 +71,9 @@ export async function PUT(
     if (!updatedProduct) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
+
+    // Invalidate products cache and pre-warm in background
+    invalidateProductsCache();
 
     return NextResponse.json(updatedProduct);
   } catch (error) {

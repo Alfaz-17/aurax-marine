@@ -1,12 +1,12 @@
 
 import { NextResponse } from 'next/server';
+import { getCachedProducts, invalidateProductsCache } from '@/lib/cache';
+import { getSession } from '@/lib/auth';
 import connectToDatabase from '@/lib/db';
 import { Product } from '@/lib/models';
-import { getSession } from '@/lib/auth';
 
 export async function GET(req: Request) {
   try {
-    await connectToDatabase();
     const { searchParams } = new URL(req.url);
     const category = searchParams.get('category');
     const brand = searchParams.get('brand');
@@ -17,10 +17,7 @@ export async function GET(req: Request) {
     if (brand) query.brand = brand;
     if (featured === 'true') query.featured = true;
 
-    const products = await Product.find(query)
-      .populate('category', 'name slug')
-      .sort({ createdAt: -1 })
-      .lean();
+    const products = await getCachedProducts(query);
       
     return NextResponse.json(products, {
       headers: {
@@ -45,6 +42,9 @@ export async function POST(req: Request) {
     
     // Basic validation could happen here, but Mongoose also validates.
     const product = await Product.create(body);
+    
+    // Invalidate products cache and pre-warm in background
+    invalidateProductsCache();
     
     return NextResponse.json(product);
   } catch (error) {
